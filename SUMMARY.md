@@ -13,9 +13,9 @@
   * [2.5 접속/분리 명령(toolchng)](2-user-interface/5-toolchng.md)
   * [2.6 수동 접속/분리 기능](2-user-interface/6-manual.md)
   * [2.7 접속/분리 타이밍](2-user-interface/7-timing.md)
-  * [2.8 포지셔너 캘리브레이션 명령(posical)](2-user-interface/8-posical.md)
+  * [2.8 포지셔너 캘리브레이션 명령(posi_calib)](2-user-interface/8-posical.md)
 * [3. 작업 예시](3-job/README.md)
-  * [3.1 셈플 프로그램](3-job/1-sample-job.md)
+  * [3.1 툴체인지의 접속/분리 예시](3-job/1-sample-job.md)
   * [3.2 포지셔너의 접속/분리 예시](3-job/2-positioner-example.md)
 * [4. 자주하는 질문](4-faq/README.md)
   
