@@ -18,7 +18,7 @@
 | 10 | [서보툴 체인지 설정](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/README) | 서보툴 체인지를 위한 환경 설정 |[**시스템**/4:응용 파라미터/11:서보툴 체인지] ||
 | 11 | [툴 데이터 설정](https://hrbook-hrc.web.app/#/view/doc-load-estimation/korean/README) | 툴의 분리(T0)와 접속에 따른 부하추정 수행 | ||
 | 12 | [포지셔너 캘리브레이션 수행](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README) | 포지셔너를 이용한 서보툴 체인지인 경우 각각의 포지셔너 별로 캘리브레이션 프로그램 작성 | ||
-| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/3-programming/README) |  | |toolchng (접속/분리) <br> posical (포지셔너 캘리브레이션)|
+| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/3-programming/README) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
 | 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/2-operation/2-automatic-operation/README) |  | ||
 
 
