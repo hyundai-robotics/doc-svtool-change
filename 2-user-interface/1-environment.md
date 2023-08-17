@@ -7,7 +7,7 @@
 『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『1: 사용환경 설정』
 
 <p align="center">
- <img src="../_assets/fig2_2.png"></img>
+ <img src="../_assets/fig2_1.png"></img>
  <em><p align="center">그림 2.1 서보툴 체인지 사용환경 설정</p></em>
 </p>
 
