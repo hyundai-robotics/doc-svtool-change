@@ -17,7 +17,7 @@
 ### 문법
   
   ```python
-   toolchng on/off,tg=<체인지 대상>,di=<접속완료 신호>,wait=<대기시간>
+   toolchng on/off,tg=<체인지 대상>,is=<접속완료 신호>,wait=<대기시간>
   ```
 
 <br>
@@ -53,6 +53,8 @@
         <li>P1~P16 : 접속/분리할 포지셔너 번호</li>
         <li>J1~J16 : 접속/분리할 지그 번호</li>
         </ul>
+        멀티건을 동시에 접속/분리하는 경우에는 문자열 배열로 지정합니다. <br>
+        ex.) toolchng on,tg=["G1","G2"],is=si50,wait=3.0  
       </td>
       <td style="text-align:left"></td>
     </tr>
@@ -61,10 +63,7 @@
       <td style="text-align:left">
         기계적 접속완료 확인신호
         <ul>
-        <li>1~4096 : 기계적인 접속완료 확인을 위한 입력신호 번호</li>
-        <li>내용(vol_offset) : Arc용접 시 시너직 전압의 옵셋 전압 값</li>
-        <li>범위(vol) : 20 ~ 40 V</li>
-        <li>범위(vol_offset) : 200 ~ 200 V(%)</li>
+        <li>di20 : 기계적인 접속완료 확인을 위한 입력신호 번호</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
@@ -91,7 +90,16 @@ S10	  move L, ...
       toolchng off,tg=G1		
 
 S11	  move L, ...	
-  	  toolchng on,tg=G4,di=1	
+  	  toolchng on,tg=G4,is=di20	
 
-S12	  move L, ...
+S22	  move L, ...
+      toolchng off,tg=G4		
+
+S31	  move L, ...	
+  	  toolchng on,tg=["G1","G2"],is=di20	
+
+S42	  move L, ...
+      toolchng off,tg=["G1","G2"]		
+
+
 ```

@@ -36,57 +36,57 @@
 	},
 	{
 		"link": "2-user-interface/2-parameters.md",
-		"char_ofs": 4557,
-		"byte_ofs": 7742
+		"char_ofs": 4514,
+		"byte_ofs": 7674
 	},
 	{
 		"link": "2-user-interface/3-origins.md",
-		"char_ofs": 5857,
-		"byte_ofs": 10387
+		"char_ofs": 5814,
+		"byte_ofs": 10319
 	},
 	{
 		"link": "2-user-interface/4-monitoring.md",
-		"char_ofs": 6318,
-		"byte_ofs": 11332
+		"char_ofs": 6275,
+		"byte_ofs": 11264
 	},
 	{
 		"link": "2-user-interface/5-toolchng.md",
-		"char_ofs": 6936,
-		"byte_ofs": 12586
+		"char_ofs": 6910,
+		"byte_ofs": 12546
 	},
 	{
 		"link": "2-user-interface/6-manual.md",
-		"char_ofs": 8880,
-		"byte_ofs": 15263
+		"char_ofs": 8965,
+		"byte_ofs": 15358
 	},
 	{
 		"link": "2-user-interface/7-timing.md",
-		"char_ofs": 10286,
-		"byte_ofs": 17807
+		"char_ofs": 10388,
+		"byte_ofs": 17945
 	},
 	{
 		"link": "2-user-interface/8-posical.md",
-		"char_ofs": 10633,
-		"byte_ofs": 18447
+		"char_ofs": 10736,
+		"byte_ofs": 18587
 	},
 	{
 		"link": "3-job/README.md",
-		"char_ofs": 11031,
-		"byte_ofs": 19220
+		"char_ofs": 11134,
+		"byte_ofs": 19360
 	},
 	{
 		"link": "3-job/1-sample-job.md",
-		"char_ofs": 11042,
-		"byte_ofs": 19243
+		"char_ofs": 11145,
+		"byte_ofs": 19383
 	},
 	{
 		"link": "3-job/2-positioner-example.md",
-		"char_ofs": 11490,
-		"byte_ofs": 19916
+		"char_ofs": 11593,
+		"byte_ofs": 20056
 	},
 	{
 		"link": "4-faq/README.md",
-		"char_ofs": 12082,
-		"byte_ofs": 21084
+		"char_ofs": 12185,
+		"byte_ofs": 21224
 	}
 ]
