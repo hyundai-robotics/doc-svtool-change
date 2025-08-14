@@ -27,3 +27,14 @@
 -	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
 -	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
 {% endhint %}
+
+<br>
+
+## 2.1.1 엔코더 리셋
+
+최초 서보툴 장착 시 서보툴의 엔코더를 리셋을 수행해야지 접속이 가능합니다. 엔코더 리셋 절차는 아래와 같습니다.
+
+  1. 서보툴 체인지 사용 설정
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '1' 입력으로 엔코더 전원 인가 
+  3. [엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/6-initialization/4-serial-encoder-reset) 수행
+  4. R359 + '2' 입력으로 엔코더 전원 해제
