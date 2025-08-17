@@ -31,13 +31,12 @@
 <br>
 
 ## 2.1.1 엔코더 리셋
-
 최초 서보툴 장착 시 서보툴의 엔코더 리셋을 수행해야 접속이 가능합니다. 엔코더 리셋 절차는 아래와 같습니다.
 
   1. 서보툴 체인지 사용 설정
   2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '1' 입력으로 엔코더 전원 인가 
   3. [엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/6-initialization/4-serial-encoder-reset) 수행
-  4. R359 + '2' 입력으로 엔코더 전원 해제
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '0' 입력으로 엔코더 전원 해제
 
 
 {% hint style="warning" %}
