@@ -1,10 +1,10 @@
-﻿#  1.2 주요사양
+﻿#  1.2 Specifications
 
-Hi6 로봇제어기의 서보툴 체인지 기능 사양은 다음 표와 같습니다.
+The specifications of the Servo Tool Change function in the Hi6 robot controller are as follows:
 
 
-| 항목 | 사양 | 
+| Item | Specification | 
 | :---: | :---: | 
-| 체인지 가능한 모터의 최대 수 | 16개 | 
-| 체인지 축 사양 | 서보건, 포지셔너, 지그 | 
-| 동시 체인지 최대 수 | 4개 | 
+| Maximum number of supported tool motors | 16 ea | 
+| Supported tool types | servo gun, positioner, jig | 
+| Maximum number of tools that can be changed simultaneously | 4 ea | 

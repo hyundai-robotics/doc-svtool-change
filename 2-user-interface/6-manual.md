@@ -1,69 +1,76 @@
-﻿# 2.6 수동 접속/분리 기능
+﻿# 2.6 Manual Attach/Detach Function
+
+Servo tools can be manually connected or disconnected while the system is in Manual Mode.
+Manual servo tool change is executed by entering '[R..] + 358'.
+This procedure applies to all servo tool types including jigs and positioners.
+
+This section explains how to use the R358 manual tool change function for servo guns and positioners based on the configuration shown in [2.2 Servo Tool Parameter Settings](../2-user-interface/2-parameters.md) (Figure 2.3).
 
 
+### (1) Manual Positioner Connection/Disconnection
 
-서보툴을 수동상태에서 접속/분리하는 기능입니다. 서보툴 수동 접속/분리는 ‘[R..]+358’을 입력하여 수행합니다. 지그/포지셔너까지 포함한 서보툴 수동 접속 분리도 ‘[R..]+358’을 입력하여 수행합니다. 본 장에서는 [2.2 서보툴 파라미터 설정](../2-user-interface/2-parameters.md) 그림2.3의 서보툴 체인지 환경의 포지셔너와 서보건 접속을 위한 R358 사용법에 대해서 설명합니다.
+- Switch the mode selector to Manual Mode, and enable Servo Tool Change for Auxiliary Axis 1.
+(A reboot is required if system settings have been modified.)
 
-### (1)	포지셔너 수동 접속/분리
+- Press the [R..] key, then enter 358.
 
-- 모드 스위치를 수동모드 전환하고 부가1축의 서보툴 체인지 환경을 ‘유효’로 합니다. (변경시 재부팅 필요)
-- [R..]키 + 358을 입력합니다.
-- 체인지 동작 입력창이 나타납니다. 접속을 위해 '1'을 입력합니다.
-- 서보툴의 축사양이 포지셔너이므로 '2'를 입력합니다.
-- 체인지할 포지셔너 번호 '1'을 입력합니다.
- 
+- The tool change command window will appear.
+  Enter "1" to initiate tool connection.
+
+- Since the tool type is a positioner, enter "2".
+
+- Enter the target positioner number, for example "1".
 
 <p align="center">
  <img src="../_assets/fig2_6.png"></img>
- <em><p align="center">그림 2.6 포지셔너 P1 접속</p></em>
+ <em><p align="center">Figure 2.6 Positioner P1 Connection</p></em>
 </p>
 
 <br>
 
-{% hint style="info" %}
-모터 ON이 아니면 하기와 같은 메시지가 출력되고 접속/분리가 실행되지 않습니다.
+{% hint style="info" %}  
+If the motor is not ON, the following message will appear and the connection/disconnection process will not be executed.
 
 <p align="center">
  <img src="../_assets/fig2_7.png"></img>
  
 </p>
- 
-
 {% endhint %}
-
-
-
 
 <br>
 
+### (2)	Manual Servo Gun Connection/Disconnection
 
+- Switch the mode selector to Manual Mode, and enable Servo Tool Change for Auxiliary Axis 1.
+(A reboot is required if the setting has been modified.)
 
-### (2)	서보건 수동 접속/분리
+- Press the [R..] key, then enter 358.
 
-- 모드 스위치를 수동모드 전환하고 부가1축의 서보툴 체인지 환경을 ‘유효’로 합니다. (변경시 재부팅 필요)
-- [R..]키 + 358을 입력합니다.
-- 체인지 동작 입력창이 나타납니다. 접속을 위해 '1'을 입력합니다.
-- 서보툴의 축사양이 서보건이므로 '1'를 입력합니다.
-- 체인지할 서보건 번호 '1'을 입력합니다.
- 
+- When the tool change command window appears, enter "1" to execute the connection.
+
+- Since the tool type is a servo gun, enter "1".
+
+- Enter the servo gun number to be connected, for example "1".
 
 <p align="center">
  <img src="../_assets/fig2_8.png"></img>
- <em><p align="center">그림 2.8 서보건 G1 접속</p></em>
+ <em><p align="center">Figure 2.8 Servo Gun G1 Connection</p></em>
 </p>
 
 <br>
 
 <p align="center">
  <img src="../_assets/fig2_9.png"></img>
- <em><p align="center">그림 2.9 서보건 G2 접속</p></em>
+ <em><p align="center">Figure 2.9 Servo Gun G2 Connection</p></em>
 </p>
 
 
 <br>
 
 {% hint style="info" %}
-- 체인지 동작 입력시 ‘고정(fix)’는 실제로 툴이 교체되지 않고 서보툴의 축원점과 소프트리밋, 엔코더 옵셋을 변경하기 위한 기능입니다.
-- 부가축이 지그인 경우에는 축사양 입력시 '3'을 입력합니다.
-- 부가축이 모든 같은 타입인 경우에는 R358 사용시 '서보툴의 축사양'에 대한 입력을 요청하지 않습니다.
+
+-  When selecting "Fix" during the tool change input, the tool will not be physically changed.
+ This function is used only to update the servo tool’s axis origin, soft limit, and encoder offset.
+- If the auxiliary axis type is a jig, enter "3" for the axis type selection.
 {% endhint %}
+- If all auxiliary axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.

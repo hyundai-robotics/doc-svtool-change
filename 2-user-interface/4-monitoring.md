@@ -1,32 +1,40 @@
-﻿# 2.4 모니터링
+﻿# 2.4 Monitoring
 
-서보툴 체인지 관련 상태를 사용자에게 모니터링 합니다.
+The status related to the Servo Tool Change function can be monitored by the user.
 
-『창조정』 → 『선택』 → 『서보툴 체인지』
-
+Menu Path:
+『Operation Panel』 → 『Select』 → 『Servo Tool Change』
 
 <p align="center">
  <img src="../_assets/fig2_5.png"></img>
- <em><p align="center">그림 2.5 서보툴 체인지 모니터링</p></em>
+ <em><p align="center">Figure 2.5 Servo Tool Change Monitoring Screen</p></em>
 </p>
 
 <br>
 
--	서보툴 체인지 기능  
-부가축에 대한 서보툴 체인지 기능의 사용여부를 표시합니다.
- 
--	서보툴 접속 상태  
-부가축에 대한 서보툴 접속/분리 상태를 표시합니다. 접속인 경우 체인지 대상이 표시되며, 분리인 경우 “--”이 표시됩니다.
 
--	엔코더 전원투입 출력  
-엔코더 전원투입을 위한 출력신호 번호와 함께 출력 상태를 표시합니다.
+- Servo Tool Change Function  
+Displays whether the servo tool change function is enabled for the auxiliary axis.
 
--	엔코더 전원투입 입력  
-엔코더 전원투입을 위한 입력신호 번호와 함께 입력 상태를 표시합니다.
+- Servo Tool Connection Status  
+Indicates the current connection state of the servo tool on the auxiliary axis.
+If the tool is connected, the corresponding tool identifier is displayed.
+If disconnected, “--” is shown.
+
+- Encoder Power Output  
+Displays the assigned output signal number used for encoder power control as well as its ON/OFF status.
+
+- Encoder Power Input  
+Displays the assigned input signal number used to monitor the encoder power state along with its ON/OFF status.
 
 <br>
 
 {% hint style="info" %}
--	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
--	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
+- The logic level of input/output signals can be configured in:
+
+『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 →
+『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+
+- System I/O signals for user mapping correspond to SI[48–51] / SO[48–51].
+
 {% endhint %}

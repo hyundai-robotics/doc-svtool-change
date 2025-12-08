@@ -1,15 +1,29 @@
-﻿# 2.3 축 원점
-각각의 서보모터에 대한 축 원점을 관리합니다. 
+﻿# 2.3 Axis Origin
 
-『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『3: 축 원점』
+The system manages the axis home position for each servo motor. 
 
+Navigation path:
+『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
 
 <p align="center">
  <img src="../_assets/fig2_4.png"></img>
- <em><p align="center">그림 2.4 서보툴 축 원점 설정</p></em>
+ <em><p align="center">Figure 2.4 Servo Tool Axis Home Position Settings</p></em>
 </p>
 
+<br>
 
-서보툴을 접속하면 해당 부가축의 축 원점이 체인지할 서보툴의 축 원점으로 자동 갱신됩니다. 즉 『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『3: 축 원점』의 설정값으로 『시스템』 → 『3: 로봇 파라미터』 → 『2: 축 원점』의 값을 갱신합니다.
+When a servo tool is connected, the home position of the corresponding auxiliary axis is automatically updated to the home position assigned to the selected servo tool.
+In other words, the values configured under:
+『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
+are automatically applied to:
+『System』 → 『3: Robot Parameters』 → 『2: Axis Home Position』.
 
-이 밖에도 해당 부가축의 소프트 리밋, 엔코더 옵셋, 서보 파라미터, 가감속 파라미터도 위에서 언급한 축 원점과 같이 서보툴 접속 시 체인지할 서보툴의 값으로 자동 갱신됩니다.
+In addition to the axis home position, the following parameters are also automatically updated to the values assigned to the connected servo tool:
+
+- Soft limit of the corresponding auxiliary axis  
+
+- Encoder offset  
+
+- Servo parameters  
+
+- Acceleration/deceleration parameters

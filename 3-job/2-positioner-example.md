@@ -1,23 +1,39 @@
-﻿# 3.2 포지셔너의 접속/분리 예시
+﻿# 3.2 Positioner Attach/Detach Example
 
 
 <p align="center">
  <img src="../_assets/fig3_1.png"></img>
- <em><p align="center">그림 3.1 로봇 2대, 포지셔너 3대 예시 (이태리 C사 시스템)</p></em>
+ <em><p align="center">Figure 3.1 Example System Configuration: Two Robots and Three Positioners (Italian Manufacturer C)</p></em>
 </p>
 
 <br>
 
-(1)	포지셔너 체인지 시스템의 구성
--	시스템 구성: 로봇 2대 + 포지셔너 3대
--	필요 장비: 각 포지셔너와 각각의 로봇을 연결할 수 있는 ATC(Auto Tool Changer), 당사 로봇의 서보건 체인저
+(1)	System Configuration of the Positioner Change System
 
-(2)	작업 내용
--	로봇 1이 포지셔너 A와 접속 후 작업 수행. 로봇 2는 포지셔너 C와 작업 수행. 작업자는 포지셔너 B에 작업물 장착
--	각 포지셔너 별 작업이 종료되면 로봇과 포지셔너 간 접속을 끊음.
--	3 부분의 작업이 완료된 후 전체 포지셔너 시스템이 반시계방향으로 120도 회전.
--	로봇 1이 포지셔너 B와 접속 후 작업 수행. 로봇 2는 포지셔너 A와 작업 수행. 작업자는 포지셔너 C에 작업물 장착
--	이후 작업 반복 수행
+- System layout: 2 robots + 3 positioners
 
-(3)	주의 사항
--	각 포지셔너의 분리/접속 기능 동작은 가능한 한 동일한 위치에서 수행하십시오.
+- Required equipment:
+
+    - ATC (Auto Tool Changer) capable of connecting each positioner to each robot
+
+    - Servo gun changer compatible with our robots
+
+(2)	Operation Workflow
+
+- Robot 1 connects to Positioner A and performs welding.
+ Robot 2 connects to Positioner C and performs welding.
+Meanwhile, the operator mounts a workpiece on Positioner B.
+
+- When work on each positioner is completed, the connection between the robot and positioner is released.
+
+- After all three independent operations are completed, the entire positioner system rotates 120° counterclockwise.
+
+- Robot 1 then connects to Positioner B and starts processing.
+ Robot 2 connects to Positioner A.
+The operator mounts a new workpiece onto Positioner C.
+
+- This cycle continues repeatedly.
+
+(3)	Precautions
+
+Perform the disconnection and connection operations of each positioner at the same defined location whenever possible, to ensure stable operation and prevent mechanical tolerance misalignment.

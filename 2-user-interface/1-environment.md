@@ -1,44 +1,51 @@
-﻿# 2.1 사용환경 설정
+﻿# 2.1 Environment Settings
 
+Servo tool change environment settings must be configured before use.
 
-
-서보툴에 대한 체인지 환경을 설정합니다.
-
-『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『1: 사용환경 설정』
+『system』 → 『4: Application parameter』 → 『11: Servo tool change』 → 『1: Environment setting』
 
 <p align="center">
  <img src="../_assets/fig2_1.png"></img>
- <em><p align="center">그림 2.1 서보툴 체인지 사용환경 설정</p></em>
+ <em><p align="center">Figure 2.1 Servo Tool Change Environment Settings</p></em>
 </p>
 
-- 서보툴 체인지 기능   
-부가축에 대한 체인지 기능의 사용여부를 설정합니다.  
+- function use
+Enables or disables the tool change feature for auxiliary axes.
 
-- 서보툴 접속 상태  
-현재 서보툴의 접속 또는 분리 상태를 모니터링합니다. 또한, 현재 서보툴이 접속된 경우에는 강제로 분리할 수 있으며 이를 위해서는 모터 Off 상태에서 <Off>로 변경한 후, 제어기 전원을 재투입하면 됩니다. 이와 반대로 서보툴이 분리된 경우에 강제 접속은 불가합니다.  
+- connection  
+Monitors the current status of the servo tool (attached or detached).
+If the tool is currently attached, it can be forcibly detached.
+To do so, switch the status to Off while the motor is powered Off, then cycle the controller power.
+Forced attachment is not supported when the tool is detached.
 
-- 엔코더 전원투입 출력신호  
-접속 또는 분리 시 엔코더 전원 제어를 위한 출력 신호를 할당합니다. 이 신호가 On인 경우 엔코더 5V전원선을 제어하는 릴레이가 동작합니다.  
+- encoder poswer output signal 
+Assigns the output signal used to control encoder power during tool attachment or detachment.
+When this signal is On, the relay controlling the 5V encoder power is activated.
 	
-- 엔코더 전원투입 입력신호  
-접속 또는 분리 시 엔코더 전원 제어 상태를 확인하기 위한 입력 신호를 할당합니다. 엔코더 5V 전원선을 제어하는 릴레이의 동작 여부를 확인합니다.  
+- encoder poswer input signal
+Assigns the input signal used to verify the encoder power control state during tool attachment or detachment.
+This input monitors whether the relay controlling the 5V encoder power is operating correctly. 
 
 {% hint style="info" %}
--	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
--	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
+- The I/O signal logic can be configured under:
+『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 → 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+
+- Among the system I/O signals, user-defined signals are assigned as follows:
+SI[48–51] / SO[48–51]
 {% endhint %}
 
 <br>
 
-## 2.1.1 엔코더 리셋
-최초 서보툴 장착 시 서보툴의 엔코더 리셋을 수행해야 접속이 가능합니다. 엔코더 리셋 절차는 아래와 같습니다.
+## 2.1.1 Encoder Reset
+For the first installation of a servo tool, an encoder reset must be performed before the tool can be attached.
+The encoder reset procedure is as follows:
 
-  1. 서보툴 체인지 사용 설정
-  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '1' 입력으로 엔코더 전원 인가 
-  3. [엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/6-initialization/4-serial-encoder-reset) 수행
-  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '0' 입력으로 엔코더 전원 해제
+  1. Make Servo Tool Change enabled ('enable' radio button)
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '1' → Encoder power ON 
+  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/6-initialization/4-serial-encoder-reset) 
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '0' → Encoder power OFF
 
 
 {% hint style="warning" %}
-엔코더 리셋 미수행 상태에서 서보툴 체인지 접속시 엔코더 관련 에러 발생합니다.
+If the servo tool is attached without performing an encoder reset, an encoder-related error will occur.
 {% endhint %}

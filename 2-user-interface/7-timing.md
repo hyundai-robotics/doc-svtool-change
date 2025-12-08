@@ -1,15 +1,18 @@
-﻿# 2.7 접속/분리 타이밍
+﻿# 2.7 Attach/Detach Timing
 
-###	접속   
-접속명령(toolchng on)을 실행중 로봇과 서보툴이 기계적으로 접속이 되면 접속완료 신호를 입력받고 제어기 내부적으로 접속 처리를 수행합니다. 또한, 서보툴축 구동을 위한 엔코더 전원 투입과 모터 ON 동작이 추가됩니다.
+###	Connection  
 
-###	분리  
-분리명령(toolchng off)은 접속과 상반되는 시퀀스를 가지고 분리 처리를 수행합니다.
+When the connection command (toolchng on) is executed and the robot and servo tool are mechanically coupled, the controller receives the connection-complete signal and performs the internal connection process.
+During this sequence, the encoder power for the servo tool axis is enabled and the motor is turned ON.
+
+###	Disconnection
+
+The disconnection command (toolchng off) executes the reverse sequence of the connection process to remove the tool.
 
 <br>
 
 
 <p align="center">
  <img src="../_assets/fig2_10.png"></img>
- <em><p align="center">그림 2.10 서보툴 체인지 접속/분리 타이밍</p></em>
+ <em><p align="center">Figure 2.10 Servo Tool Change Connection/Disconnection Timing</p></em>
 </p>

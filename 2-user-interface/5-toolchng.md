@@ -1,78 +1,80 @@
-﻿# 2.5 접속/분리 명령(toolchng)
+﻿# 2.5 Attach/Detach Command (toolchng)
 
 
-```toolchng``` 명령문은 부가축에 할당된 서보툴을 변경하기 위한 프로시져입니다.
+```toolchng``` command is a procedure used to switch the servo tool assigned to an auxiliary axis.
 
 
-### 설명 
+### Description 
     
-서보툴을 변경하는 방법은 Rcode를(358) 이용한 수동조작과 ```toolchng```문을 이용한 작업 프로그램 실행 방식이 있습니다.
-- 명령문을 이용한 방법에서는 완료신호 입력이 필요합니다.
-- 본 명령어를 사용하기 위해서는 서보툴 체인지 환경이 적절하게 설정되어야 합니다.
+There are two methods to change the servo tool:
 
+- Manual operation using R-code (358)
 
+- Executing a task program using  ```toolchng``` command  
+
+When using the command-based method, a completion signal input is required.
+
+To use this command, the servo tool change environment must be properly configured beforehand.
 
 <br>
 
-### 문법
+### Syntax
   
   ```python
-   toolchng on/off,tg=<체인지 대상>,is=<접속완료 신호>,wait=<대기시간>
+   toolchng on/off,tg=<Target Tool>,is=<Completion Signal>,wait=<Timeout>
   ```
 
 <br>
 
-### 파라미터
+### Parameter Description
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">항목</th>
-      <th style="text-align:left">의미</th>
-      <th style="text-align:left">기타</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Note</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        접속/분리
+        Connect or disconnect the servo tool
         <ul>
-        <li>on : 서보툴 접속</li>
-        <li>off :  서보툴 분리</li>
+        <li>on : Connect the assigned servo tool</li>
+        <li>off :  Disconnect the assigned servo tool</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">체인지 대상</td>
+      <td style="text-align:left">Target tool</td>
       <td style="text-align:left">
-        접속/분리 대상이 되는 서보툴 번호
+        Specifies the tool to be connected or disconnected.  
+        Available types:
         <ul>
-        <li>G1~G16 : 접속/분리할 용접건 번호</li>
-        <li>P1~P16 : 접속/분리할 포지셔너 번호</li>
-        <li>J1~J16 : 접속/분리할 지그 번호</li>
+        <li>G1~G16 : Spot welding gun numbers</li>
+        <li>P1~P16 : Positioner numbers</li>
+        <li>J1~J16 : Jig numbers</li>
         </ul>
-        멀티건을 동시에 접속/분리하는 경우에는 문자열 배열로 지정합니다. <br>
+        If multiple tools are changed simultaneously, specify them as a string array. <br>
         ex.) toolchng on,tg=["G1","G2"],is=si50,wait=3.0  
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">접속완료 신호</td>
+      <td style="text-align:left">Connection complete signal</td>
       <td style="text-align:left">
-        기계적 접속완료 확인신호
-        <ul>
-        <li>di20 : 기계적인 접속완료 확인을 위한 입력신호 번호</li>
-        </ul>
+        Input signal used to confirm mechanical tool engagement.
       </td>
       <td style="text-align:left"></td>
       <tr>
-      <td style="text-align:left">대기시간</td>
+      <td style="text-align:left">wait</td>
       <td style="text-align:left">
-        접속완료 대기시간
+        Timeout duration
         <ul>
-        <li><0~5.0> (sec) : 접속완료 대기시간 (파라미터가 없거나 0이면 무한대기)</li>
+        <li><0~5.0> (sec) : Maximum waiting time (in seconds) for the completion signal. If the signal is not received within the specified time, an error will be generated.</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
@@ -84,7 +86,7 @@
 
 <br>
 
-### 사용예
+### Usage Examples
 ```python
 S10	  move L, ...
       toolchng off,tg=G1		
@@ -96,10 +98,10 @@ S22	  move L, ...
       toolchng off,tg=G4		
 
 S31	  move L, ...	
-  	  toolchng on,tg=["G1","G2"],is=di20	
+  	  toolchng on,tg=[G1,G2],is=di20	
 
 S42	  move L, ...
-      toolchng off,tg=["G1","G2"]		
+      toolchng off,tg=[G1,G2]		
 
 
 ```

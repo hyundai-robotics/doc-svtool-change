@@ -1,11 +1,13 @@
-﻿# 4. 자주하는 질문
+﻿# 4. FAQ
 
-1. 공압건의 체인지도 가능한가요?  
-체인지 대상이 건이고, 건타입이 공압건인 경우는 공압건에 대한 접속/분리를 수행합니다. 
+1. Is pneumatic gun tool change supported?
 
+   If the target tool is a gun and its type is defined as a pneumatic gun, the system supports attach/detach operations for the pneumatic gun.
 <br>
 
-2. 처음 서보툴 접속시에 엔코더 관련 에러가 발생하는데 어떻게 해야 하나요?  
-툴의 최초 사용을 위해서는 엔코더 리셋을 수행해야 합니다. 서보툴체인지가 가능한 환경에서 R359를 이용해서 엔코더 전원을 입력하고, 엔코더 리셋을 먼저 수행해 주시기 바랍니다. ([2.1.1 엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/2-user-interface/1-environment) 참고)
+2. An encoder-related error appears during the first servo tool attachment. What should I do?
+
+   Before using the tool for the first time, an encoder reset must be performed.
+In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/2-user-interface/1-environment))
 
 <br>
