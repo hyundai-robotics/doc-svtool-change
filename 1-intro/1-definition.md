@@ -15,7 +15,7 @@ The actual system installed on site may differ, so operators must refer to this 
 
 ## System Specifications Covered in This Manual
 <p align="center">
- <img src="../_assets/fig1_2.png"></img>
+ <img src="../_assets/fig1_2_eng.png"></img>
  <em><p align="center">Figure 1.2 Types of Servo Tools Covered in This Manual</p></em>
 </p>
 

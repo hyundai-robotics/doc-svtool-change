@@ -9,7 +9,7 @@ This section explains how to use the R358 manual tool change function for servo 
 
 ### (1) Manual Positioner Connection/Disconnection
 
-- Switch the mode selector to Manual Mode, and enable Servo Tool Change for Auxiliary Axis 1.
+- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
 (A reboot is required if system settings have been modified.)
 
 - Press the [R..] key, then enter 358.
@@ -22,7 +22,7 @@ This section explains how to use the R358 manual tool change function for servo 
 - Enter the target positioner number, for example "1".
 
 <p align="center">
- <img src="../_assets/fig2_6.png"></img>
+ <img src="../_assets/fig2_6_eng.png"></img>
  <em><p align="center">Figure 2.6 Positioner P1 Connection</p></em>
 </p>
 
@@ -32,7 +32,7 @@ This section explains how to use the R358 manual tool change function for servo 
 If the motor is not ON, the following message will appear and the connection/disconnection process will not be executed.
 
 <p align="center">
- <img src="../_assets/fig2_7.png"></img>
+ <img src="../_assets/fig2_7_eng.png"></img>
  
 </p>
 {% endhint %}
@@ -41,7 +41,7 @@ If the motor is not ON, the following message will appear and the connection/dis
 
 ### (2)	Manual Servo Gun Connection/Disconnection
 
-- Switch the mode selector to Manual Mode, and enable Servo Tool Change for Auxiliary Axis 1.
+- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
 (A reboot is required if the setting has been modified.)
 
 - Press the [R..] key, then enter 358.
@@ -53,14 +53,14 @@ If the motor is not ON, the following message will appear and the connection/dis
 - Enter the servo gun number to be connected, for example "1".
 
 <p align="center">
- <img src="../_assets/fig2_8.png"></img>
+ <img src="../_assets/fig2_8_eng.png"></img>
  <em><p align="center">Figure 2.8 Servo Gun G1 Connection</p></em>
 </p>
 
 <br>
 
 <p align="center">
- <img src="../_assets/fig2_9.png"></img>
+ <img src="../_assets/fig2_9_eng.png"></img>
  <em><p align="center">Figure 2.9 Servo Gun G2 Connection</p></em>
 </p>
 
@@ -71,6 +71,6 @@ If the motor is not ON, the following message will appear and the connection/dis
 
 -  When selecting "Fix" during the tool change input, the tool will not be physically changed.
  This function is used only to update the servo tool’s axis origin, soft limit, and encoder offset.
-- If the auxiliary axis type is a jig, enter "3" for the axis type selection.
+- If the additional axis type is a jig, enter "3" for the axis type selection.
 {% endhint %}
-- If all auxiliary axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.
+- If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.

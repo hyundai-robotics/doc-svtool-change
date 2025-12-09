@@ -6,7 +6,7 @@ Menu Path:
 『Operation Panel』 → 『Select』 → 『Servo Tool Change』
 
 <p align="center">
- <img src="../_assets/fig2_5.png"></img>
+ <img src="../_assets/fig2_5_eng.png"></img>
  <em><p align="center">Figure 2.5 Servo Tool Change Monitoring Screen</p></em>
 </p>
 

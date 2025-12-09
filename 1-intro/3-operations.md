@@ -17,7 +17,7 @@ Based on the system specifications covered in this manual, the workflow—from s
 | 8 | [Axis Origin Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-setting/4-robot-parameter/2-axis-origin) | Set the axis origin and run automatic calibration |[**system**/3: Robot Parameters → 2: Axis Origin] ||
 | 9 | [*Spot Gun Setup](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/5-spot-weld-parameter/5-2-welding-gun-parameter/README) | Configure gun parameters (only for spot welding). |[**system**/4: Application Parameters → 1: Spot Welding → 2: Welding Gun Parameters] ||
 | 10 | [Servo Tool Change Setup](https://hrbook-hrc.web.app/#/view/doc-svtool-change/english/README) | Configure environment settings for servo tool change |[**system**/4: Application Parameters → 11: Servo Tool Change] ||
-| 11 | [Tool Data Setup](https://hrbook-hrc.web.app/#/view/doc-load-estimation/english/README) | Perform load estimation for tool attach/detach (T0) | ||
+| 11 | [Tool Data Setup](https://hrbook-hrc.web.app/#/view/doc-load-estimation/english/README) | Perform load estimation for tool attach/detach (T0) | [**system**/6: Auto calibration → 4: Load Estimation] ||
 | 12 | [Positioner Calibration](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/README) | When using a positioner for servo tool change, create calibration programs for each positioner | ||
 | 13 | [Program Development](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/3-programming/README) |  | |toolchng (attach/detach) <br> posi_calib (Positioner Calibration)|
 | 14 | [Auto Operation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/2-operation/2-automatic-operation/README) |  | ||
@@ -35,7 +35,7 @@ Based on the system specifications covered in this manual, the workflow—from s
 <br>
 
 <p align="center">
- <img src="../_assets/fig1_3.png"></img>
+ <img src="../_assets/fig1_3_eng.png"></img>
  <em><p align="center">Figure 1.3 Spot Gun Configuration</p></em>
 </p>
 

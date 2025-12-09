@@ -6,7 +6,7 @@ Navigation path:
 『[F2]: System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『2: Servo Tool Parameter Settings』
 
 <p align="center">
- <img src="../_assets/fig2_2.png"></img>
+ <img src="../_assets/fig2_2_eng.png"></img>
  <em><p align="center">Figure 2.2 Servo Tool Parameter Settings</p></em>
 </p>
 
@@ -24,22 +24,22 @@ The servo tool parameters must match this number in a 1:1 mapping.
 Therefore, the same number cannot be used for different servo tool parameter sets.
 If no additional servo tools need to be configured, set this value to 0.
 
-- Auxiliary Axis Number  
-Specify the auxiliary axis number used for attachment and detachment.
-If the axis type is Servo Gun, the auxiliary axis number is automatically assigned based on the value set in Gun Number Assignment.
+- additional Axis Number  
+Specify the additional axis number used for attachment and detachment.
+If the axis type is Servo Gun, the additional axis number is automatically assigned based on the value set in Gun Number Assignment.
 For Positioner or Jig axes, the user must manually assign this number.
-Multiple positioners or jigs may be configured on a single auxiliary axis if required.
+Multiple positioners or jigs may be configured on a single additional axis if required.
 
 <br>
 
 ※	Example Usage  
-The following configuration shows the axis type, assigned servo gun/positioner/jig number, and corresponding auxiliary axis number for each servo tool.
+The following configuration shows the axis type, assigned servo gun/positioner/jig number, and corresponding additional axis number for each servo tool.
 
-  - P1, P2, P3: Servo tools assigned to auxiliary axis 1
+  - P1, P2, P3: Servo tools assigned to additional axis 1
 
-  - G1, G3, G5: Servo tools assigned to auxiliary axis 2
+  - G1, G3, G5: Servo tools assigned to additional axis 2
 
-  - G2, G4: Servo tools assigned to auxiliary axis 3
+  - G2, G4: Servo tools assigned to additional axis 3
 
 
 <br>
@@ -58,10 +58,10 @@ The following configuration shows the axis type, assigned servo gun/positioner/j
 
 <br>
 
-In an actual Servo Tool Change system, the relationship between auxiliary axes and servo tool parameters is applied as shown in the diagram below.
+In an actual Servo Tool Change system, the relationship between additional axes and servo tool parameters is applied as shown in the diagram below.
 
 
 <p align="center">
- <img src="../_assets/fig2_3.png"></img>
- <em><p align="center">Figure 2.3 Auxiliary Axis and Tool Change Targets</p></em>
+ <img src="../_assets/fig2_3_eng.png"></img>
+ <em><p align="center">Figure 2.3 Additional Axis and Tool Change Targets</p></em>
 </p>

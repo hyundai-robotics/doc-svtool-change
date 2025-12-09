@@ -6,7 +6,7 @@ Navigation path:
 『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
 
 <p align="center">
- <img src="../_assets/fig2_4.png"></img>
+ <img src="../_assets/fig2_4_eng.png"></img>
  <em><p align="center">Figure 2.4 Servo Tool Axis Home Position Settings</p></em>
 </p>
 
