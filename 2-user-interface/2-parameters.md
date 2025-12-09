@@ -1,7 +1,7 @@
 ﻿# 2.2 Servo Tool Parameter Settings
 
 
-For each servo motor, the system manages the axis specification, assigned servo tool number, and auxiliary axis number used during tool change operations.
+For each servo motor, the system manages the axis specification, assigned servo tool number, and additional axis number used during tool change operations.
 Navigation path:
 『[F2]: System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『2: Servo Tool Parameter Settings』
 

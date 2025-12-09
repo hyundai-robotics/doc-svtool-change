@@ -10,7 +10,7 @@ Servo tool change environment settings must be configured before use.
 </p>
 
 - function use  
-Enables or disables the tool change feature for auxiliary axes.
+Enables or disables the tool change feature for additional axes.
 
 - connection  
 Monitors the current status of the servo tool (attached or detached).

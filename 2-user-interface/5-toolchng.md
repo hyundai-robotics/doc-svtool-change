@@ -1,7 +1,7 @@
 ﻿# 2.5 Attach/Detach Command (toolchng)
 
 
-```toolchng``` command is a procedure used to switch the servo tool assigned to an auxiliary axis.
+```toolchng``` command is a procedure used to switch the servo tool assigned to an additional axis.
 
 
 ### Description 

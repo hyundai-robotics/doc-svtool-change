@@ -1,6 +1,6 @@
 ﻿# 1.3 Operation Workflow
 
-To use the Servo Tool Change function, the system must be initialized and configured to a level that supports auxiliary axes.
+To use the Servo Tool Change function, the system must be initialized and configured to a level that supports additional axes.
 Based on the system specifications covered in this manual, the workflow—from system initialization to user program creation—is summarized in the table below.
 
 
@@ -28,7 +28,7 @@ Based on the system specifications covered in this manual, the workflow—from s
 
 {% hint style="info" %}
 - *Spot Gun Configuration (Required only when using spot welding)
-    - Assign the tool number, auxiliary axis number, and welding controller number corresponding to each gun number. 
+    - Assign the tool number, additional axis number, and welding controller number corresponding to each gun number. 
     - Servo tool parameters can be configured only for gun numbers defined in this setting.
 {% endhint %}
 

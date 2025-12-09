@@ -12,7 +12,7 @@ Navigation path:
 
 <br>
 
-When a servo tool is connected, the home position of the corresponding auxiliary axis is automatically updated to the home position assigned to the selected servo tool.
+When a servo tool is connected, the home position of the corresponding additional axis is automatically updated to the home position assigned to the selected servo tool.
 In other words, the values configured under:
 『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
 are automatically applied to:
@@ -20,7 +20,7 @@ are automatically applied to:
 
 In addition to the axis home position, the following parameters are also automatically updated to the values assigned to the connected servo tool:
 
-- Soft limit of the corresponding auxiliary axis  
+- Soft limit of the corresponding additional axis  
 
 - Encoder offset  
 

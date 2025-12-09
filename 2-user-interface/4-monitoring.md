@@ -14,10 +14,10 @@ Menu Path:
 
 
 - Servo Tool Change Function  
-Displays whether the servo tool change function is enabled for the auxiliary axis.
+Displays whether the servo tool change function is enabled for the additional axis.
 
 - Servo Tool Connection Status  
-Indicates the current connection state of the servo tool on the auxiliary axis.
+Indicates the current connection state of the servo tool on the additional axis.
 If the tool is connected, the corresponding tool identifier is displayed.
 If disconnected, “--” is shown.
 
