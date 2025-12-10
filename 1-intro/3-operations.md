@@ -44,11 +44,11 @@ Based on the system specifications covered in this manual, the workflow—from s
 
 The configuration described above is summarized in the table below.
 
-|Welder	|Gun number|Tool number|	Gun type	|Additional axis|
+|Welder	|Gun number|Tool number|Gun type|Additional axis|
 | :---: | :---: | :---: |:---:  |:---:|
-|W1|**G1**|	T1|	servo gun	|T1|
-|W2|**G2**|	T1|	servo gun	|T2|
-|W1	|**G3**|	T2|	servo gun	|T1|
-|W2	|**G4**|	T2|	servo gun	|T2|
-|W1|**G5**|	T3|	servo gun	|T1|
+|W1|**G1**|	T1|	servo gun	|a2|
+|W2|**G2**|	T2|	servo gun	|a3|
+|W1|**G3**| T3|	servo gun	|a2|
+|W2|**G4**| T4|	servo gun	|a3|
+|W1|**G5**|	T5|	servo gun	|a2|
 

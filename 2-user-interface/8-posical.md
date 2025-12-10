@@ -8,4 +8,4 @@ The posi_calib command allows this process to be executed within a robot program
 
 <br>
 
-For detailed usage instructions, refer to “[posi_calib Command](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/2-system_settings/2-3-positioner-calibration/4-posi_calib)” in the documentation.
+For detailed usage instructions, refer to “[2.3.4 posi_calib](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/2-system_settings/2-3-positioner-calibration/4_posi_calib)” in the documentation.
