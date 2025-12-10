@@ -8,8 +8,7 @@ Servo tool change refers to the process in which the robot automatically replace
 </p>
 
 
-This manual is written based on the system shown below.
-The actual system installed on site may differ, so operators must refer to this manual and apply the procedures according to the specifications of the on-site equipment.
+This manual is written based on the system with one positioner and two spot servo-guns. The actual system installed on site may differ, so operators must refer to this manual and apply the procedures according to the specifications of the on-site equipment.
 
 <b>
 <!--
