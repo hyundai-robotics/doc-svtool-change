@@ -1,6 +1,6 @@
 ﻿# Table of contents
 
-* [Hi6 로봇제어기 기능설명서 - 서보툴 체인지](README.md)
+* [${cont_model} 로봇제어기 기능설명서 - 서보툴 체인지](README.md)
 * [1. 개요](1-intro/README.md)
   * [1.1 멀티 (서보)툴 체인지란?](1-intro/1-definition.md)
   * [1.2 주요사양](1-intro/2-specs.md)

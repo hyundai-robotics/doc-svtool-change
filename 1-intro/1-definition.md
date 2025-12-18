@@ -29,9 +29,9 @@
 
 {% hint style="info" %}   
  - 필수설명서  
-    -	[Hi6 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/README)  
-    -	[Hi6 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)   
-    -   [Hi6 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README)  
-    -	[Hi6 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/README)
+    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/README)  
+    -	[${cont_model} 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)   
+    -   [${cont_model} 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README)  
+    -	[${cont_model} 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/README)
 
 {% endhint %}
