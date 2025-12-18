@@ -43,9 +43,9 @@ For the first installation of a servo tool, an encoder reset must be performed b
 The encoder reset procedure is as follows:
 
   1. Make Servo Tool Change enabled ('enable' radio button)
-  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '1' → Encoder power ON 
-  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-system/6-initialization/4-serial-encoder-reset) 
-  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/8-r-code/14-r359) + '0' → Encoder power OFF
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '1' → Encoder power ON 
+  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/4-serial-encoder-reset) 
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '0' → Encoder power OFF
 
 
 {% hint style="warning" %}

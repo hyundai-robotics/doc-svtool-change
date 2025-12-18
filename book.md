@@ -1,4 +1,4 @@
-﻿# Hi6 로봇제어기 기능설명서 - 서보툴 체인지
+﻿# ${cont_model} 로봇제어기 기능설명서 - 서보툴 체인지
 
 {% hint style="warning" %}
 본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
@@ -36,14 +36,14 @@
 
 {% hint style="info" %}   
  - 필수설명서  
-    -	[Hi6 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/README)  
-    -	[Hi6 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)   
-    -   [Hi6 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README)  
-    -	[Hi6 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/README)
+    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/README)  
+    -	[${cont_model} 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)   
+    -   [${cont_model} 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README)  
+    -	[${cont_model} 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/README)
 
 {% endhint %}#  1.2 주요사양
 
-Hi6 로봇제어기의 서보툴 체인지 기능 사양은 다음 표와 같습니다.
+${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표와 같습니다.
 
 
 | 항목 | 사양 | 
@@ -58,20 +58,20 @@ Hi6 로봇제어기의 서보툴 체인지 기능 사양은 다음 표와 같습
 
 | 순서 | 설정 | 내용 | 상세설정 |참고|
 | :---: | :---: | :---: |:---:  |:---:|
-| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-setting/6-initialization/README) | 시스템 초기화 실시 |[**시스템**/5:초기화/1:시스템 초기화] ||
+| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/7-setting/6-initialization/README) | 시스템 초기화 실시 |[**시스템**/5:초기화/1:시스템 초기화] ||
 | 2 | 로봇타입 선택| 로봇타입 및 부가축 개수 등록 |[**시스템**/5:초기화/2:로봇타입 선택] |부가축 개수 : 3|
 | 3 | 재부팅 |  | ||
 | 4 | 부가축 파라미터 설정 | 부가축 정보 등록 |[**시스템**/5:초기화/5:시스템 초기화] |T1=G1, T2=G2, T3=J1으로 초기설정|
 | 5 | 재부팅 |  | ||
 | 6 | 용도설정 | 작업용도설정, 입출력신호, 사용자키 할당 등 |[**시스템**/5:초기화/3:용도설정] |스폿용도, 스폿 사용자키 할당|
 | 7 | 엔코더 옵셋 설정 | 엔코더 원점 등록 |[**시스템**/3:로봇 파라미터/4:엔코더 옵셋] ||
-| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/7-setting/4-robot-parameter/2-axis-origin) | 축 원점 설정, 자동 캘리브레이션 실행 |[**시스템**/3:로봇 파라미터/2:축 원점] ||
+| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/7-setting/4-robot-parameter/2-axis-origin) | 축 원점 설정, 자동 캘리브레이션 실행 |[**시스템**/3:로봇 파라미터/2:축 원점] ||
 | 9 | [*스폿건 설정](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/5-spot-weld-parameter/5-2-welding-gun-parameter/README) | 스폿용접의 경우 건 파라미터 설정 |[**시스템**/4:응용 파라미터/1:스폿용접/2:용접건 파라미터] ||
 | 10 | [서보툴 체인지 설정](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/README) | 서보툴 체인지를 위한 환경 설정 |[**시스템**/4:응용 파라미터/11:서보툴 체인지] ||
 | 11 | [툴 데이터 설정](https://hrbook-hrc.web.app/#/view/doc-load-estimation/korean/README) | 툴의 분리(T0)와 접속에 따른 부하추정 수행 | ||
 | 12 | [포지셔너 캘리브레이션 수행](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README) | 포지셔너를 이용한 서보툴 체인지인 경우 각각의 포지셔너 별로 캘리브레이션 프로그램 작성 | ||
-| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/3-programming/README) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
-| 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/korean-tp630/2-operation/2-automatic-operation/README) |  | ||
+| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/3-programming/README) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
+| 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/2-operation/2-automatic-operation/README) |  | ||
 
 
 <br>

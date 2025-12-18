@@ -1,6 +1,6 @@
 ﻿#  1.2 Specifications
 
-The specifications of the Servo Tool Change function in the Hi6 robot controller are as follows:
+The specifications of the Servo Tool Change function in the ${cont_model} robot controller are as follows:
 
 
 | Item | Specification | 

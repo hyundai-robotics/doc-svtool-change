@@ -23,9 +23,9 @@ This manual is written based on a system equipped with three additional axes: th
 
 {% hint style="info" %}   
  - Required reference document  
-    -	[Hi6 Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/README)  
-    -	[Hi6 Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/english/README)   
-    -   [Hi6 Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/README)  
-    -	[Hi6 Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/README)
+    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/README)  
+    -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/english/README)   
+    -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/README)  
+    -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/README)
 
 {% endhint %}
