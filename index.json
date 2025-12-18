@@ -6,87 +6,87 @@
 	},
 	{
 		"link": "1-intro/README.md",
-		"char_ofs": 263,
-		"byte_ofs": 523
+		"char_ofs": 473,
+		"byte_ofs": 491
 	},
 	{
 		"link": "1-intro/1-definition.md",
-		"char_ofs": 270,
-		"byte_ofs": 537
+		"char_ofs": 486,
+		"byte_ofs": 507
 	},
 	{
 		"link": "1-intro/2-specs.md",
-		"char_ofs": 1196,
-		"byte_ofs": 1976
+		"char_ofs": 2136,
+		"byte_ofs": 2194
 	},
 	{
 		"link": "1-intro/3-operations.md",
-		"char_ofs": 1360,
-		"byte_ofs": 2292
+		"char_ofs": 2491,
+		"byte_ofs": 2561
 	},
 	{
 		"link": "2-user-interface/README.md",
-		"char_ofs": 3674,
-		"byte_ofs": 5930
+		"char_ofs": 6609,
+		"byte_ofs": 6752
 	},
 	{
 		"link": "2-user-interface/1-environment.md",
-		"char_ofs": 3690,
-		"byte_ofs": 5967
+		"char_ofs": 6630,
+		"byte_ofs": 6778
 	},
 	{
 		"link": "2-user-interface/2-parameters.md",
-		"char_ofs": 4514,
-		"byte_ofs": 7674
+		"char_ofs": 8910,
+		"byte_ofs": 9169
 	},
 	{
 		"link": "2-user-interface/3-origins.md",
-		"char_ofs": 5814,
-		"byte_ofs": 10319
+		"char_ofs": 11382,
+		"byte_ofs": 11735
 	},
 	{
 		"link": "2-user-interface/4-monitoring.md",
-		"char_ofs": 6275,
-		"byte_ofs": 11264
+		"char_ofs": 12412,
+		"byte_ofs": 12856
 	},
 	{
 		"link": "2-user-interface/5-toolchng.md",
-		"char_ofs": 6910,
-		"byte_ofs": 12546
+		"char_ofs": 13648,
+		"byte_ofs": 14185
 	},
 	{
 		"link": "2-user-interface/6-manual.md",
-		"char_ofs": 8965,
-		"byte_ofs": 15358
+		"char_ofs": 16302,
+		"byte_ofs": 16948
 	},
 	{
 		"link": "2-user-interface/7-timing.md",
-		"char_ofs": 10388,
-		"byte_ofs": 17945
+		"char_ofs": 18819,
+		"byte_ofs": 19545
 	},
 	{
 		"link": "2-user-interface/8-posical.md",
-		"char_ofs": 10736,
-		"byte_ofs": 18587
+		"char_ofs": 19487,
+		"byte_ofs": 20234
 	},
 	{
 		"link": "3-job/README.md",
-		"char_ofs": 11134,
-		"byte_ofs": 19360
+		"char_ofs": 20168,
+		"byte_ofs": 20932
 	},
 	{
 		"link": "3-job/1-sample-job.md",
-		"char_ofs": 11145,
-		"byte_ofs": 19383
+		"char_ofs": 20186,
+		"byte_ofs": 20954
 	},
 	{
 		"link": "3-job/2-positioner-example.md",
-		"char_ofs": 11593,
-		"byte_ofs": 20056
+		"char_ofs": 21287,
+		"byte_ofs": 22082
 	},
 	{
 		"link": "4-faq/README.md",
-		"char_ofs": 12185,
-		"byte_ofs": 21224
+		"char_ofs": 22611,
+		"byte_ofs": 23448
 	}
 ]

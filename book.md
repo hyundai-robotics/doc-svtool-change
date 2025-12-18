@@ -1,316 +1,375 @@
-﻿# ${cont_model} 로봇제어기 기능설명서 - 서보툴 체인지
+﻿# ${cont_model} Robot Controller Function Manual - Servo Tool Change
 
 {% hint style="warning" %}
-본 제품 설명서에서 제공되는 정보는 현대로보틱스의 자산입니다.
+The information provided in this manual is the property of Hyundai Robotics.
 
-현대로보틱스의 서면에 의한 동의 없이 전부 또는 일부를 무단 전재 및 재배포할 수 없으며, 제3자에게 제공되거나 다른 목적에 사용할 수 없습니다.
+It cannot be reproduced or redistributed in whole or in part without the written consent of Hyundai Robotics, and cannot be provided to a third party or used for other purposes.
 
+<br>
 
+This manual is subject to change without prior notice.
 
-본 설명서는 사전 예고 없이 변경될 수 있습니다.
-
-
-
-**Copyright ⓒ 2023 by Hyundai Robotics**
+**Copyright ⓒ 2023 by Hyundai Robotics**  
 {% endhint %}
-# 1. 개요# 1.1 멀티 (서보)툴 체인지란?
+# 1. Overview# 1.1 What is Multi (Servo) Tool Change?
 
-서보 모터가 부착된 두 개 이상의 툴(지그, 포지셔너, 서보건)에 대하여 툴 체인저(ATC)를 이용하여 로봇이 자동으로 툴을 교체하는 행위를 말합니다.
+Servo tool change refers to the process in which the robot automatically replaces tools—such as jigs, positioners, or servo guns equipped with servo motors—using an Automatic Tool Changer (ATC).
 
 <p align="center">
  <img src="../_assets/fig1_1.png"></img>
- <em><p align="center">그림 1.1 서보툴과 로봇</p></em>
+ <em><p align="center">Figure 1.1 Servo Tool and Robot</p></em>
 </p>
 
 
-본 설명서에서는 아래의 시스템을 기반으로 설명을 진행합니다. 현장에서 제공되는 시스템이 이와 동일할 수는 없으므로 현장 작업자는 본 설명서의 내용을 참고하여 현장 시스템에 맞게 사용하십시오.
+This manual is written based on a system equipped with three additional axes: the first axis is used for three positioners, the second axis is used for three servo guns, and the third axis is used for two servo guns, all of which are exchanged and operated via an ATC. The actual system installed on site may differ, so operators must refer to this manual and apply the procedures according to the specifications of the on-site equipment.
 
 <b>
-
-## 설명서에서 다루는 시스템 사양
+<!--
+## System Specifications Covered in This Manual
 <p align="center">
- <img src="../_assets/fig1_2.png"></img>
- <em><p align="center">그림 1.2 설명서에서 다루는 서보툴의 종류</p></em>
+ <img src="../_assets/fig1_2_eng.png"></img>
+ <em><p align="center">Figure 1.2 Types of Servo Tools Covered in This Manual</p></em>
 </p>
+-->
 
+<br>
 
 {% hint style="info" %}   
- - 필수설명서  
-    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/README)  
-    -	[${cont_model} 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/korean/README)   
-    -   [${cont_model} 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README)  
-    -	[${cont_model} 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/README)
+ - Required reference document  
+    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/README)  
+    -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/english/README)   
+    -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/README)  
+    -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/README)
 
-{% endhint %}#  1.2 주요사양
+{% endhint %}#  1.2 Specifications
 
-${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표와 같습니다.
+The specifications of the Servo Tool Change function in the ${cont_model} robot controller are as follows:
 
 
-| 항목 | 사양 | 
+| Item | Specification | 
 | :---: | :---: | 
-| 체인지 가능한 모터의 최대 수 | 16개 | 
-| 체인지 축 사양 | 서보건, 포지셔너, 지그 | 
-| 동시 체인지 최대 수 | 4개 | # 1.3 조작 순서
+| Maximum number of supported tool motors | 16 ea | 
+| Supported tool types | servo gun, positioner, jig | 
+| Maximum number of tools that can be changed simultaneously | 4 ea | # 1.3 Operation Workflow
 
-서보툴 체인지 기능을 사용하기 위해서는 부가축을 사용할 수 있는 정도의 시스템 초기화와 설정이 완료되어 있어야 합니다. 본 설명서에서 다루는 시스템 사양과 관련하여, 시스템 초기화부터 사용자 프로그램 작성까지의 작업 순서를 아래표로 설명합니다.
+To use the Servo Tool Change function, the system must be initialized and configured to a level that supports additional axes.
+Based on the system specifications covered in this manual, the workflow—from system initialization to user program creation—is summarized in the table below.
 
 
 
-| 순서 | 설정 | 내용 | 상세설정 |참고|
+| Step | Configuration | Description | Detailed Setting Path |Notes|
 | :---: | :---: | :---: |:---:  |:---:|
-| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/7-setting/6-initialization/README) | 시스템 초기화 실시 |[**시스템**/5:초기화/1:시스템 초기화] ||
-| 2 | 로봇타입 선택| 로봇타입 및 부가축 개수 등록 |[**시스템**/5:초기화/2:로봇타입 선택] |부가축 개수 : 3|
-| 3 | 재부팅 |  | ||
-| 4 | 부가축 파라미터 설정 | 부가축 정보 등록 |[**시스템**/5:초기화/5:시스템 초기화] |T1=G1, T2=G2, T3=J1으로 초기설정|
-| 5 | 재부팅 |  | ||
-| 6 | 용도설정 | 작업용도설정, 입출력신호, 사용자키 할당 등 |[**시스템**/5:초기화/3:용도설정] |스폿용도, 스폿 사용자키 할당|
-| 7 | 엔코더 옵셋 설정 | 엔코더 원점 등록 |[**시스템**/3:로봇 파라미터/4:엔코더 옵셋] ||
-| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/7-setting/4-robot-parameter/2-axis-origin) | 축 원점 설정, 자동 캘리브레이션 실행 |[**시스템**/3:로봇 파라미터/2:축 원점] ||
-| 9 | [*스폿건 설정](https://hrbook-hrc.web.app/#/view/doc-spot-weld/korean/5-spot-weld-parameter/5-2-welding-gun-parameter/README) | 스폿용접의 경우 건 파라미터 설정 |[**시스템**/4:응용 파라미터/1:스폿용접/2:용접건 파라미터] ||
-| 10 | [서보툴 체인지 설정](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/README) | 서보툴 체인지를 위한 환경 설정 |[**시스템**/4:응용 파라미터/11:서보툴 체인지] ||
-| 11 | [툴 데이터 설정](https://hrbook-hrc.web.app/#/view/doc-load-estimation/korean/README) | 툴의 분리(T0)와 접속에 따른 부하추정 수행 | ||
-| 12 | [포지셔너 캘리브레이션 수행](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/README) | 포지셔너를 이용한 서보툴 체인지인 경우 각각의 포지셔너 별로 캘리브레이션 프로그램 작성 | ||
-| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/3-programming/README) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
-| 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/korean-tp630/2-operation/2-automatic-operation/README) |  | ||
+| 1 | [System Initialization](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/1-system-format) | Perform system initialization |[**system**/5:Intialization/1:System format] ||
+| 2 | [Robot Type Selection](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/2-robot-type-sel)| Register robot type and number of additional axes |[**system**/5:Intialization/2:Robot type selection] |Number of additional axes: 3|
+| 3 | Rebooting |  | ||
+| 4 | [Additional Axis Parameter Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/5-add-axis-param) | Register additional axis information |[**system**/5:Intialization/5:Additional axis parameter setting] |Default setup: T1 = G1, T2 = G2, T3 = J1|
+| 5 | Rebooting |  | ||
+| 6 | [Application Settings](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/3-usage-set/README) | Configure application settings, I/O signals, and user key assignments |[**system**/5:Intialization/3:Usage setting] |Spot welding usage, user key assignment|
+| 7 | [Encoder Offset Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/4-robot-parameter/4-encoder-offset/README) | Register encoder origin |[**system**/3: Robot Parameters → 4: Encoder Offset] ||
+| 8 | [Axis Origin Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/4-robot-parameter/2-axis-origin) | Set the axis origin and run automatic calibration |[**system**/3: Robot Parameters → 2: Axis Origin] ||
+| 9 | [*Spot Gun Setup](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/5-spot-weld-parameter/5-2-welding-gun-parameter/README) | Configure gun parameters (only for spot welding). |[**system**/4: Application Parameters → 1: Spot Welding → 2: Welding Gun Parameters] ||
+| 10 | [Servo Tool Change Setup](https://hrbook-hrc.web.app/#/view/doc-svtool-change/english/README) | Configure environment settings for servo tool change |[**system**/4: Application Parameters → 11: Servo Tool Change] ||
+| 11 | [Tool Data Setup](https://hrbook-hrc.web.app/#/view/doc-load-estimation/english/README) | Perform load estimation for tool attach/detach (T0) | [**system**/6: Auto calibration → 4: Load Estimation] ||
+| 12 | [Positioner Calibration](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/2-system_settings/2-3-positioner-calibration/README) | When using a positioner for servo tool change, create calibration programs for each positioner | ||
+| 13 | [Program Development](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/3-programming/README) |  | |toolchng (attach/detach) <br> posi_calib (Positioner Calibration)|
+| 14 | [Auto Operation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/2-operation/2-automatic-operation/README) |  | ||
 
 
 <br>
 
 
 {% hint style="info" %}
-- *스폿건 설정 (스폿 용접의 경우에만 설정)  
-    - 각 건번호에 대응하는 툴 번호, 부가축 번호, 용접기 번호를 모두 지정합니다.  
-    - 본 항목에서 설정된 건 번호에 대해서만 서보툴 체인지에서 서보툴 파라미터 지정이 가능합니다.
+- *Spot Gun Configuration (Required only when using spot welding)
+    - Assign the tool number, additional axis number, and welding controller number corresponding to each gun number. 
+    - Servo tool parameters can be configured only for gun numbers defined in this setting.
 {% endhint %}
 
 <br>
 
 <p align="center">
- <img src="../_assets/fig1_3.png"></img>
- <em><p align="center">그림 1.3 스폿 건별 설정</p></em>
+ <img src="../_assets/fig1_3_eng.png"></img>
+ <em><p align="center">Figure 1.3 Spot Gun Configuration</p></em>
 </p>
 
 
 <br>
 
-위 설정을 요약하면 아래 표와 같습니다.
+The configuration described above is summarized in the table below.
 
-|용접기	|건번호|툴번호|	건타입	|부가축|
+|Welder	|Gun number|Tool number|Gun type|Additional axis|
 | :---: | :---: | :---: |:---:  |:---:|
-|W1|**G1**|	T1|	서보건	|T1|
-|W2|**G2**|	T1|	서보건	|T2|
-|W1	|**G3**|	T2|	서보건	|T1|
-|W2	|**G4**|	T2|	서보건	|T2|
-|W1|**G5**|	T3|	서보건	|T1|
+|W1|**G1**|	T1|	servo gun	|a2|
+|W2|**G2**|	T2|	servo gun	|a3|
+|W1|**G3**| T3|	servo gun	|a2|
+|W2|**G4**| T4|	servo gun	|a3|
+|W1|**G5**|	T5|	servo gun	|a2|
 
-# 2. 사용자 인터페이스
+# 2. User Interface
 
-# 2.1 사용환경 설정
+# 2.1 Environment Settings
 
+Servo tool change environment settings must be configured before use.
 
-
-서보툴에 대한 체인지 환경을 설정합니다.
-
-『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『1: 사용환경 설정』
+『system』 → 『4: Application parameter』 → 『11: Servo tool change』 → 『1: Environment setting』
 
 <p align="center">
- <img src="../_assets/fig2_1.png"></img>
- <em><p align="center">그림 2.1 서보툴 체인지 사용환경 설정</p></em>
+ <img src="../_assets/fig2_1_eng.png"></img>
+ <em><p align="center">Figure 2.1 Servo Tool Change Environment Settings</p></em>
 </p>
 
-- 서보툴 체인지 기능   
-부가축에 대한 체인지 기능의 사용여부를 설정합니다.  
+- function use  
+Enables or disables the tool change feature for additional axes.
 
-- 서보툴 접속 상태  
-현재 서보툴의 접속 또는 분리 상태를 모니터링합니다. 또한, 현재 서보툴이 접속된 경우에는 강제로 분리할 수 있으며 이를 위해서는 모터 Off 상태에서 <Off>로 변경한 후, 제어기 전원을 재투입하면 됩니다. 이와 반대로 서보툴이 분리된 경우에 강제 접속은 불가합니다.  
+- connection  
+Monitors the current status of the servo tool (attached or detached).
+If the tool is currently attached, it can be forcibly detached.
+To do so, switch the status to Off while the motor is powered Off, then cycle the controller power.
+Forced attachment is not supported when the tool is detached.
 
-- 엔코더 전원투입 출력신호  
-접속 또는 분리 시 엔코더 전원 제어를 위한 출력 신호를 할당합니다. 이 신호가 On인 경우 엔코더 5V전원선을 제어하는 릴레이가 동작합니다.  
+- encoder poswer output signal   
+Assigns the output signal used to control encoder power during tool attachment or detachment.
+When this signal is On, the relay controlling the 5V encoder power is activated.
 	
-- 엔코더 전원투입 입력신호  
-접속 또는 분리 시 엔코더 전원 제어 상태를 확인하기 위한 입력 신호를 할당합니다. 엔코더 5V 전원선을 제어하는 릴레이의 동작 여부를 확인합니다.  
-
-{% hint style="info" %}
--	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
--	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
-{% endhint %}# 2.2 서보툴 파라미터 설정
-
-
-각 서보모터에 대해 축 사양과 서보툴의 번호, 그리고 체인지시 부가축 번호를 관리합니다. 
-『[F2]: 시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『2: 서보툴 파라미터 설정』
-
-<p align="center">
- <img src="../_assets/fig2_2.png"></img>
- <em><p align="center">그림 2.2 서보툴 파라미터 설정</p></em>
-</p>
-
-
--	축 사양
-체인지 축의 사양을 선택합니다. <서보건, 포지셔너, 지그> 중 하나로 선택 가능합니다.
-
--	축 구성 
-체인지 축의 축구성이 직동인지 회전인지 선택합니다.
-
--	서보건/포지셔너/지그 번호 
-축사양에 대한 번호를 설정합니다.
-서보툴 파라미터와 서보건/포지셔너/지그 번호는 1:1 대응해야 합니다. 따라서 서로 다른 서보툴 파라미터에 동일한 서보건/포지셔너/지그 번호를 중복하여 설정할 수 없습니다.
-더 이상 설정할 서보툴이 없는 경우 0번을 설정하면 됩니다.
-
--	부가축 번호 
-접속/분리 시 제어할 부가축의 번호를 지정합니다. 축사양이 서보건이면 ‘건번호 대응 툴번호 지정’에서 설정된 부가축 번호가 자동으로 지정됩니다. 포지셔너/지그 축인 경우에는 사용자가 설정합니다. 하나의 부가축에 여러 개의 포지셔너/지그를 체인지하는 경우 체인지 할 포지셔너의 수만큼 서보툴 파라미터를 등록합니다.
-
-※	사용 예시  
-다음의 설정은 각 서보툴 별 사용하는 축 사양과 서보건/포지셔너/지그번호, 부가축 번호를 나타냅니다.
--	P1, P2, P3: 부가축 1번에 체인지하는 서보툴
--	G1, G3, G5: 부가축 2번으로 체인지하는 서보툴
--	G2, G4: 부가축 3번으로 체인지하는 서보툴
-
-
-<br>
-
-
-|체인지 대상|축 사양|축 구성|서보건/지그 번호|부가축 번호|
-| :---: | :---: | :---: |:---: |:---:|
-|1번 서보툴|서보건|직동|G1|2|
-|2번 서보툴|서보건|직동|G2|3|
-|3번 서보툴|포지셔너|회전|P1|1|
-|4번 서보툴|서보건|직동|G3|2|
-|5번 서보툴|서보건|직동|G4|3|
-|6번 서보툴|포지셔너|회전|P2|1|
-|7번 서보툴|포지셔너|회전|P3|1|
-|8번 서보툴|서보건|직동|G5|2|
-
-<br>
-
-실제 서보툴 체인지 시스템 상에서 부가축 및 서보툴의 파라미터 적용 관계는 다음 그림과 같습니다.
-
-
-<p align="center">
- <img src="../_assets/fig2_3.png"></img>
- <em><p align="center">그림 2.3 부가축과 툴체인지 대상</p></em>
-</p>
-# 2.3 축 원점
-각각의 서보모터에 대한 축 원점을 관리합니다. 
-
-『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『3: 축 원점』
-
-
-<p align="center">
- <img src="../_assets/fig2_4.png"></img>
- <em><p align="center">그림 2.4 서보툴 축 원점 설정</p></em>
-</p>
-
-
-서보툴을 접속하면 해당 부가축의 축 원점이 체인지할 서보툴의 축 원점으로 자동 갱신됩니다. 즉 『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『3: 축 원점』의 설정값으로 『시스템』 → 『3: 로봇 파라미터』 → 『2: 축 원점』의 값을 갱신합니다.
-
-이 밖에도 해당 부가축의 소프트 리밋, 엔코더 옵셋, 서보 파라미터, 가감속 파라미터도 위에서 언급한 축 원점과 같이 서보툴 접속 시 체인지할 서보툴의 값으로 자동 갱신됩니다.
-# 2.4 모니터링
-
-서보툴 체인지 관련 상태를 사용자에게 모니터링 합니다.
-
-『창조정』 → 『선택』 → 『서보툴 체인지』
-
-
-<p align="center">
- <img src="../_assets/fig2_5.png"></img>
- <em><p align="center">그림 2.5 서보툴 체인지 모니터링</p></em>
-</p>
-
-<br>
-
--	서보툴 체인지 기능  
-부가축에 대한 서보툴 체인지 기능의 사용여부를 표시합니다.
- 
--	서보툴 접속 상태  
-부가축에 대한 서보툴 접속/분리 상태를 표시합니다. 접속인 경우 체인지 대상이 표시되며, 분리인 경우 “--”이 표시됩니다.
-
--	엔코더 전원투입 출력  
-엔코더 전원투입을 위한 출력신호 번호와 함께 출력 상태를 표시합니다.
-
--	엔코더 전원투입 입력  
-엔코더 전원투입을 위한 입력신호 번호와 함께 입력 상태를 표시합니다.
+- encoder poswer input signal  
+Assigns the input signal used to verify the encoder power control state during tool attachment or detachment.
+This input monitors whether the relay controlling the 5V encoder power is operating correctly. 
 
 <br>
 
 {% hint style="info" %}
--	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
--	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
+- The I/O signal logic can be configured under:
+『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 → 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+
+- Among the system I/O signals, user-defined signals are assigned as follows:
+SI[48–51] / SO[48–51]
 {% endhint %}
-# 2.5 접속/분리 명령(toolchng)
+
+<br>
+
+## 2.1.1 Encoder Reset
+For the first installation of a servo tool, an encoder reset must be performed before the tool can be attached.
+The encoder reset procedure is as follows:
+
+  1. Make Servo Tool Change enabled ('enable' radio button)
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '1' → Encoder power ON 
+  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/4-serial-encoder-reset) 
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '0' → Encoder power OFF
 
 
-```toolchng``` 명령문은 부가축에 할당된 서보툴을 변경하기 위한 프로시져입니다.
+{% hint style="warning" %}
+If the servo tool is attached without performing an encoder reset, an encoder-related error will occur.
+{% endhint %}# 2.2 Servo Tool Parameter Settings
 
 
-### 설명 
-    
-서보툴을 변경하는 방법은 Rcode를(358) 이용한 수동조작과 ```toolchng```문을 이용한 작업 프로그램 실행 방식이 있습니다.
-- 명령문을 이용한 방법에서는 완료신호 입력이 필요합니다.
-- 본 명령어를 사용하기 위해서는 서보툴 체인지 환경이 적절하게 설정되어야 합니다.
+For each servo motor, the system manages the axis specification, assigned servo tool number, and additional axis number used during tool change operations.
+Navigation path:
+『[F2]: System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『2: Servo Tool Parameter Settings』
 
+<p align="center">
+ <img src="../_assets/fig2_2_eng.png"></img>
+ <em><p align="center">Figure 2.2 Servo Tool Parameter Settings</p></em>
+</p>
+
+
+- Axis Type  
+Select the specification of the tool change axis.
+Options: Servo Gun, Positioner, Jig
+
+- Axis Motion Type  
+Select whether the axis operates in Linear or Rotary motion.
+
+- Servo Gun / Positioner / Jig Number  
+Assign the corresponding number based on the selected axis type.
+The servo tool parameters must match this number in a 1:1 mapping.
+Therefore, the same number cannot be used for different servo tool parameter sets.
+If no additional servo tools need to be configured, set this value to 0.
+
+- additional Axis Number  
+Specify the additional axis number used for attachment and detachment.
+If the axis type is Servo Gun, the additional axis number is automatically assigned based on the value set in Gun Number Assignment.
+For Positioner or Jig axes, the user must manually assign this number.
+Multiple positioners or jigs may be configured on a single additional axis if required.
+
+<br>
+
+※	Example Usage  
+The following configuration shows the axis type, assigned servo gun/positioner/jig number, and corresponding additional axis number for each servo tool.
+
+  - P1, P2, P3: Servo tools assigned to additional axis 1
+
+  - G1, G3, G5: Servo tools assigned to additional axis 2
+
+  - G2, G4: Servo tools assigned to additional axis 3
 
 
 <br>
 
-### 문법
+
+|Tool Change Target|Axis Type|Motion Type|Servo Gun / Jig Number|Additionary axis number|
+| :---: | :---: | :---: |:---: |:---:|
+|Servo Tool #1|Servo Gun|Linear|G1|2|
+|Servo Tool #2|Servo Gun|Linear|G2|3|
+|Servo Tool #3|Positioner|Rotary|P1|1|
+|Servo Tool #4|Servo Gun|Linear|G3|2|
+|Servo Tool #5|Servo Gun|Linear|G4|3|
+|Servo Tool #6|Positioner|Rotary|P2|1|
+|Servo Tool #7|Positioner|Rotary|P3|1|
+|Servo Tool #8|Servo Gun|Linear|G5|2|
+
+<br>
+
+In an actual Servo Tool Change system, the relationship between additional axes and servo tool parameters is applied as shown in the diagram below.
+
+
+<p align="center">
+ <img src="../_assets/fig2_3_eng.png"></img>
+ <em><p align="center">Figure 2.3 Additional Axis and Tool Change Targets</p></em>
+</p>
+# 2.3 Axis Origin
+
+The system manages the axis home position for each servo motor. 
+
+Navigation path:
+『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
+
+<p align="center">
+ <img src="../_assets/fig2_4_eng.png"></img>
+ <em><p align="center">Figure 2.4 Servo Tool Axis Home Position Settings</p></em>
+</p>
+
+<br>
+
+When a servo tool is connected, the home position of the corresponding additional axis is automatically updated to the home position assigned to the selected servo tool.
+In other words, the values configured under:
+『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
+are automatically applied to:
+『System』 → 『3: Robot Parameters』 → 『2: Axis Home Position』.
+
+In addition to the axis home position, the following parameters are also automatically updated to the values assigned to the connected servo tool:
+
+- Soft limit of the corresponding additional axis  
+
+- Encoder offset  
+
+- Servo parameters  
+
+- Acceleration/deceleration parameters# 2.4 Monitoring
+
+The status related to the Servo Tool Change function can be monitored by the user.
+
+Menu Path:
+『Operation Panel』 → 『Select』 → 『Servo Tool Change』
+
+<p align="center">
+ <img src="../_assets/fig2_5_eng.png"></img>
+ <em><p align="center">Figure 2.5 Servo Tool Change Monitoring Screen</p></em>
+</p>
+
+<br>
+
+
+- Servo Tool Change Function  
+Displays whether the servo tool change function is enabled for the additional axis.
+
+- Servo Tool Connection Status  
+Indicates the current connection state of the servo tool on the additional axis.
+If the tool is connected, the corresponding tool identifier is displayed.
+If disconnected, “--” is shown.
+
+- Encoder Power Output  
+Displays the assigned output signal number used for encoder power control as well as its ON/OFF status.
+
+- Encoder Power Input  
+Displays the assigned input signal number used to monitor the encoder power state along with its ON/OFF status.
+
+<br>
+
+{% hint style="info" %}
+- The logic level of input/output signals can be configured in:
+
+『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 →
+『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+
+- System I/O signals for user mapping correspond to SI[48–51] / SO[48–51].
+
+{% endhint %}
+# 2.5 Attach/Detach Command (toolchng)
+
+
+```toolchng``` command is a procedure used to switch the servo tool assigned to an additional axis.
+
+
+### Description 
+    
+There are two methods to change the servo tool:
+
+- Manual operation using R-code (358)
+
+- Executing a task program using  ```toolchng``` command  
+
+When using the command-based method, a completion signal input is required.
+
+To use this command, the servo tool change environment must be properly configured beforehand.
+
+<br>
+
+### Syntax
   
   ```python
-   toolchng on/off,tg=<체인지 대상>,is=<접속완료 신호>,wait=<대기시간>
+   toolchng on/off,tg=<Target Tool>,is=<Completion Signal>,wait=<Timeout>
   ```
 
 <br>
 
-### 파라미터
+### Parameter Description
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">항목</th>
-      <th style="text-align:left">의미</th>
-      <th style="text-align:left">기타</th>
+      <th style="text-align:left">Parameter</th>
+      <th style="text-align:left">Meaning</th>
+      <th style="text-align:left">Note</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        접속/분리
+        Connect or disconnect the servo tool
         <ul>
-        <li>on : 서보툴 접속</li>
-        <li>off :  서보툴 분리</li>
+        <li>on : Connect the assigned servo tool</li>
+        <li>off :  Disconnect the assigned servo tool</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">체인지 대상</td>
+      <td style="text-align:left">Target tool</td>
       <td style="text-align:left">
-        접속/분리 대상이 되는 서보툴 번호
+        Specifies the tool to be connected or disconnected.  
+        Available types:
         <ul>
-        <li>G1~G16 : 접속/분리할 용접건 번호</li>
-        <li>P1~P16 : 접속/분리할 포지셔너 번호</li>
-        <li>J1~J16 : 접속/분리할 지그 번호</li>
+        <li>G1~G16 : Spot welding gun numbers</li>
+        <li>P1~P16 : Positioner numbers</li>
+        <li>J1~J16 : Jig numbers</li>
         </ul>
-        멀티건을 동시에 접속/분리하는 경우에는 문자열 배열로 지정합니다. <br>
+        If multiple tools are changed simultaneously, specify them as a string array. <br>
         ex.) toolchng on,tg=["G1","G2"],is=si50,wait=3.0  
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">접속완료 신호</td>
+      <td style="text-align:left">Connection complete signal</td>
       <td style="text-align:left">
-        기계적 접속완료 확인신호
-        <ul>
-        <li>di20 : 기계적인 접속완료 확인을 위한 입력신호 번호</li>
-        </ul>
+        Input signal used to confirm mechanical tool engagement.
       </td>
       <td style="text-align:left"></td>
       <tr>
-      <td style="text-align:left">대기시간</td>
+      <td style="text-align:left">wait</td>
       <td style="text-align:left">
-        접속완료 대기시간
+        Timeout duration
         <ul>
-        <li><0~5.0> (sec) : 접속완료 대기시간 (파라미터가 없거나 0이면 무한대기)</li>
+        <li><0~5.0> (sec) : Maximum waiting time (in seconds) for the completion signal. If the signal is not received within the specified time, an error will be generated.</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
@@ -322,7 +381,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 <br>
 
-### 사용예
+### Usage Examples
 ```python
 S10	  move L, ...
       toolchng off,tg=G1		
@@ -334,150 +393,188 @@ S22	  move L, ...
       toolchng off,tg=G4		
 
 S31	  move L, ...	
-  	  toolchng on,tg=["G1","G2"],is=di20	
+  	  toolchng on,tg=[G1,G2],is=di20	
 
 S42	  move L, ...
-      toolchng off,tg=["G1","G2"]		
+      toolchng off,tg=[G1,G2]		
 
 
-```# 2.6 수동 접속/분리 기능
+```# 2.6 Manual Attach/Detach Function
+
+Servo tools can be manually connected or disconnected while the system is in Manual Mode.
+Manual servo tool change is executed by entering '[R..] + 358'.
+This procedure applies to all servo tool types including jigs and positioners.
+
+This section explains how to use the R358 manual tool change function for servo guns and positioners based on the configuration shown in [2.2 Servo Tool Parameter Settings](../2-user-interface/2-parameters.md) (Figure 2.3).
 
 
+### (1) Manual Positioner Connection/Disconnection
 
-서보툴을 수동상태에서 접속/분리하는 기능입니다. 서보툴 수동 접속/분리는 ‘[R..]+358’을 입력하여 수행합니다. 지그/포지셔너까지 포함한 서보툴 수동 접속 분리도 ‘[R..]+358’을 입력하여 수행합니다. 본 장에서는 [2.2 서보툴 파라미터 설정](../2-user-interface/2-parameters.md) 그림2.3의 서보툴 체인지 환경의 포지셔너와 서보건 접속을 위한 R358 사용법에 대해서 설명합니다.
+- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
+(A reboot is required if system settings have been modified.)
 
-### (1)	포지셔너 수동 접속/분리
+- Press the [R..] key, then enter 358.
 
-- 모드 스위치를 수동모드 전환하고 부가1축의 서보툴 체인지 환경을 ‘유효’로 합니다. (변경시 재부팅 필요)
-- [R..]키 + 358을 입력합니다.
-- 체인지 동작 입력창이 나타납니다. 접속을 위해 '1'을 입력합니다.
-- 서보툴의 축사양이 포지셔너이므로 '2'를 입력합니다.
-- 체인지할 포지셔너 번호 '1'을 입력합니다.
- 
+- The tool change command window will appear.
+  Enter "1" to initiate tool connection.
+
+- Since the tool type is a positioner, enter "2".
+
+- Enter the target positioner number, for example "1".
 
 <p align="center">
- <img src="../_assets/fig2_6.png"></img>
- <em><p align="center">그림 2.6 포지셔너 P1 접속</p></em>
+ <img src="../_assets/fig2_6_eng.png"></img>
+ <em><p align="center">Figure 2.6 Positioner P1 Connection</p></em>
 </p>
+
+<br>
+
+{% hint style="info" %}  
+If the motor is not ON, the following message will appear and the connection/disconnection process will not be executed.
+
+<p align="center">
+ <img src="../_assets/fig2_7_eng.png"></img>
+ 
+</p>
+{% endhint %}
+
+<br>
+
+### (2)	Manual Servo Gun Connection/Disconnection
+
+- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
+(A reboot is required if the setting has been modified.)
+
+- Press the [R..] key, then enter 358.
+
+- When the tool change command window appears, enter "1" to execute the connection.
+
+- Since the tool type is a servo gun, enter "1".
+
+- Enter the servo gun number to be connected, for example "1".
+
+<p align="center">
+ <img src="../_assets/fig2_8_eng.png"></img>
+ <em><p align="center">Figure 2.8 Servo Gun G1 Connection</p></em>
+</p>
+
+<br>
+
+<p align="center">
+ <img src="../_assets/fig2_9_eng.png"></img>
+ <em><p align="center">Figure 2.9 Servo Gun G2 Connection</p></em>
+</p>
+
 
 <br>
 
 {% hint style="info" %}
-모터 ON이 아니면 하기와 같은 메시지가 출력되고 접속/분리가 실행되지 않습니다.
 
-<p align="center">
- <img src="../_assets/fig2_7.png"></img>
- 
-</p>
- 
-
+-  When selecting "Fix" during the tool change input, the tool will not be physically changed.
+ This function is used only to update the servo tool’s axis origin, soft limit, and encoder offset.
+- If the additional axis type is a jig, enter "3" for the axis type selection.
 {% endhint %}
+- If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.# 2.7 Attach/Detach Timing
 
+###	Connection  
 
+When the connection command (toolchng on) is executed and the robot and servo tool are mechanically coupled, the controller receives the connection-complete signal and performs the internal connection process.
+During this sequence, the encoder power for the servo tool axis is enabled and the motor is turned ON.
 
+###	Disconnection
 
-<br>
-
-
-
-### (2)	서보건 수동 접속/분리
-
-- 모드 스위치를 수동모드 전환하고 부가1축의 서보툴 체인지 환경을 ‘유효’로 합니다. (변경시 재부팅 필요)
-- [R..]키 + 358을 입력합니다.
-- 체인지 동작 입력창이 나타납니다. 접속을 위해 '1'을 입력합니다.
-- 서보툴의 축사양이 서보건이므로 '1'를 입력합니다.
-- 체인지할 서보건 번호 '1'을 입력합니다.
- 
-
-<p align="center">
- <img src="../_assets/fig2_8.png"></img>
- <em><p align="center">그림 2.8 서보건 G1 접속</p></em>
-</p>
-
-<br>
-
-<p align="center">
- <img src="../_assets/fig2_9.png"></img>
- <em><p align="center">그림 2.9 서보건 G2 접속</p></em>
-</p>
-
-
-<br>
-
-{% hint style="info" %}
-- 체인지 동작 입력시 ‘고정(fix)’는 실제로 툴이 교체되지 않고 서보툴의 축원점과 소프트리밋, 엔코더 옵셋을 변경하기 위한 기능입니다.
-- 부가축이 지그인 경우에는 축사양 입력시 '3'을 입력합니다.
-- 부가축이 모든 같은 타입인 경우에는 R358 사용시 '서보툴의 축사양'에 대한 입력을 요청하지 않습니다.
-{% endhint %}
-# 2.7 접속/분리 타이밍
-
-###	접속   
-접속명령(toolchng on)을 실행중 로봇과 서보툴이 기계적으로 접속이 되면 접속완료 신호를 입력받고 제어기 내부적으로 접속 처리를 수행합니다. 또한, 서보툴축 구동을 위한 엔코더 전원 투입과 모터 ON 동작이 추가됩니다.
-
-###	분리  
-분리명령(toolchng off)은 접속과 상반되는 시퀀스를 가지고 분리 처리를 수행합니다.
+The disconnection command (toolchng off) executes the reverse sequence of the connection process to remove the tool.
 
 <br>
 
 
 <p align="center">
- <img src="../_assets/fig2_10.png"></img>
- <em><p align="center">그림 2.10 서보툴 체인지 접속/분리 타이밍</p></em>
+ <img src="../_assets/fig2_10_eng.png"></img>
+ <em><p align="center">Figure 2.10 Servo Tool Change Connection/Disconnection Timing</p></em>
 </p>
-# 2.8 포지셔너 캘리브레이션 명령(posi_calib)
+# 2.8 Positioner Calibration Command (posi_calib)
 
 
-포지셔너가 로봇과 동기동작을 하기 위해 필요한 포지셔너 캘리브레이션을 수행하는 명령입니다. 일반적으로 포지셔너 캘리브레이션은 설정 대화상자를 통해 수행합니다. 그러나, 서보툴 체인지로 포지셔너가 변경되는 경우에는 로봇 운전 중 캘리브레이션이 변경되어야 합니다. 이를 로봇 프로그램 상에서 수행하기 위한 명령어가 포지셔너 캘리브레이션입니다. 
+This command performs positioner calibration, which is required for synchronized motion between the robot and the positioner.
+Normally, positioner calibration is executed through the setup dialog.
+However, when the positioner changes during operation due to a servo tool change, calibration must be updated while the robot is running.
+The posi_calib command allows this process to be executed within a robot program.
 
 <br>
 
-자세한 명령어 사용법은 "[posi_calib 명령어](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/2-system_settings/2-3-positioner-calibration/4-posi_calib)"를 참고하시기 바랍니다.
-# 3. 작업 예시
-# 3.1 툴체인지의 접속/분리 예시
+For detailed usage instructions, refer to “[2.3.4 posi_calib](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/2-system_settings/2-3-positioner-calibration/4_posi_calib)” in the documentation.# 3. Job Examples
+# 3.1 Tool Change Attach/Detach Example
 
 
 
 
 ```python
-S10	  move L, ...				#서보툴 분리위치 이동
-	  toolchng off,tg=G1		#서보툴 분리 실행
-	    			#서보툴 분리 출력(전용출력)
-	  do11=1			#ATC cam 개방 출력
-	  wait di11				#ATC cam 개방완료 신호확인
-S11	  move L, ...				#로봇이동
-S12	  move L, ...				#로봇이동
-S13	  move L, ...				#로봇이동
-S14	  move L, ...				#서보툴 접속위치 이동
-	  wait di12			    #접속 가능 신호확인
-	  do11=0			#ATC cam 닫기 출력
-	  toolchng on,tg=G1,di=1			#기계적 접속 실행
-					#서보툴 접속 처리
-S15	  move L, ...				#로봇이동
-```# 3.2 포지셔너의 접속/분리 예시
+S10   move L, ...                         # Move to servo tool release position
+      toolchng off,tg=G1                  # Execute servo tool disconnection
+                                          # Servo tool disconnection output (dedicated output)
+      do11 = 1                            # Output ATC cam open signal
+      wait di11                           # Wait for ATC cam open confirmation signal
+
+S11   move L, ...                         # Robot motion
+S12   move L, ...                         # Robot motion
+S13   move L, ...                         # Robot motion
+
+S14   move L, ...                         # Move to servo tool connection position
+      wait di12                           # Wait for tool connection-ready signal
+      do11 = 0                            # Output ATC cam close signal
+      toolchng on,tg=G1,di=1              # Execute mechanical connection of the servo tool
+                                          # Servo tool connection process
+
+S15   move L, ...                         # Robot motion
+
+```# 3.2 Positioner Attach/Detach Example
 
 
 <p align="center">
  <img src="../_assets/fig3_1.png"></img>
- <em><p align="center">그림 3.1 로봇 2대, 포지셔너 3대 예시 (이태리 C사 시스템)</p></em>
+ <em><p align="center">Figure 3.1 Example System Configuration: Two Robots and Three Positioners (Italian Manufacturer C)</p></em>
 </p>
 
 <br>
 
-(1)	포지셔너 체인지 시스템의 구성
--	시스템 구성: 로봇 2대 + 포지셔너 3대
--	필요 장비: 각 포지셔너와 각각의 로봇을 연결할 수 있는 ATC(Auto Tool Changer), 당사 로봇의 서보건 체인저
+(1)	System Configuration of the Positioner Change System
 
-(2)	작업 내용
--	로봇 1이 포지셔너 A와 접속 후 작업 수행. 로봇 2는 포지셔너 C와 작업 수행. 작업자는 포지셔너 B에 작업물 장착
--	각 포지셔너 별 작업이 종료되면 로봇과 포지셔너 간 접속을 끊음.
--	3 부분의 작업이 완료된 후 전체 포지셔너 시스템이 반시계방향으로 120도 회전.
--	로봇 1이 포지셔너 B와 접속 후 작업 수행. 로봇 2는 포지셔너 A와 작업 수행. 작업자는 포지셔너 C에 작업물 장착
--	이후 작업 반복 수행
+- System layout: 2 robots + 3 positioners
 
-(3)	주의 사항
--	각 포지셔너의 분리/접속 기능 동작은 가능한 한 동일한 위치에서 수행하십시오.
-# 4. 자주하는 질문
+- Required equipment:
 
-1. 공압건의 체인지도 가능한가요?  
-체인지 대상이 건이고, 건타입이 공압건인 경우는 공압건에 대한 접속/분리를 수행합니다. 
+    - ATC (Auto Tool Changer) capable of connecting each positioner to each robot
 
+    - Servo gun changer compatible with our robots
+
+(2)	Operation Workflow
+
+- Robot 1 connects to Positioner A and performs welding.
+ Robot 2 connects to Positioner C and performs welding.
+Meanwhile, the operator mounts a workpiece on Positioner B.
+
+- When work on each positioner is completed, the connection between the robot and positioner is released.
+
+- After all three independent operations are completed, the entire positioner system rotates 120° counterclockwise.
+
+- Robot 1 then connects to Positioner B and starts processing.
+ Robot 2 connects to Positioner A.
+The operator mounts a new workpiece onto Positioner C.
+
+- This cycle continues repeatedly.
+
+(3)	Precautions
+
+Perform the disconnection and connection operations of each positioner at the same defined location whenever possible, to ensure stable operation and prevent mechanical tolerance misalignment.# 4. FAQ
+
+1. Is pneumatic gun tool change supported?
+
+   If the target tool is a gun and its type is defined as a pneumatic gun, the system supports attach/detach operations for the pneumatic gun.
+<br>
+
+2. An encoder-related error appears during the first servo tool attachment. What should I do?
+
+   Before using the tool for the first time, an encoder reset must be performed.
+In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/2-user-interface/1-environment))
+
+<br>
