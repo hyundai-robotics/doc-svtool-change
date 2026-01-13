@@ -5,7 +5,7 @@
     "publisher": "HD Hyundai Robotics",
     "tocTitle": "Table of Contents",
     "tocTitleElements": "[ \"h1\", \"h2\" ]",
-    "docId": "${cont_model:upper}POSISYNCH_EN_001",
+    "docId": "${cont_model:upper}SVTOOL_EN_001",
     "references": [
         { "rpath" : "doc-hi6-operation/en-tp630" }
     ]
