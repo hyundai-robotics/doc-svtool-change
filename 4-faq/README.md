@@ -8,6 +8,6 @@
 2. An encoder-related error appears during the first servo tool attachment. What should I do?
 
    Before using the tool for the first time, an encoder reset must be performed.
-In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/2-user-interface/1-environment))
+In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/2-user-interface/1-environment?cont_model=${cont_model}))
 
 <br>

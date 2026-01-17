@@ -70,7 +70,7 @@ If the motor is not ON, the following message will appear and the connection/dis
 {% hint style="info" %}
 
 -  When selecting "Fix" during the tool change input, the tool will not be physically changed.
- This function is used only to update the servo tool’s axis origin, soft limit, and encoder offset.
+ This function is used only to update the servo tool's axis origin, soft limit, and encoder offset.
 - If the additional axis type is a jig, enter "3" for the axis type selection.
 {% endhint %}
 - If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.

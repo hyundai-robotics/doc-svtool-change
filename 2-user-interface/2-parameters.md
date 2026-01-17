@@ -32,7 +32,7 @@ Multiple positioners or jigs may be configured on a single additional axis if re
 
 <br>
 
-※	Example Usage  
+*	Example Usage  
 The following configuration shows the axis type, assigned servo gun/positioner/jig number, and corresponding additional axis number for each servo tool.
 
   - P1, P2, P3: Servo tools assigned to additional axis 1

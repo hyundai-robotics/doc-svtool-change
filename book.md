@@ -1,17 +1,11 @@
-﻿# ${cont_model} Robot Controller Function Manual - Servo Tool Change
+﻿
+[__SOURCE](README.md)
+# ${cont_model} Controller Function Manual - Servo Tool Change
 
-{% hint style="warning" %}
-The information provided in this manual is the property of Hyundai Robotics.
-
-It cannot be reproduced or redistributed in whole or in part without the written consent of Hyundai Robotics, and cannot be provided to a third party or used for other purposes.
-
-<br>
-
-This manual is subject to change without prior notice.
-
-**Copyright ⓒ 2023 by Hyundai Robotics**  
-{% endhint %}
-# 1. Overview# 1.1 What is Multi (Servo) Tool Change?
+[__SOURCE](1-intro/README.md)
+# 1. Overview
+[__SOURCE](1-intro/1-definition.md)
+# 1.1 What is Multi (Servo) Tool Change?
 
 Servo tool change refers to the process in which the robot automatically replaces tools—such as jigs, positioners, or servo guns equipped with servo motors—using an Automatic Tool Changer (ATC).
 
@@ -36,12 +30,14 @@ This manual is written based on a system equipped with three additional axes: th
 
 {% hint style="info" %}   
  - Required reference document  
-    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-Hi6-tp630/README)  
-    -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/english/README)   
-    -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/README)  
-    -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/README)
+    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-Hi6-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
+    -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
+    -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/README?cont_model=${cont_model})
 
-{% endhint %}#  1.2 Specifications
+{% endhint %}
+[__SOURCE](1-intro/2-specs.md)
+#  1.2 Specifications
 
 The specifications of the Servo Tool Change function in the ${cont_model} robot controller are as follows:
 
@@ -50,7 +46,9 @@ The specifications of the Servo Tool Change function in the ${cont_model} robot 
 | :---: | :---: | 
 | Maximum number of supported tool motors | 16 ea | 
 | Supported tool types | servo gun, positioner, jig | 
-| Maximum number of tools that can be changed simultaneously | 4 ea | # 1.3 Operation Workflow
+| Maximum number of tools that can be changed simultaneously | 4 ea | 
+[__SOURCE](1-intro/3-operations.md)
+# 1.3 Operation Workflow
 
 To use the Servo Tool Change function, the system must be initialized and configured to a level that supports additional axes.
 Based on the system specifications covered in this manual, the workflow—from system initialization to user program creation—is summarized in the table below.
@@ -59,20 +57,20 @@ Based on the system specifications covered in this manual, the workflow—from s
 
 | Step | Configuration | Description | Detailed Setting Path |Notes|
 | :---: | :---: | :---: |:---:  |:---:|
-| 1 | [System Initialization](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/1-system-format) | Perform system initialization |[**system**/5:Intialization/1:System format] ||
-| 2 | [Robot Type Selection](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/2-robot-type-sel)| Register robot type and number of additional axes |[**system**/5:Intialization/2:Robot type selection] |Number of additional axes: 3|
+| 1 | [System Initialization](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | Perform system initialization |`system**/5:Intialization/1:System format] ||
+| 2 | [Robot Type Selection](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model})| Register robot type and number of additional axes |`system**/5:Intialization/2:Robot type selection] |Number of additional axes: 3|
 | 3 | Rebooting |  | ||
-| 4 | [Additional Axis Parameter Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/5-add-axis-param) | Register additional axis information |[**system**/5:Intialization/5:Additional axis parameter setting] |Default setup: T1 = G1, T2 = G2, T3 = J1|
+| 4 | [Additional Axis Parameter Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/5-add-axis-param?cont_model=${cont_model}) | Register additional axis information |`system**/5:Intialization/5:Additional axis parameter setting] |Default setup: T1 = G1, T2 = G2, T3 = J1|
 | 5 | Rebooting |  | ||
-| 6 | [Application Settings](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/3-usage-set/README) | Configure application settings, I/O signals, and user key assignments |[**system**/5:Intialization/3:Usage setting] |Spot welding usage, user key assignment|
-| 7 | [Encoder Offset Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/4-robot-parameter/4-encoder-offset/README) | Register encoder origin |[**system**/3: Robot Parameters → 4: Encoder Offset] ||
-| 8 | [Axis Origin Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/4-robot-parameter/2-axis-origin) | Set the axis origin and run automatic calibration |[**system**/3: Robot Parameters → 2: Axis Origin] ||
-| 9 | [*Spot Gun Setup](https://hrbook-hrc.web.app/#/view/doc-spot-weld/english/5-spot-weld-parameter/5-2-welding-gun-parameter/README) | Configure gun parameters (only for spot welding). |[**system**/4: Application Parameters → 1: Spot Welding → 2: Welding Gun Parameters] ||
-| 10 | [Servo Tool Change Setup](https://hrbook-hrc.web.app/#/view/doc-svtool-change/english/README) | Configure environment settings for servo tool change |[**system**/4: Application Parameters → 11: Servo Tool Change] ||
-| 11 | [Tool Data Setup](https://hrbook-hrc.web.app/#/view/doc-load-estimation/english/README) | Perform load estimation for tool attach/detach (T0) | [**system**/6: Auto calibration → 4: Load Estimation] ||
-| 12 | [Positioner Calibration](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/2-system_settings/2-3-positioner-calibration/README) | When using a positioner for servo tool change, create calibration programs for each positioner | ||
-| 13 | [Program Development](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/3-programming/README) |  | |toolchng (attach/detach) <br> posi_calib (Positioner Calibration)|
-| 14 | [Auto Operation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/2-operation/2-automatic-operation/README) |  | ||
+| 6 | [Application Settings](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | Configure application settings, I/O signals, and user key assignments |`system**/5:Intialization/3:Usage setting] |Spot welding usage, user key assignment|
+| 7 | [Encoder Offset Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | Register encoder origin |`system**/3: Robot Parameters → 4: Encoder Offset] ||
+| 8 | [Axis Origin Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | Set the axis origin and run automatic calibration |`system**/3: Robot Parameters → 2: Axis Origin] ||
+| 9 | [*Spot Gun Setup](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/5-spot-weld-parameter/5-2-welding-gun-parameter/README?cont_model=${cont_model}) | Configure gun parameters (only for spot welding). |`system**/4: Application Parameters → 1: Spot Welding → 2: Welding Gun Parameters] ||
+| 10 | [Servo Tool Change Setup](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README?cont_model=${cont_model}) | Configure environment settings for servo tool change |`system**/4: Application Parameters → 11: Servo Tool Change] ||
+| 11 | [Tool Data Setup](https://hrbook-hrc.web.app/#/view/doc-load-estimation/en/README?cont_model=${cont_model}) | Perform load estimation for tool attach/detach (T0) | `system**/6: Auto calibration → 4: Load Estimation] ||
+| 12 | [Positioner Calibration](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/2-system_settings/2-3-positioner-calibration/README?cont_model=${cont_model}) | When using a positioner for servo tool change, create calibration programs for each positioner | ||
+| 13 | [Program Development](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/3-programming/README?cont_model=${cont_model}) |  | |toolchng (attach/detach) <br> posi_calib (Positioner Calibration)|
+| 14 | [Auto Operation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/2-operation/2-automatic-operation/README?cont_model=${cont_model}) |  | ||
 
 
 <br>
@@ -104,8 +102,12 @@ The configuration described above is summarized in the table below.
 |W2|**G4**| T4|	servo gun	|a3|
 |W1|**G5**|	T5|	servo gun	|a2|
 
+
+[__SOURCE](2-user-interface/README.md)
 # 2. User Interface
 
+
+[__SOURCE](2-user-interface/1-environment.md)
 # 2.1 Environment Settings
 
 Servo tool change environment settings must be configured before use.
@@ -141,7 +143,7 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 → 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
 
 - Among the system I/O signals, user-defined signals are assigned as follows:
-SI[48–51] / SO[48–51]
+SI[48-51] / SO[48-51]
 {% endhint %}
 
 <br>
@@ -151,14 +153,16 @@ For the first installation of a servo tool, an encoder reset must be performed b
 The encoder reset procedure is as follows:
 
   1. Make Servo Tool Change enabled ('enable' radio button)
-  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '1' → Encoder power ON 
-  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/4-serial-encoder-reset) 
-  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '0' → Encoder power OFF
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '1' → Encoder power ON 
+  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/4-serial-encoder-reset?cont_model=${cont_model}) 
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '0' → Encoder power OFF
 
 
 {% hint style="warning" %}
 If the servo tool is attached without performing an encoder reset, an encoder-related error will occur.
-{% endhint %}# 2.2 Servo Tool Parameter Settings
+{% endhint %}
+[__SOURCE](2-user-interface/2-parameters.md)
+# 2.2 Servo Tool Parameter Settings
 
 
 For each servo motor, the system manages the axis specification, assigned servo tool number, and additional axis number used during tool change operations.
@@ -192,7 +196,7 @@ Multiple positioners or jigs may be configured on a single additional axis if re
 
 <br>
 
-※	Example Usage  
+*	Example Usage  
 The following configuration shows the axis type, assigned servo gun/positioner/jig number, and corresponding additional axis number for each servo tool.
 
   - P1, P2, P3: Servo tools assigned to additional axis 1
@@ -225,6 +229,8 @@ In an actual Servo Tool Change system, the relationship between additional axes 
  <img src="../_assets/fig2_3_eng.png"></img>
  <em><p align="center">Figure 2.3 Additional Axis and Tool Change Targets</p></em>
 </p>
+
+[__SOURCE](2-user-interface/3-origins.md)
 # 2.3 Axis Origin
 
 The system manages the axis home position for each servo motor. 
@@ -253,7 +259,9 @@ In addition to the axis home position, the following parameters are also automat
 
 - Servo parameters  
 
-- Acceleration/deceleration parameters# 2.4 Monitoring
+- Acceleration/deceleration parameters
+[__SOURCE](2-user-interface/4-monitoring.md)
+# 2.4 Monitoring
 
 The status related to the Servo Tool Change function can be monitored by the user.
 
@@ -274,7 +282,7 @@ Displays whether the servo tool change function is enabled for the additional ax
 - Servo Tool Connection Status  
 Indicates the current connection state of the servo tool on the additional axis.
 If the tool is connected, the corresponding tool identifier is displayed.
-If disconnected, “--” is shown.
+If disconnected, "--" is shown.
 
 - Encoder Power Output  
 Displays the assigned output signal number used for encoder power control as well as its ON/OFF status.
@@ -290,9 +298,11 @@ Displays the assigned input signal number used to monitor the encoder power stat
 『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 →
 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
 
-- System I/O signals for user mapping correspond to SI[48–51] / SO[48–51].
+- System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
 
 {% endhint %}
+
+[__SOURCE](2-user-interface/5-toolchng.md)
 # 2.5 Attach/Detach Command (toolchng)
 
 
@@ -399,7 +409,9 @@ S42	  move L, ...
       toolchng off,tg=[G1,G2]		
 
 
-```# 2.6 Manual Attach/Detach Function
+```
+[__SOURCE](2-user-interface/6-manual.md)
+# 2.6 Manual Attach/Detach Function
 
 Servo tools can be manually connected or disconnected while the system is in Manual Mode.
 Manual servo tool change is executed by entering '[R..] + 358'.
@@ -471,10 +483,12 @@ If the motor is not ON, the following message will appear and the connection/dis
 {% hint style="info" %}
 
 -  When selecting "Fix" during the tool change input, the tool will not be physically changed.
- This function is used only to update the servo tool’s axis origin, soft limit, and encoder offset.
+ This function is used only to update the servo tool's axis origin, soft limit, and encoder offset.
 - If the additional axis type is a jig, enter "3" for the axis type selection.
 {% endhint %}
-- If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.# 2.7 Attach/Detach Timing
+- If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.
+[__SOURCE](2-user-interface/7-timing.md)
+# 2.7 Attach/Detach Timing
 
 ###	Connection  
 
@@ -492,6 +506,8 @@ The disconnection command (toolchng off) executes the reverse sequence of the co
  <img src="../_assets/fig2_10_eng.png"></img>
  <em><p align="center">Figure 2.10 Servo Tool Change Connection/Disconnection Timing</p></em>
 </p>
+
+[__SOURCE](2-user-interface/8-posical.md)
 # 2.8 Positioner Calibration Command (posi_calib)
 
 
@@ -502,7 +518,11 @@ The posi_calib command allows this process to be executed within a robot program
 
 <br>
 
-For detailed usage instructions, refer to “[2.3.4 posi_calib](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/english/2-system_settings/2-3-positioner-calibration/4_posi_calib)” in the documentation.# 3. Job Examples
+For detailed usage instructions, refer to "[2.3.4 posi_calib](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/2-system_settings/2-3-positioner-calibration/4_posi_calib?cont_model=${cont_model})" in the documentation.
+[__SOURCE](3-job/README.md)
+# 3. Job Examples
+
+[__SOURCE](3-job/1-sample-job.md)
 # 3.1 Tool Change Attach/Detach Example
 
 
@@ -527,7 +547,9 @@ S14   move L, ...                         # Move to servo tool connection positi
 
 S15   move L, ...                         # Robot motion
 
-```# 3.2 Positioner Attach/Detach Example
+```
+[__SOURCE](3-job/2-positioner-example.md)
+# 3.2 Positioner Attach/Detach Example
 
 
 <p align="center">
@@ -565,7 +587,9 @@ The operator mounts a new workpiece onto Positioner C.
 
 (3)	Precautions
 
-Perform the disconnection and connection operations of each positioner at the same defined location whenever possible, to ensure stable operation and prevent mechanical tolerance misalignment.# 4. FAQ
+Perform the disconnection and connection operations of each positioner at the same defined location whenever possible, to ensure stable operation and prevent mechanical tolerance misalignment.
+[__SOURCE](4-faq/README.md)
+# 4. FAQ
 
 1. Is pneumatic gun tool change supported?
 
@@ -575,6 +599,6 @@ Perform the disconnection and connection operations of each positioner at the sa
 2. An encoder-related error appears during the first servo tool attachment. What should I do?
 
    Before using the tool for the first time, an encoder reset must be performed.
-In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/2-user-interface/1-environment))
+In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/2-user-interface/1-environment?cont_model=${cont_model}))
 
 <br>

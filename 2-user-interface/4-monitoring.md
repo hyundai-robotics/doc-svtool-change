@@ -19,7 +19,7 @@ Displays whether the servo tool change function is enabled for the additional ax
 - Servo Tool Connection Status  
 Indicates the current connection state of the servo tool on the additional axis.
 If the tool is connected, the corresponding tool identifier is displayed.
-If disconnected, “--” is shown.
+If disconnected, "--" is shown.
 
 - Encoder Power Output  
 Displays the assigned output signal number used for encoder power control as well as its ON/OFF status.
@@ -35,6 +35,6 @@ Displays the assigned input signal number used to monitor the encoder power stat
 『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 →
 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
 
-- System I/O signals for user mapping correspond to SI[48–51] / SO[48–51].
+- System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
 
 {% endhint %}

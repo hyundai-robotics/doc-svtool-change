@@ -33,7 +33,7 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 → 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
 
 - Among the system I/O signals, user-defined signals are assigned as follows:
-SI[48–51] / SO[48–51]
+SI[48-51] / SO[48-51]
 {% endhint %}
 
 <br>
@@ -43,9 +43,9 @@ For the first installation of a servo tool, an encoder reset must be performed b
 The encoder reset procedure is as follows:
 
   1. Make Servo Tool Change enabled ('enable' radio button)
-  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '1' → Encoder power ON 
-  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/7-system/6-initialization/4-serial-encoder-reset) 
-  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/english-tp630/8-r-code/14-r359) + '0' → Encoder power OFF
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '1' → Encoder power ON 
+  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/4-serial-encoder-reset?cont_model=${cont_model}) 
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '0' → Encoder power OFF
 
 
 {% hint style="warning" %}
