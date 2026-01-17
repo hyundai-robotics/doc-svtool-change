@@ -5,4 +5,4 @@
 
 <br>
 
-자세한 명령어 사용법은 "[posi_calib 명령어](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/korean/2-system_settings/2-3-positioner-calibration/4_posi_calib)"를 참고하시기 바랍니다.
+자세한 명령어 사용법은 "[posi_calib 명령어](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/2-system_settings/2-3-positioner-calibration/4_posi_calib?cont_model=${cont_model})"를 참고하시기 바랍니다.

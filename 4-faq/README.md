@@ -6,6 +6,6 @@
 <br>
 
 2. 처음 서보툴 접속시에 엔코더 관련 에러가 발생하는데 어떻게 해야 하나요?  
-툴의 최초 사용을 위해서는 엔코더 리셋을 수행해야 합니다. 서보툴체인지가 가능한 환경에서 R359를 이용해서 엔코더 전원을 입력하고, 엔코더 리셋을 먼저 수행해 주시기 바랍니다. ([2.1.1 엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-svtool-change/korean/2-user-interface/1-environment) 참고)
+툴의 최초 사용을 위해서는 엔코더 리셋을 수행해야 합니다. 서보툴체인지가 가능한 환경에서 R359를 이용해서 엔코더 전원을 입력하고, 엔코더 리셋을 먼저 수행해 주시기 바랍니다. ([2.1.1 엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-svtool-change/ko/2-user-interface/1-environment?cont_model=${cont_model}) 참고)
 
 <br>
