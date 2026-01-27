@@ -147,7 +147,8 @@ SI[48-51] / SO[48-51]
 
 <br>
 
-## 2.1.1 Encoder Reset
+**Encoder Reset**
+
 For the first installation of a servo tool, an encoder reset must be performed before the tool can be attached.
 The encoder reset procedure is as follows:
 
