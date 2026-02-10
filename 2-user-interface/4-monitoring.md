@@ -3,7 +3,7 @@
 The status related to the Servo Tool Change function can be monitored by the user.
 
 Menu Path:
-『Operation Panel』 → 『Select』 → 『Servo Tool Change』
+`Operation Panel - Select - Servo Tool Change`
 
 <p align="center">
  <img src="../_assets/fig2_5_eng.png"></img>
@@ -32,8 +32,7 @@ Displays the assigned input signal number used to monitor the encoder power stat
 {% hint style="info" %}
 - The logic level of input/output signals can be configured in:
 
-『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 →
-『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
 - System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
 

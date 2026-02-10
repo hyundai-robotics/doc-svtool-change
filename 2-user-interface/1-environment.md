@@ -2,7 +2,7 @@
 
 Servo tool change environment settings must be configured before use.
 
-『system』 → 『4: Application parameter』 → 『11: Servo tool change』 → 『1: Environment setting』
+`[F2: system] - 4: Application parameter - 11: Servo tool change - 1: Environment setting`
 
 <p align="center">
  <img src="../_assets/fig2_1_eng.png"></img>
@@ -30,7 +30,7 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 
 {% hint style="info" %}
 - The I/O signal logic can be configured under:
-『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 → 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
 - Among the system I/O signals, user-defined signals are assigned as follows:
 SI[48-51] / SO[48-51]

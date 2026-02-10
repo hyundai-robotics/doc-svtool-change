@@ -1,6 +1,6 @@
 ﻿# 1.1 What is Multi (Servo) Tool Change?
 
-Servo tool change refers to the process in which the robot automatically replaces tools—such as jigs, positioners, or servo guns equipped with servo motors—using an Automatic Tool Changer (ATC).
+Servo tool change refers to the process in which the robot automatically replaces tools-such as jigs, positioners, or servo guns equipped with servo motors-using an Automatic Tool Changer (ATC).
 
 <p align="center">
  <img src="../_assets/fig1_1.png"></img>
@@ -22,7 +22,7 @@ This manual is written based on a system equipped with three additional axes: th
 
 {% hint style="info" %}   
  - Required reference document  
-    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-Hi6-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})  
     -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
     -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
     -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/README?cont_model=${cont_model})

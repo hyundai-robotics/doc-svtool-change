@@ -7,7 +7,7 @@
 [__SOURCE](1-intro/1-definition.md)
 # 1.1 What is Multi (Servo) Tool Change?
 
-Servo tool change refers to the process in which the robot automatically replaces tools—such as jigs, positioners, or servo guns equipped with servo motors—using an Automatic Tool Changer (ATC).
+Servo tool change refers to the process in which the robot automatically replaces tools-such as jigs, positioners, or servo guns equipped with servo motors-using an Automatic Tool Changer (ATC).
 
 <p align="center">
  <img src="../_assets/fig1_1.png"></img>
@@ -29,7 +29,7 @@ This manual is written based on a system equipped with three additional axes: th
 
 {% hint style="info" %}   
  - Required reference document  
-    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-Hi6-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})  
     -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
     -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
     -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/README?cont_model=${cont_model})
@@ -50,7 +50,7 @@ The specifications of the Servo Tool Change function in the ${cont_model} robot 
 # 1.3 Operation Workflow
 
 To use the Servo Tool Change function, the system must be initialized and configured to a level that supports additional axes.
-Based on the system specifications covered in this manual, the workflow—from system initialization to user program creation—is summarized in the table below.
+Based on the system specifications covered in this manual, the workflow-from system initialization to user program creation-is summarized in the table below.
 
 
 
@@ -111,7 +111,7 @@ The configuration described above is summarized in the table below.
 
 Servo tool change environment settings must be configured before use.
 
-『system』 → 『4: Application parameter』 → 『11: Servo tool change』 → 『1: Environment setting』
+`[F2: system] - 4: Application parameter - 11: Servo tool change - 1: Environment setting`
 
 <p align="center">
  <img src="../_assets/fig2_1_eng.png"></img>
@@ -139,7 +139,7 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 
 {% hint style="info" %}
 - The I/O signal logic can be configured under:
-『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 → 『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
 - Among the system I/O signals, user-defined signals are assigned as follows:
 SI[48-51] / SO[48-51]
@@ -167,7 +167,7 @@ If the servo tool is attached without performing an encoder reset, an encoder-re
 
 For each servo motor, the system manages the axis specification, assigned servo tool number, and additional axis number used during tool change operations.
 Navigation path:
-『[F2]: System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『2: Servo Tool Parameter Settings』
+`[F2: System] - 4: Application Parameters - 11: Servo Tool Change - 2: Servo Tool Parameter Settings`
 
 <p align="center">
  <img src="../_assets/fig2_2_eng.png"></img>
@@ -236,7 +236,7 @@ In an actual Servo Tool Change system, the relationship between additional axes 
 The system manages the axis home position for each servo motor. 
 
 Navigation path:
-『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
+`[F2: System] - 4: Application Parameters - 11: Servo Tool Change - 3: Axis Home Position`
 
 <p align="center">
  <img src="../_assets/fig2_4_eng.png"></img>
@@ -247,9 +247,9 @@ Navigation path:
 
 When a servo tool is connected, the home position of the corresponding additional axis is automatically updated to the home position assigned to the selected servo tool.
 In other words, the values configured under:
-『System』 → 『4: Application Parameters』 → 『11: Servo Tool Change』 → 『3: Axis Home Position』
+`[F2: System] - 4: Application Parameters - 11: Servo Tool Change - 3: Axis Home Position`
 are automatically applied to:
-『System』 → 『3: Robot Parameters』 → 『2: Axis Home Position』.
+`[F2: System] - 3: Robot Parameters - 2: Axis Home Position`.
 
 In addition to the axis home position, the following parameters are also automatically updated to the values assigned to the connected servo tool:
 
@@ -266,7 +266,7 @@ In addition to the axis home position, the following parameters are also automat
 The status related to the Servo Tool Change function can be monitored by the user.
 
 Menu Path:
-『Operation Panel』 → 『Select』 → 『Servo Tool Change』
+`Operation Panel - Select - Servo Tool Change`
 
 <p align="center">
  <img src="../_assets/fig2_5_eng.png"></img>
@@ -295,8 +295,7 @@ Displays the assigned input signal number used to monitor the encoder power stat
 {% hint style="info" %}
 - The logic level of input/output signals can be configured in:
 
-『System』 → 『2: Control Parameters』 → 『2: I/O Signal Settings』 →
-『1: Input Signal Attributes』 / 『2: Output Signal Attributes』
+`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
 - System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
 

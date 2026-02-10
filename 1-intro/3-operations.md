@@ -1,7 +1,7 @@
 ﻿# 1.3 Operation Workflow
 
 To use the Servo Tool Change function, the system must be initialized and configured to a level that supports additional axes.
-Based on the system specifications covered in this manual, the workflow—from system initialization to user program creation—is summarized in the table below.
+Based on the system specifications covered in this manual, the workflow-from system initialization to user program creation-is summarized in the table below.
 
 
 
