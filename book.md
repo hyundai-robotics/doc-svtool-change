@@ -61,17 +61,17 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 | 순서 | 설정 | 내용 | 상세설정 |참고|
 | :---: | :---: | :---: |:---:  |:---:|
-| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | 시스템 초기화 실시 |[**시스템**/5:초기화/1:시스템 초기화] ||
-| 2 | [로봇타입 선택](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model})| 로봇타입 및 부가축 개수 등록 |[**시스템**/5:초기화/2:로봇타입 선택] |부가축 개수 : 3|
+| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | 시스템 초기화 실시 |`[F2: 시스템] - 5:초기화 - 1:시스템 초기화` ||
+| 2 | [로봇타입 선택](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model})| 로봇타입 및 부가축 개수 등록 |`[F2: 시스템] - 5:초기화 - 2:로봇타입 선택` |부가축 개수 : 3|
 | 3 | 재부팅 | 전원을 끈 후 15초 후 재부팅 | ||
-| 4 | 부가축 파라미터 설정 | 부가축 정보 등록 |[**시스템**/5:초기화/5:시스템 초기화] |T1=G1, T2=G2, T3=J1으로 초기설정|
+| 4 | 부가축 파라미터 설정 | 부가축 정보 등록 |`[F2: 시스템] - 5:초기화 - 5:시스템 초기화` |T1=G1, T2=G2, T3=J1으로 초기설정|
 | 5 | 재부팅 | 전원을 끈 후 15초 후 재부팅 | ||
-| 6 | [용도설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | 작업용도설정, 입출력신호, 사용자키 할당 등 |[**시스템**/5:초기화/3:용도설정] |스폿용도, 스폿 사용자키 할당|
-| 7 | [엔코더 옵셋 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | 엔코더 원점 등록 |[**시스템**/3:로봇 파라미터/4:엔코더 옵셋] ||
-| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | 축 원점 설정, 자동 캘리브레이션 실행 |[**시스템**/3:로봇 파라미터/2:축 원점] ||
-| 9 | [*스폿건 설정](https://hrbook-hrc.web.app/#/view/doc-spot-weld/ko/5-spot-weld-parameter/5-2-welding-gun-parameter/README?cont_model=${cont_model}) | 스폿용접의 경우 건 파라미터 설정 |[**시스템**/4:응용 파라미터/1:스폿용접/2:용접건 파라미터] ||
-| 10 | [서보툴 체인지 설정](https://hrbook-hrc.web.app/#/view/doc-svtool-change/ko/README?cont_model=${cont_model}) | 서보툴 체인지를 위한 환경 설정 |[**시스템**/4:응용 파라미터/11:서보툴 체인지] ||
-| 11 | [툴 데이터 설정](https://hrbook-hrc.web.app/#/view/doc-load-estimation/ko/README?cont_model=${cont_model}) | 툴의 분리(T0)와 접속에 따른 부하추정 수행 | [**시스템**/6:자동 캘리브레이션/4:부하추정 기능] ||
+| 6 | [용도설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | 작업용도설정, 입출력신호, 사용자키 할당 등 |`[F2: 시스템] - 5:초기화 - 3:용도설정` |스폿용도, 스폿 사용자키 할당|
+| 7 | [엔코더 옵셋 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | 엔코더 원점 등록 |`[F2: 시스템] - 3:로봇 파라미터 - 4:엔코더 옵셋` ||
+| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | 축 원점 설정, 자동 캘리브레이션 실행 |`[F2: 시스템] - 3:로봇 파라미터 - 2:축 원점` ||
+| 9 | [*스폿건 설정](https://hrbook-hrc.web.app/#/view/doc-spot-weld/ko/5-spot-weld-parameter/5-2-welding-gun-parameter/README?cont_model=${cont_model}) | 스폿용접의 경우 건 파라미터 설정 |`[F2: 시스템] - 4:응용 파라미터 - 1:스폿용접 - 2:용접건 파라미터` ||
+| 10 | [서보툴 체인지 설정](https://hrbook-hrc.web.app/#/view/doc-svtool-change/ko/README?cont_model=${cont_model}) | 서보툴 체인지를 위한 환경 설정 |`[F2: 시스템] - 4:응용 파라미터 - 11:서보툴 체인지` ||
+| 11 | [툴 데이터 설정](https://hrbook-hrc.web.app/#/view/doc-load-estimation/ko/README?cont_model=${cont_model}) | 툴의 분리(T0)와 접속에 따른 부하추정 수행 | `[F2: 시스템] - 6:자동 캘리브레이션 - 4:부하추정 기능` ||
 | 12 | [포지셔너 캘리브레이션 수행](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README?cont_model=${cont_model}) | 포지셔너를 이용한 서보툴 체인지인 경우 각각의 포지셔너 별로 캘리브레이션 프로그램 작성 | ||
 | 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/3-programming/README?cont_model=${cont_model}) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
 | 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/2-operation/2-automatic-operation/README?cont_model=${cont_model}) |  | ||
@@ -118,7 +118,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 서보툴에 대한 체인지 환경을 설정합니다.
 
-『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『1: 사용환경 설정』
+`[F2: 시스템] - 4: 응용 파라미터 - 11: 서보툴 체인지 - 1: 사용환경 설정`
 
 <p align="center">
  <img src="../_assets/fig2_1.png"></img>
@@ -138,7 +138,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 접속 또는 분리 시 엔코더 전원 제어 상태를 확인하기 위한 입력 신호를 할당합니다. 엔코더 5V 전원선을 제어하는 릴레이의 동작 여부를 확인합니다.  
 
 {% hint style="info" %}
--	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
+-	입출력 신호의 논리는 `[F2: 시스템] - 2: 제어 파라미터 - 2: 입출력 신호 설정 - 1: 입력 신호 속성 - 2: 출력 신호 속성`에서 설정할 수 있습니다.
 -	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
 {% endhint %}
 
@@ -162,7 +162,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 
 각 서보모터에 대해 축 사양과 서보툴의 번호, 그리고 체인지시 부가축 번호를 관리합니다. 
-『[F2]: 시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『2: 서보툴 파라미터 설정』
+`[F2: 시스템] - 4: 응용 파라미터 - 11: 서보툴 체인지 - 2: 서보툴 파라미터 설정`
 
 <p align="center">
  <img src="../_assets/fig2_2.png"></img>
@@ -219,7 +219,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 # 2.3 축 원점
 각각의 서보모터에 대한 축 원점을 관리합니다. 
 
-『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『3: 축 원점』
+`[F2: 시스템] - 4: 응용 파라미터 - 11: 서보툴 체인지 - 3: 축 원점`
 
 
 <p align="center">
@@ -228,7 +228,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 </p>
 
 
-서보툴을 접속하면 해당 부가축의 축 원점이 체인지할 서보툴의 축 원점으로 자동 갱신됩니다. 즉 『시스템』 → 『4: 응용 파라미터』 → 『11: 서보툴 체인지』 → 『3: 축 원점』의 설정값으로 『시스템』 → 『3: 로봇 파라미터』 → 『2: 축 원점』의 값을 갱신합니다.
+서보툴을 접속하면 해당 부가축의 축 원점이 체인지할 서보툴의 축 원점으로 자동 갱신됩니다. 즉 `[F2: 시스템] - 4: 응용 파라미터 - 11: 서보툴 체인지 - 3: 축 원점`의 설정값으로 `[F2: 시스템] - 3: 로봇 파라미터 - 2: 축 원점`의 값을 갱신합니다.
 
 이 밖에도 해당 부가축의 소프트 리밋, 엔코더 옵셋, 서보 파라미터, 가감속 파라미터도 위에서 언급한 축 원점과 같이 서보툴 접속 시 체인지할 서보툴의 값으로 자동 갱신됩니다.
 
@@ -237,7 +237,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 서보툴 체인지 관련 상태를 사용자에게 모니터링 합니다.
 
-『창조정』 → 『선택』 → 『서보툴 체인지』
+`창조정 - 선택 - 서보툴 체인지`
 
 
 <p align="center">
@@ -262,7 +262,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 <br>
 
 {% hint style="info" %}
--	입출력 신호의 논리는 『시스템』 → 『2: 제어 파라미터』 → 『2: 입출력 신호 설정』 → 『1: 입력 신호 속성』/『2: 출력 신호 속성』에서 설정할 수 있습니다.
+-	입출력 신호의 논리는 `[F2: 시스템] - 2: 제어 파라미터 - 2: 입출력 신호 설정 - 1: 입력 신호 속성 - 2: 출력 신호 속성`에서 설정할 수 있습니다.
 -	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
 {% endhint %}
 
