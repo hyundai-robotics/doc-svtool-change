@@ -1,6 +1,7 @@
 ﻿# Table of contents
 
 * [${cont_model} Controller Function Manual - Servo Tool Change](README.md)
+* [Precautions](0-about-this-manual/precautions.md)
 * [1. Overview](1-intro/README.md)
   * [1.1 What is Multi (Servo) Tool Change?](1-intro/1-definition.md)
   * [1.2 Specifications](1-intro/2-specs.md)
