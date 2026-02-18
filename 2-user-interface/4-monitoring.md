@@ -1,39 +1,38 @@
-﻿# 2.4 Monitoring
+﻿# 2.4 监控
 
-The status related to the Servo Tool Change function can be monitored by the user.
+与伺服工具更换功能相关的状态可以由用户监控。
 
-Menu Path:
-`Operation Panel - Select - Servo Tool Change`
+菜单路径：
+`操作面板 - 选择 - 伺服工具更换`
 
 <p align="center">
  <img src="../_assets/fig2_5_eng.png"></img>
- <em><p align="center">Figure 2.5 Servo Tool Change Monitoring Screen</p></em>
+ <em><p align="center">图 2.5 伺服工具更换监控屏幕</p></em>
 </p>
 
 <br>
 
+- 伺服工具更换功能  
+显示附加轴的伺服工具更换功能是否启用。
 
-- Servo Tool Change Function  
-Displays whether the servo tool change function is enabled for the additional axis.
+- 伺服工具连接状态  
+指示附加轴上伺服工具的当前连接状态。
+如果工具已连接，相应的工具标识符会显示。
+如果未连接，则显示 "--"。
 
-- Servo Tool Connection Status  
-Indicates the current connection state of the servo tool on the additional axis.
-If the tool is connected, the corresponding tool identifier is displayed.
-If disconnected, "--" is shown.
+- 编码器电源输出  
+显示用于编码器电源控制的分配输出信号号码及其开/关状态。
 
-- Encoder Power Output  
-Displays the assigned output signal number used for encoder power control as well as its ON/OFF status.
-
-- Encoder Power Input  
-Displays the assigned input signal number used to monitor the encoder power state along with its ON/OFF status.
+- 编码器电源输入  
+显示用于监控编码器电源状态的分配输入信号号码及其开/关状态。
 
 <br>
 
 {% hint style="info" %}
-- The logic level of input/output signals can be configured in:
+- 输入/输出信号的逻辑电平可以在以下位置配置：
 
-`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
+`[F2: 系统] - 2: 控制参数 - 2: I/O 信号设置 - 1: 输入信号属性 - 2: 输出信号属性 ([F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes)`
 
-- System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
+- 用户映射的系统 I/O 信号对应于 SI[48-51] / SO[48-51]。
 
 {% endhint %}

@@ -1,30 +1,29 @@
-﻿# 1.1 What is Multi (Servo) Tool Change?
+﻿# 1.1 什么是多（伺服）工具更换？
 
-Servo tool change refers to the process in which the robot automatically replaces tools-such as jigs, positioners, or servo guns equipped with servo motors-using an Automatic Tool Changer (ATC).
+伺服工具更换是指机器人通过自动工具更换器（ATC）自动更换工具的过程，例如夹具、定位器或配备伺服电机的伺服枪。
 
 <p align="center">
  <img src="../_assets/fig1_1.png"></img>
- <em><p align="center">Figure 1.1 Servo Tool and Robot</p></em>
+ <em><p align="center">图 1.1 伺服工具和机器人</p></em>
 </p>
 
-
-This manual is written based on a system equipped with three additional axes: the first axis is used for three positioners, the second axis is used for three servo guns, and the third axis is used for two servo guns, all of which are exchanged and operated via an ATC. The actual system installed on site may differ, so operators must refer to this manual and apply the procedures according to the specifications of the on-site equipment.
+本手册基于一个装备有三个附加轴的系统编写：第一个轴用于三个定位器，第二个轴用于三个伺服枪，第三个轴用于两个伺服枪，所有这些工具通过ATC进行更换和操作。现场安装的实际系统可能有所不同，因此操作员必须参考本手册，并根据现场设备的规格应用相应的程序。
 
 <!--
-## System Specifications Covered in This Manual
+## 本手册涉及的系统规格
 <p align="center">
  <img src="../_assets/fig1_2_eng.png"></img>
- <em><p align="center">Figure 1.2 Types of Servo Tools Covered in This Manual</p></em>
+ <em><p align="center">图 1.2 本手册涉及的伺服工具类型</p></em>
 </p>
 -->
 
 <br>
 
 {% hint style="info" %}   
- - Required reference document  
-    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})  
-    -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
-    -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
-    -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/README?cont_model=${cont_model})
+ - 所需参考文件  
+    -	[${cont_model} 机器人控制器操作手册](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} 机器人控制器操作手册 - 附加轴](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
+    -   [${cont_model} 功能手册 - 定位器同步](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
+    -	[${cont_model} 机器人控制器功能手册 - 点焊](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/README?cont_model=${cont_model})
 
 {% endhint %}

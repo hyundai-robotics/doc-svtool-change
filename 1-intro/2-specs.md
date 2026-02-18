@@ -1,10 +1,9 @@
-﻿#  1.2 Specifications
+﻿#  1.2 规格
 
-The specifications of the Servo Tool Change function in the ${cont_model} robot controller are as follows:
+${cont_model}机器人控制器中伺服工具更换功能的规格如下：
 
-
-| Item | Specification | 
+| 项目 | 规格 | 
 | :---: | :---: | 
-| Maximum number of supported tool motors | 16 ea | 
-| Supported tool types | servo gun, positioner, jig | 
-| Maximum number of tools that can be changed simultaneously | 4 ea | 
+| 支持的工具电机最大数量 | 16 个 | 
+| 支持的工具类型 | 伺服枪、定位器、夹具 | 
+| 可以同时更换的工具最大数量 | 4 个 |

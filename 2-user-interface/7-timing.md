@@ -1,18 +1,16 @@
-﻿# 2.7 Attach/Detach Timing
+﻿# 2.7 附加/拆卸时机
 
-###	Connection  
+### 连接  
 
-When the connection command (toolchng on) is executed and the robot and servo tool are mechanically coupled, the controller receives the connection-complete signal and performs the internal connection process.
-During this sequence, the encoder power for the servo tool axis is enabled and the motor is turned ON.
+当执行连接命令（toolchng on）并且机器人与伺服工具机械耦合时，控制器接收到连接完成信号并执行内部连接过程。 在此过程中，伺服工具轴的编码器电源被启用，电机被打开。
 
-###	Disconnection
+### 断开
 
-The disconnection command (toolchng off) executes the reverse sequence of the connection process to remove the tool.
+断开命令（toolchng off）执行连接过程的反向序列以移除工具。
 
 <br>
 
-
 <p align="center">
  <img src="../_assets/fig2_10_eng.png"></img>
- <em><p align="center">Figure 2.10 Servo Tool Change Connection/Disconnection Timing</p></em>
+ <em><p align="center">图 2.10 伺服工具更换连接/断开时机</p></em>
 </p>

@@ -1,1 +1,1 @@
-﻿# ${cont_model} Controller Function Manual - Servo Tool Change
+﻿# ${cont_model} 控制器功能手册 - 伺服工具更换

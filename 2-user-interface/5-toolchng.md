@@ -1,80 +1,78 @@
-﻿# 2.5 Attach/Detach Command (toolchng)
+﻿# 2.5 附加/解除命令 (toolchng)
 
+```toolchng``` 命令是用于切换分配给附加轴的伺服工具的程序。
 
-```toolchng``` command is a procedure used to switch the servo tool assigned to an additional axis.
+### 描述
 
+更改伺服工具有两种方法：
 
-### Description 
-    
-There are two methods to change the servo tool:
+- 使用 R-code (358) 的手动操作
 
-- Manual operation using R-code (358)
+- 使用 ```toolchng``` 命令执行任务程序  
 
-- Executing a task program using  ```toolchng``` command  
+使用基于命令的方法时，需要输入完成信号。
 
-When using the command-based method, a completion signal input is required.
-
-To use this command, the servo tool change environment must be properly configured beforehand.
+要使用此命令，伺服工具更换环境必须事先正确配置。
 
 <br>
 
-### Syntax
-  
-  ```python
-   toolchng on/off,tg=<Target Tool>,is=<Completion Signal>,wait=<Timeout>
-  ```
+### 语法
+
+```python
+toolchng on/off,tg=<目标工具>,is=<完成信号>,wait=<超时>
+```
 
 <br>
 
-### Parameter Description
+### 参数描述
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Note</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        Connect or disconnect the servo tool
+        连接或断开伺服工具
         <ul>
-        <li>on : Connect the assigned servo tool</li>
-        <li>off :  Disconnect the assigned servo tool</li>
+        <li>on : 连接指定的伺服工具</li>
+        <li>off : 断开指定的伺服工具</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
     </tr>
-    <tr>
-      <td style="text-align:left">Target tool</td>
+<tr>
+      <td style="text-align:left">目标工具</td>
       <td style="text-align:left">
-        Specifies the tool to be connected or disconnected.  
-        Available types:
+        指定要连接或断开的工具。  
+        可用类型：
         <ul>
-        <li>G1~G16 : Spot welding gun numbers</li>
-        <li>P1~P16 : Positioner numbers</li>
-        <li>J1~J16 : Jig numbers</li>
+        <li>G1~G16 : 点焊枪编号</li>
+        <li>P1~P16 : 定位器编号</li>
+        <li>J1~J16 : 夹具编号</li>
         </ul>
-        If multiple tools are changed simultaneously, specify them as a string array. <br>
+        如果同时更换多个工具，请将其指定为字符串数组。 <br>
         ex.) toolchng on,tg=["G1","G2"],is=si50,wait=3.0  
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">Connection complete signal</td>
+      <td style="text-align:left">连接完成信号</td>
       <td style="text-align:left">
-        Input signal used to confirm mechanical tool engagement.
+        用于确认机械工具接合的输入信号。
       </td>
       <td style="text-align:left"></td>
       <tr>
-      <td style="text-align:left">wait</td>
+      <td style="text-align:left">等待</td>
       <td style="text-align:left">
-        Timeout duration
+        超时时间
         <ul>
-        <li><0~5.0> (sec) : Maximum waiting time (in seconds) for the completion signal. If the signal is not received within the specified time, an error will be generated.</li>
+        <li><0~5.0> (秒) : 等待完成信号的最长时间（以秒为单位）。如果在指定时间内未收到信号，将会生成错误。</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
@@ -86,7 +84,7 @@ To use this command, the servo tool change environment must be properly configur
 
 <br>
 
-### Usage Examples
+### 使用示例
 ```python
 S10	  move L, ...
       toolchng off,tg=G1		

@@ -1,13 +1,13 @@
-﻿# 4. FAQ
+﻿# 4. 常见问题
 
-1. Is pneumatic gun tool change supported?
+1. 是否支持气动枪工具更换？
 
-   If the target tool is a gun and its type is defined as a pneumatic gun, the system supports attach/detach operations for the pneumatic gun.
+   如果目标工具是枪，其类型定义为气动枪，则系统支持气动枪的连接/断开操作。
 <br>
 
-2. An encoder-related error appears during the first servo tool attachment. What should I do?
+2. 在第一次伺服工具附件过程中出现编码器相关错误。我该怎么办？
 
-   Before using the tool for the first time, an encoder reset must be performed.
-In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/2-user-interface/1-environment?cont_model=${cont_model}))
+   在首次使用工具之前，必须执行编码器重置。
+在启用伺服工具更换的环境中，使用 R359 供电编码器电源，然后首先执行编码器重置。 ([2.1.1 编码器重置](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/2-user-interface/1-environment?cont_model=${cont_model}))
 
 <br>
