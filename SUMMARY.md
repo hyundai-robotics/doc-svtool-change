@@ -9,7 +9,7 @@
 * [2. User Interface](2-user-interface/README.md)
   * [2.1 Environment Settings](2-user-interface/1-environment.md)
   * [2.2 Servo Tool Parameter Settings](2-user-interface/2-parameters.md)
-  * [2.3 Axis Origin](<2-user-interface/3-origins.md>)
+  * [2.3 Axis Origin](2-user-interface/3-origins.md)
   * [2.4 Monitoring](2-user-interface/4-monitoring.md)
   * [2.5 Attach/Detach Command(toolchng)](2-user-interface/5-toolchng.md)
   * [2.6 Manual Attach/Detach Function](2-user-interface/6-manual.md)
