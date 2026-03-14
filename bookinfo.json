@@ -1,12 +1,15 @@
-﻿{
-  "langCode": "ko",
-  "series": "${cont_model} 제어기",
-  "title": "기능설명서 - 서보툴 체인지",
-  "publisher": "HD현대로보틱스",
-  "tocTitle": "목차",
-  "tocTitleElements": "[ \"h1\", \"h2\" ]",
-  "docId": "${cont_model:upper}SVTOOL_KO_001",
-  "references": [
-      { "rpath" : "doc-hi6-operation/ko-tp630" }
-  ]
+{
+    "langCode": "ko",
+    "series": "${cont_model} 제어기",
+    "title": "기능설명서 - 서보툴 체인지",
+    "publisher": "HD현대로보틱스",
+    "tocTitle": "목차",
+    "tocTitleElements": "[ \"h1\", \"h2\" ]",
+    "docId": "${cont_model:upper}SVTOOL_KO_001",
+    "references": [
+        {
+            "title": "Hi6 제어기 조작 설명서 - TP630",
+            "id": "${cont_model:upper}OPTP630_KO"
+        }
+    ]
 }
