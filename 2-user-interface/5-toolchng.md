@@ -84,7 +84,7 @@
 
 <br>
 
-### 사용예
+### 사용 예시
 ```python
 S10	  move L, ...
       toolchng off,tg=G1		

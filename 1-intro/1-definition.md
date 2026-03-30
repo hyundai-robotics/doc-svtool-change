@@ -28,7 +28,7 @@
 
 {% hint style="info" %}   
  - 필수설명서  
-    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/README?cont_model=${cont_model})  
     -	[${cont_model} 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/ko/README?cont_model=${cont_model})   
     -   [${cont_model} 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README?cont_model=${cont_model})  
     -	[${cont_model} 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/ko/README?cont_model=${cont_model})
