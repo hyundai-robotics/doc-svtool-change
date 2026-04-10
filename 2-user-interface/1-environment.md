@@ -32,7 +32,7 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 - The I/O signal logic can be configured under:
 `[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
-- Among the system I/O signals, user-defined signals are assigned as follows:
+- With the Hi6 controller, among the system I/O signals, user-defined signals are assigned as follows:
 SI[48-51] / SO[48-51]
 {% endhint %}
 

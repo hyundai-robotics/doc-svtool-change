@@ -34,6 +34,6 @@ Displays the assigned input signal number used to monitor the encoder power stat
 
 `[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
-- System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
+- With the Hi6 controller, system I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
 
 {% endhint %}
