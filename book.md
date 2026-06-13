@@ -2,10 +2,19 @@
 [__SOURCE](README.md)
 # ${cont_model} 제어기 기능설명서 - 서보툴 체인지
 
+[__SOURCE](0-about-this-manual/README.md)
+# 이 설명서에 대하여
+
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # 사전 주의사항
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/ko/precautions.md" %}
+{% include file="ko/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# 안전 주의 사항
+
+{% include file="ko/safety-notice.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. 개요
@@ -40,7 +49,7 @@
 
 {% hint style="info" %}   
  - 필수설명서  
-    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} 로봇제어기 조작설명서](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/README?cont_model=${cont_model})  
     -	[${cont_model} 로봇제어기 기능설명서 - 부가축](https://hrbook-hrc.web.app/#/view/doc-add-axes/ko/README?cont_model=${cont_model})   
     -   [${cont_model} 로봇제어기 기능설명서 - 포지셔너동기](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README?cont_model=${cont_model})  
     -	[${cont_model} 로봇제어기 기능설명서 - 스폿 용접](https://hrbook-hrc.web.app/#/view/doc-spot-weld/ko/README?cont_model=${cont_model})
@@ -66,20 +75,20 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 | 순서 | 설정 | 내용 | 상세설정 |참고|
 | :---: | :---: | :---: |:---:  |:---:|
-| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | 시스템 초기화 실시 |`[F2: 시스템] - 5:초기화 - 1:시스템 초기화` ||
-| 2 | [로봇타입 선택](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model})| 로봇타입 및 부가축 개수 등록 |`[F2: 시스템] - 5:초기화 - 2:로봇타입 선택` |부가축 개수 : 3|
+| 1 | [시스템 초기화](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | 시스템 초기화 실시 |`[F2: 시스템] - 5:초기화 - 1:시스템 초기화` ||
+| 2 | [로봇타입 선택](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model})| 로봇타입 및 부가축 개수 등록 |`[F2: 시스템] - 5:초기화 - 2:로봇타입 선택` |부가축 개수 : 3|
 | 3 | 재부팅 | 전원을 끈 후 15초 후 재부팅 | ||
-| 4 | 부가축 파라미터 설정 | 부가축 정보 등록 |`[F2: 시스템] - 5:초기화 - 5:시스템 초기화` |T1=G1, T2=G2, T3=J1으로 초기설정|
+| 4 | [부가축 파라미터 설정](https://hrbook-hrc.web.app/#/view/doc-add-axes/ko/README?cont_model=${cont_model}) | 부가축 정보 등록 |`[F2: 시스템] - 5:초기화 - 5:시스템 초기화` |T1=G1, T2=G2, T3=J1으로 초기설정|
 | 5 | 재부팅 | 전원을 끈 후 15초 후 재부팅 | ||
-| 6 | [용도설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | 작업용도설정, 입출력신호, 사용자키 할당 등 |`[F2: 시스템] - 5:초기화 - 3:용도설정` |스폿용도, 스폿 사용자키 할당|
-| 7 | [엔코더 옵셋 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | 엔코더 원점 등록 |`[F2: 시스템] - 3:로봇 파라미터 - 4:엔코더 옵셋` ||
-| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | 축 원점 설정, 자동 캘리브레이션 실행 |`[F2: 시스템] - 3:로봇 파라미터 - 2:축 원점` ||
+| 6 | [용도설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | 작업용도설정, 입출력신호, 사용자키 할당 등 |`[F2: 시스템] - 5:초기화 - 3:용도설정` |스폿용도, 스폿 사용자키 할당|
+| 7 | [엔코더 옵셋 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | 엔코더 원점 등록 |`[F2: 시스템] - 3:로봇 파라미터 - 4:엔코더 옵셋` ||
+| 8 | [축 원점 설정](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | 축 원점 설정, 자동 캘리브레이션 실행 |`[F2: 시스템] - 3:로봇 파라미터 - 2:축 원점` ||
 | 9 | [*스폿건 설정](https://hrbook-hrc.web.app/#/view/doc-spot-weld/ko/5-spot-weld-parameter/5-2-welding-gun-parameter/README?cont_model=${cont_model}) | 스폿용접의 경우 건 파라미터 설정 |`[F2: 시스템] - 4:응용 파라미터 - 1:스폿용접 - 2:용접건 파라미터` ||
 | 10 | [서보툴 체인지 설정](https://hrbook-hrc.web.app/#/view/doc-svtool-change/ko/README?cont_model=${cont_model}) | 서보툴 체인지를 위한 환경 설정 |`[F2: 시스템] - 4:응용 파라미터 - 11:서보툴 체인지` ||
 | 11 | [툴 데이터 설정](https://hrbook-hrc.web.app/#/view/doc-load-estimation/ko/README?cont_model=${cont_model}) | 툴의 분리(T0)와 접속에 따른 부하추정 수행 | `[F2: 시스템] - 6:자동 캘리브레이션 - 4:부하추정 기능` ||
 | 12 | [포지셔너 캘리브레이션 수행](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/ko/README?cont_model=${cont_model}) | 포지셔너를 이용한 서보툴 체인지인 경우 각각의 포지셔너 별로 캘리브레이션 프로그램 작성 | ||
-| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/3-programming/README?cont_model=${cont_model}) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
-| 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/2-operation/2-automatic-operation/README?cont_model=${cont_model}) |  | ||
+| 13 | [프로그램 작성](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/3-programming/README?cont_model=${cont_model}) |  | |toolchng (접속/분리) <br> posi_calib (포지셔너 캘리브레이션)|
+| 14 | [자동 운전](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/2-operation/2-automatic-operation/README?cont_model=${cont_model}) |  | ||
 
 
 <br>
@@ -144,7 +153,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 {% hint style="info" %}
 -	입출력 신호의 논리는 `[F2: 시스템] - 2: 제어 파라미터 - 2: 입출력 신호 설정 - 1: 입력 신호 속성 - 2: 출력 신호 속성`에서 설정할 수 있습니다.
--	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
+-	Hi6 제어기의 경우, 시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
 {% endhint %}
 
 <br>
@@ -154,9 +163,9 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 최초 서보툴 장착 시 서보툴의 엔코더 리셋을 수행해야 접속이 가능합니다. 엔코더 리셋 절차는 아래와 같습니다.
 
   1. 서보툴 체인지 사용 설정
-  2. [R359](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '1' 입력으로 엔코더 전원 인가 
-  3. [엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/7-system/6-initialization/4-serial-encoder-reset?cont_model=${cont_model}) 수행
-  4. [R359](https://hrbook-hrc.web.app/#/view/doc-${cont_model}-operation/ko-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '0' 입력으로 엔코더 전원 해제
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '1' 입력으로 엔코더 전원 인가 
+  3. [엔코더 리셋](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/7-system/6-initialization/4-serial-encoder-reset?cont_model=${cont_model}) 수행
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/ko-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '0' 입력으로 엔코더 전원 해제
 
 
 {% hint style="warning" %}
@@ -268,7 +277,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 {% hint style="info" %}
 -	입출력 신호의 논리는 `[F2: 시스템] - 2: 제어 파라미터 - 2: 입출력 신호 설정 - 1: 입력 신호 속성 - 2: 출력 신호 속성`에서 설정할 수 있습니다.
--	시스템 입출력 신호중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
+-	Hi6 제어기의 경우, 시스템 입출력 신호 중 사용자 신호는 각각 SI[48~51]/SO[48~51]로 대응됩니다.
 {% endhint %}
 
 [__SOURCE](2-user-interface/5-toolchng.md)
@@ -358,7 +367,7 @@ ${cont_model} 로봇제어기의 서보툴 체인지 기능 사양은 다음 표
 
 <br>
 
-### 사용예
+### 사용 예시
 ```python
 S10	  move L, ...
       toolchng off,tg=G1		
