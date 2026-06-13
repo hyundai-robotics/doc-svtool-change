@@ -1,7 +1,9 @@
 ﻿# Table of contents
 
 * [${cont_model} 控制器功能手册 - 伺服工具更换](README.md)
-* [注意事项](0-about-this-manual/precautions.md)
+* [关于手册](0-about-this-manual/README.md)
+  * [注意事项](0-about-this-manual/precautions.md)
+  * [安全注意事项](0-about-this-manual/safety-notice.md)
 * [1. 概述](1-intro/README.md)
   * [1.1 什么是多（伺服）工具更换？](1-intro/1-definition.md)
   * [1.2 规格](1-intro/2-specs.md)
