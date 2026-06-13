@@ -2,10 +2,18 @@
 [__SOURCE](README.md)
 # ${cont_model} Controller Function Manual - Servo Tool Change
 
+[__SOURCE](0-about-this-manual/README.md)
+# About the Manual
+
 [__SOURCE](0-about-this-manual/precautions.md)
 # Precautions
 
-{% include url="https://hrcontentsrelay-bmgae5hdbzapc4bc.koreacentral-01.azurewebsites.net/api/proxy?path=doc-common-pages/en/precautions.md" %}
+{% include file="en/precautions.md" %}
+
+[__SOURCE](0-about-this-manual/safety-notice.md)
+# Safety Cautions
+
+{% include file="en/safety-notice.md" %}
 
 [__SOURCE](1-intro/README.md)
 # 1. Overview
@@ -146,7 +154,7 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 - The I/O signal logic can be configured under:
 `[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
-- Among the system I/O signals, user-defined signals are assigned as follows:
+- With the Hi6 controller, among the system I/O signals, user-defined signals are assigned as follows:
 SI[48-51] / SO[48-51]
 {% endhint %}
 
@@ -302,7 +310,7 @@ Displays the assigned input signal number used to monitor the encoder power stat
 
 `[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
-- System I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
+- With the Hi6 controller, system I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
 
 {% endhint %}
 
