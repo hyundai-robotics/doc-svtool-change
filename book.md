@@ -1,397 +1,371 @@
 ﻿
 [__SOURCE](README.md)
-# ${cont_model} Controller Function Manual - Servo Tool Change
-
+# ${cont_model} 控制器功能手册 - 伺服工具更换
 [__SOURCE](0-about-this-manual/README.md)
-# About the Manual
-
+# 关于手册
 [__SOURCE](0-about-this-manual/precautions.md)
-# Precautions
+# 注意事项
 
-{% include file="en/precautions.md" %}
-
+{% include file="zh/precautions.md" %}
 [__SOURCE](0-about-this-manual/safety-notice.md)
-# Safety Cautions
+# 安全注意事项
 
-{% include file="en/safety-notice.md" %}
-
+{% include file="zh/safety-notice.md" %}
 [__SOURCE](1-intro/README.md)
-# 1. Overview
+# 1. 概述
 [__SOURCE](1-intro/1-definition.md)
-# 1.1 What is Multi (Servo) Tool Change?
+# 1.1 什么是多（伺服）工具更换？
 
-Servo tool change refers to the process in which the robot automatically replaces tools-such as jigs, positioners, or servo guns equipped with servo motors-using an Automatic Tool Changer (ATC).
+伺服工具更换是指机器人通过自动工具更换器（ATC）自动更换工具的过程，如夹具、定位器或配备伺服电机的伺服枪。
 
 <p align="center">
  <img src="../_assets/fig1_1.png"></img>
- <em><p align="center">Figure 1.1 Servo Tool and Robot</p></em>
+ <em><p align="center">图 1.1 伺服工具和机器人</p></em>
 </p>
 
-
-This manual is written based on a system equipped with three additional axes: the first axis is used for three positioners, the second axis is used for three servo guns, and the third axis is used for two servo guns, all of which are exchanged and operated via an ATC. The actual system installed on site may differ, so operators must refer to this manual and apply the procedures according to the specifications of the on-site equipment.
+本手册是基于配备三个额外轴的系统编写的：第一个轴用于三个定位器，第二个轴用于三个伺服枪，第三个轴用于两个伺服枪，所有这些都是通过 ATC 进行交换和操作的。现场安装的实际系统可能会有所不同，因此操作员必须参考本手册并根据现场设备的规格应用程序。
 
 <!--
-## System Specifications Covered in This Manual
+## 本手册涵盖的系统规格
 <p align="center">
  <img src="../_assets/fig1_2_eng.png"></img>
- <em><p align="center">Figure 1.2 Types of Servo Tools Covered in This Manual</p></em>
+ <em><p align="center">图 1.2 本手册涵盖的伺服工具类型</p></em>
 </p>
 -->
 
 <br>
 
-{% hint style="info" %}   
- - Required reference document  
-    -	[${cont_model} Robot Controller Operation Manual](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/README?cont_model=${cont_model})  
-    -	[${cont_model} Robot Controller Operation Manual - Additional axes](https://hrbook-hrc.web.app/#/view/doc-add-axes/en/README?cont_model=${cont_model})
-    -   [${cont_model} Functional Manual - Positioner Sync.](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/README?cont_model=${cont_model})
-    -	[${cont_model} Robot Controller Function Manual - Spot Welding](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/README?cont_model=${cont_model})
+{% hint style="info" %}
+ - 参考所需文档  
+    -	[${cont_model} 机器人控制器操作手册](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/README?cont_model=${cont_model})  
+    -	[${cont_model} 机器人控制器操作手册 - 附加轴](https://hrbook-hrc.web.app/#/view/doc-add-axes/zh/README?cont_model=${cont_model})
+    -   [${cont_model} 功能手册 - 定位器同步](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/zh/README?cont_model=${cont_model})
+    -	[${cont_model} 机器人控制器功能手册 - 点焊](https://hrbook-hrc.web.app/#/view/doc-spot-weld/zh/README?cont_model=${cont_model})
 
 {% endhint %}
 [__SOURCE](1-intro/2-specs.md)
-#  1.2 Specifications
+#  1.2 规格
 
-The specifications of the Servo Tool Change function in the ${cont_model} robot controller are as follows:
+${cont_model} 机器人控制器中伺服工具更换功能的规格如下：
 
-
-| Item | Specification | 
+| 项目 | 规格 | 
 | :---: | :---: | 
-| Maximum number of supported tool motors | 16 ea | 
-| Supported tool types | servo gun, positioner, jig | 
-| Maximum number of tools that can be changed simultaneously | 4 ea | 
+| 支持的工具电机最大数量 | 16 个 | 
+| 支持的工具类型 | 伺服枪，定位器，夹具 | 
+| 最大可以同时更换的工具数量 | 4 个 | 
 [__SOURCE](1-intro/3-operations.md)
-# 1.3 Operation Workflow
+# 1.3 操作工作流程
 
-To use the Servo Tool Change function, the system must be initialized and configured to a level that supports additional axes.
-Based on the system specifications covered in this manual, the workflow-from system initialization to user program creation-is summarized in the table below.
+要使用伺服工具更换功能，系统必须初始化并配置到支持附加轴的级别。根据本手册中涵盖的系统规格，从系统初始化到用户程序创建的工作流程总结在下表中。
 
-
-
-| Step | Configuration | Description | Detailed Setting Path |Notes|
-| :---: | :---: | :---: |:---:  |:---:|
-| 1 | [System Initialization](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | Perform system initialization |`system**/5:Intialization/1:System format] ||
-| 2 | [Robot Type Selection](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model})| Register robot type and number of additional axes |`system**/5:Intialization/2:Robot type selection] |Number of additional axes: 3|
-| 3 | Rebooting |  | ||
-| 4 | [Additional Axis Parameter Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/5-add-axis-param?cont_model=${cont_model}) | Register additional axis information |`system**/5:Intialization/5:Additional axis parameter setting] |Default setup: T1 = G1, T2 = G2, T3 = J1|
-| 5 | Rebooting |  | ||
-| 6 | [Application Settings](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | Configure application settings, I/O signals, and user key assignments |`system**/5:Intialization/3:Usage setting] |Spot welding usage, user key assignment|
-| 7 | [Encoder Offset Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | Register encoder origin |`system**/3: Robot Parameters → 4: Encoder Offset] ||
-| 8 | [Axis Origin Setup](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | Set the axis origin and run automatic calibration |`system**/3: Robot Parameters → 2: Axis Origin] ||
-| 9 | [*Spot Gun Setup](https://hrbook-hrc.web.app/#/view/doc-spot-weld/en/5-spot-weld-parameter/5-2-welding-gun-parameter/README?cont_model=${cont_model}) | Configure gun parameters (only for spot welding). |`system**/4: Application Parameters → 1: Spot Welding → 2: Welding Gun Parameters] ||
-| 10 | [Servo Tool Change Setup](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/README?cont_model=${cont_model}) | Configure environment settings for servo tool change |`system**/4: Application Parameters → 11: Servo Tool Change] ||
-| 11 | [Tool Data Setup](https://hrbook-hrc.web.app/#/view/doc-load-estimation/en/README?cont_model=${cont_model}) | Perform load estimation for tool attach/detach (T0) | `system**/6: Auto calibration → 4: Load Estimation] ||
-| 12 | [Positioner Calibration](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/2-system_settings/2-3-positioner-calibration/README?cont_model=${cont_model}) | When using a positioner for servo tool change, create calibration programs for each positioner | ||
-| 13 | [Program Development](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/3-programming/README?cont_model=${cont_model}) |  | |toolchng (attach/detach) <br> posi_calib (Positioner Calibration)|
-| 14 | [Auto Operation](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/2-operation/2-automatic-operation/README?cont_model=${cont_model}) |  | ||
-
+| 步骤 | 配置 | 描述 | 详细设置路径 | 备注 |
+| :---: | :---: | :---: | :---: | :---: |
+| 1 | [系统初始化](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/6-initialization/1-system-format?cont_model=${cont_model}) | 执行系统初始化 | `system**/5:Intialization/1:System format] | |
+| 2 | [机器人类型选择](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/6-initialization/2-robot-type-sel?cont_model=${cont_model}) | 注册机器人类型和附加轴数量 | `system**/5:Intialization/2:Robot type selection] | 附加轴数量：3 |
+| 3 | 重启 |  | || 
+| 4 | [附加轴参数设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/6-initialization/5-add-axis-param?cont_model=${cont_model}) | 注册附加轴信息 | `system**/5:Intialization/5:Additional axis parameter setting] | 默认设置：T1 = G1, T2 = G2, T3 = J1 |
+| 5 | 重启 |  | || 
+| 6 | [应用配置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/6-initialization/3-usage-set/README?cont_model=${cont_model}) | 配置应用设置、I/O信号和用户按键分配 | `system**/5:Intialization/3:Usage setting] | 点焊用法，用户按键分配 |
+| 7 | [编码器偏置设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/4-encoder-offset/README?cont_model=${cont_model}) | 注册编码器起点 | `system**/3: Robot Parameters → 4: Encoder Offset] || 
+| 8 | [轴起点设置](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/4-robot-parameter/2-axis-origin?cont_model=${cont_model}) | 设置轴起点并运行自动校准 | `system**/3: Robot Parameters → 2: Axis Origin] || 
+| 9 | [*点焊枪设置](https://hrbook-hrc.web.app/#/view/doc-spot-weld/zh/5-spot-weld-parameter/5-2-welding-gun-parameter/README?cont_model=${cont_model}) | 配置枪参数（仅适用于点焊）。 | `system**/4: Application Parameters → 1: Spot Welding → 2: Welding Gun Parameters] || 
+| 10 | [伺服工具更换设置](https://hrbook-hrc.web.app/#/view/doc-svtool-change/zh/README?cont_model=${cont_model}) | 配置伺服工具更换的环境设置 | `system**/4: Application Parameters → 11: Servo Tool Change] || 
+| 11 | [工具数据设置](https://hrbook-hrc.web.app/#/view/doc-load-estimation/zh/README?cont_model=${cont_model}) | 执行工具附加/拆卸（T0）的负载估算 | `system**/6: Auto calibration → 4: Load Estimation] || 
+| 12 | [定位器校准](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/zh/2-system_settings/2-3-positioner-calibration/README?cont_model=${cont_model}) | 当使用定位器进行伺服工具更换时，为每个定位器创建校准程序 | || 
+| 13 | [程序开发](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/3-programming/README?cont_model=${cont_model}) |  | | toolchng (附加/拆卸) <br> posi_calib (定位器校准) |
+| 14 | [自动操作](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/2-operation/2-automatic-operation/README?cont_model=${cont_model}) |  | ||
 
 <br>
 
-
 {% hint style="info" %}
-- *Spot Gun Configuration (Required only when using spot welding)
-    - Assign the tool number, additional axis number, and welding controller number corresponding to each gun number. 
-    - Servo tool parameters can be configured only for gun numbers defined in this setting.
+- *点焊枪配置（仅在使用点焊时需要）
+    - 分配与每个枪号对应的工具号、附加轴号和焊接控制器号。
+    - 伺服工具参数仅可为此设置中定义的枪号进行配置。
 {% endhint %}
 
 <br>
 
 <p align="center">
  <img src="../_assets/fig1_3_eng.png"></img>
- <em><p align="center">Figure 1.3 Spot Gun Configuration</p></em>
+ <em><p align="center">图 1.3 点焊枪配置</p></em>
 </p>
-
 
 <br>
 
-The configuration described above is summarized in the table below.
+上述配置总结在下表中。
 
-|Welder	|Gun number|Tool number|Gun type|Additional axis|
-| :---: | :---: | :---: |:---:  |:---:|
-|W1|**G1**|	T1|	servo gun	|a2|
-|W2|**G2**|	T2|	servo gun	|a3|
-|W1|**G3**| T3|	servo gun	|a2|
-|W2|**G4**| T4|	servo gun	|a3|
-|W1|**G5**|	T5|	servo gun	|a2|
-
-
+| 焊机  | 枪号 | 工具号 | 枪类型 | 附加轴 |
+| :---: | :---: | :---: | :---:  | :---: |
+| W1 | **G1** | T1 | 伺服枪 | a2 |
+| W2 | **G2** | T2 | 伺服枪 | a3 |
+| W1 | **G3** | T3 | 伺服枪 | a2 |
+| W2 | **G4** | T4 | 伺服枪 | a3 |
+| W1 | **G5** | T5 | 伺服枪 | a2 |
 [__SOURCE](2-user-interface/README.md)
-# 2. User Interface
-
-
+# 2. 用户界面
 [__SOURCE](2-user-interface/1-environment.md)
-# 2.1 Environment Settings
+# 2.1 环境设置
 
-Servo tool change environment settings must be configured before use.
+伺服工具更换环境设置必须在使用前配置。
 
-`[F2: system] - 4: Application parameter - 11: Servo tool change - 1: Environment setting`
+`[F2: 系统] - 4: 应用参数 - 11: 伺服工具更换 - 1: 使用环境设置 ([F2: system] - 4: Application parameter - 11: Servo tool change - 1: Environment setting)`
 
 <p align="center">
  <img src="../_assets/fig2_1_eng.png"></img>
- <em><p align="center">Figure 2.1 Servo Tool Change Environment Settings</p></em>
+ <em><p align="center">图 2.1 伺服工具更换环境设置</p></em>
 </p>
 
-- function use  
-Enables or disables the tool change feature for additional axes.
+- 功能使用  
+启用或禁用附加轴的工具更换功能。
 
-- connection  
-Monitors the current status of the servo tool (attached or detached).
-If the tool is currently attached, it can be forcibly detached.
-To do so, switch the status to Off while the motor is powered Off, then cycle the controller power.
-Forced attachment is not supported when the tool is detached.
+- 连接  
+监控伺服工具的当前状态（已连接或已断开）。
+如果当前工具已附着，可以强制断开。
+为此，在电机电源关闭时将状态切换为关闭，然后循环控制器电源。
+当工具已断开时，不支持强制附着。
 
-- encoder poswer output signal   
-Assigns the output signal used to control encoder power during tool attachment or detachment.
-When this signal is On, the relay controlling the 5V encoder power is activated.
-	
-- encoder poswer input signal  
-Assigns the input signal used to verify the encoder power control state during tool attachment or detachment.
-This input monitors whether the relay controlling the 5V encoder power is operating correctly. 
+- 编码器电源输出信号  
+分配用于控制工具附加或断开时编码器电源的输出信号。
+当该信号为开启时，控制5V编码器电源的继电器被激活。
+
+- 编码器电源输入信号  
+分配用于验证工具附加或断开时编码器电源控制状态的输入信号。
+该输入监控控制5V编码器电源的继电器是否正常工作。 
 
 <br>
 
 {% hint style="info" %}
-- The I/O signal logic can be configured under:
-`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
+- I/O信号逻辑可以在以下位置配置：
+`[F2: 系统] - 2: 控制参数 - 2: I/O信号设置 - 1: 输入信号属性 - 2: 输出信号属性 ([F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes)`
 
-- With the Hi6 controller, among the system I/O signals, user-defined signals are assigned as follows:
+- 在 Hi6 控制器中，系统 I/O 信号中，用户定义信号分配如下：
 SI[48-51] / SO[48-51]
 {% endhint %}
 
 <br>
 
-**Encoder Reset**
+**编码器复位**
 
-For the first installation of a servo tool, an encoder reset must be performed before the tool can be attached.
-The encoder reset procedure is as follows:
+对于首次安装伺服工具，必须在附加工具之前执行编码器复位。
+编码器复位程序如下：
 
-  1. Make Servo Tool Change enabled ('enable' radio button)
-  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '1' → Encoder power ON 
-  3. [Encoder reset](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/7-system/6-initialization/4-serial-encoder-reset?cont_model=${cont_model}) 
-  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/en-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '0' → Encoder power OFF
+  1. 使能伺服工具更换（'enable' 单选按钮）
+  2. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '1' → 编码器电源开启 
+  3. [编码器复位](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/7-system/6-initialization/4-serial-encoder-reset?cont_model=${cont_model}) 
+  4. [R359](https://hrbook-hrc.web.app/#/view/doc-hi6-operation/zh-tp630/8-r-code/14-r359?cont_model=${cont_model}) + '0' → 编码器电源关闭
 
 
 {% hint style="warning" %}
-If the servo tool is attached without performing an encoder reset, an encoder-related error will occur.
+如果在未执行编码器复位的情况下附加伺服工具，将会发生编码器相关错误。
 {% endhint %}
 [__SOURCE](2-user-interface/2-parameters.md)
 # 2.2 Servo Tool Parameter Settings
 
+For each servo motor, the system manages the axis specification, assigned servo tool number, and additional axis number used during tool change operations.  
+Navigation path:  
+`[F2: 系统] - 4: Application Parameters - 11: Servo Tool Change - 2: Servo Tool Parameter Settings ([F2: System] - 4: Application Parameters - 11: Servo Tool Change - 2: Servo Tool Parameter Settings)`
 
-For each servo motor, the system manages the axis specification, assigned servo tool number, and additional axis number used during tool change operations.
-Navigation path:
-`[F2: System] - 4: Application Parameters - 11: Servo Tool Change - 2: Servo Tool Parameter Settings`
-
-<p align="center">
- <img src="../_assets/fig2_2_eng.png"></img>
- <em><p align="center">Figure 2.2 Servo Tool Parameter Settings</p></em>
+<p align="center">  
+ <img src="../_assets/fig2_2_eng.png"></img>  
+ <em><p align="center">图 2.2 Servo Tool 参数设置</p></em>  
 </p>
 
-
 - Axis Type  
-Select the specification of the tool change axis.
+选择工具更换轴的规格。  
 Options: Servo Gun, Positioner, Jig
 
 - Axis Motion Type  
-Select whether the axis operates in Linear or Rotary motion.
+选择轴是否以线性或旋转运动方式运行。
 
 - Servo Gun / Positioner / Jig Number  
-Assign the corresponding number based on the selected axis type.
-The servo tool parameters must match this number in a 1:1 mapping.
-Therefore, the same number cannot be used for different servo tool parameter sets.
-If no additional servo tools need to be configured, set this value to 0.
+根据所选择的轴类型分配相应的编号。  
+伺服工具参数必须与此编号以1:1的方式匹配。  
+因此，相同的编号不能用于不同的伺服工具参数集。  
+如果不需要配置额外的伺服工具，设置此值为0。
 
 - additional Axis Number  
-Specify the additional axis number used for attachment and detachment.
-If the axis type is Servo Gun, the additional axis number is automatically assigned based on the value set in Gun Number Assignment.
-For Positioner or Jig axes, the user must manually assign this number.
-Multiple positioners or jigs may be configured on a single additional axis if required.
+指定用于连接和断开的附加轴编号。  
+如果轴类型为 Servo Gun，则附加轴编号会基于在 Gun Number Assignment 中设置的值自动分配。  
+对于 Positioner 或 Jig 轴，用户必须手动分配此编号。  
+如果需要，可以在单个附加轴上配置多个定位器或夹具。
 
 <br>
 
-*	Example Usage  
-The following configuration shows the axis type, assigned servo gun/positioner/jig number, and corresponding additional axis number for each servo tool.
+* 示例用法  
+以下配置显示了每个伺服工具的轴类型、分配的伺服枪/定位器/夹具编号以及相应的附加轴编号。
 
-  - P1, P2, P3: Servo tools assigned to additional axis 1
+  - P1, P2, P3: 分配给附加轴 1 的伺服工具
 
-  - G1, G3, G5: Servo tools assigned to additional axis 2
+  - G1, G3, G5: 分配给附加轴 2 的伺服工具
 
-  - G2, G4: Servo tools assigned to additional axis 3
-
+  - G2, G4: 分配给附加轴 3 的伺服工具
 
 <br>
 
-
-|Tool Change Target|Axis Type|Motion Type|Servo Gun / Jig Number|Additionary axis number|
-| :---: | :---: | :---: |:---: |:---:|
-|Servo Tool #1|Servo Gun|Linear|G1|2|
-|Servo Tool #2|Servo Gun|Linear|G2|3|
-|Servo Tool #3|Positioner|Rotary|P1|1|
-|Servo Tool #4|Servo Gun|Linear|G3|2|
-|Servo Tool #5|Servo Gun|Linear|G4|3|
-|Servo Tool #6|Positioner|Rotary|P2|1|
-|Servo Tool #7|Positioner|Rotary|P3|1|
-|Servo Tool #8|Servo Gun|Linear|G5|2|
+|Tool Change Target|Axis Type|Motion Type|Servo Gun / Jig Number|Additionary axis number|  
+| :---: | :---: | :---: |:---: |:---:|  
+|Servo Tool #1|Servo Gun|Linear|G1|2|  
+|Servo Tool #2|Servo Gun|Linear|G2|3|  
+|Servo Tool #3|Positioner|Rotary|P1|1|  
+|Servo Tool #4|Servo Gun|Linear|G3|2|  
+|Servo Tool #5|Servo Gun|Linear|G4|3|  
+|Servo Tool #6|Positioner|Rotary|P2|1|  
+|Servo Tool #7|Positioner|Rotary|P3|1|  
+|Servo Tool #8|Servo Gun|Linear|G5|2|  
 
 <br>
 
 In an actual Servo Tool Change system, the relationship between additional axes and servo tool parameters is applied as shown in the diagram below.
 
-
-<p align="center">
- <img src="../_assets/fig2_3_eng.png"></img>
- <em><p align="center">Figure 2.3 Additional Axis and Tool Change Targets</p></em>
+<p align="center">  
+ <img src="../_assets/fig2_3_eng.png"></img>  
+ <em><p align="center">图 2.3 附加轴和工具更换目标</p></em>  
 </p>
-
 [__SOURCE](2-user-interface/3-origins.md)
-# 2.3 Axis Origin
+# 2.3 轴原点
 
-The system manages the axis home position for each servo motor. 
+系统管理每个伺服电机的轴原点位置。 
 
-Navigation path:
-`[F2: System] - 4: Application Parameters - 11: Servo Tool Change - 3: Axis Home Position`
+导航路径：
+`[F2: 系统] - 4: 应用程序参数 - 11: 伺服工具更换 - 3: 轴原点 ([F2: System] - 4: Application Parameters - 11: Servo Tool Change - 3: Axis Home Position)`
 
 <p align="center">
  <img src="../_assets/fig2_4_eng.png"></img>
- <em><p align="center">Figure 2.4 Servo Tool Axis Home Position Settings</p></em>
+ <em><p align="center">图 2.4 伺服工具轴原点设置</p></em>
 </p>
 
 <br>
 
-When a servo tool is connected, the home position of the corresponding additional axis is automatically updated to the home position assigned to the selected servo tool.
-In other words, the values configured under:
-`[F2: System] - 4: Application Parameters - 11: Servo Tool Change - 3: Axis Home Position`
-are automatically applied to:
-`[F2: System] - 3: Robot Parameters - 2: Axis Home Position`.
+当伺服工具连接时，相应额外轴的原点位置会自动更新为分配给所选伺服工具的原点位置。
+换句话说，在以下位置配置的值：
+`[F2: 系统] - 4: 应用程序参数 - 11: 伺服工具更换 - 3: 轴原点 ([F2: System] - 4: Application Parameters - 11: Servo Tool Change - 3: Axis Home Position)`
+将自动应用于：
+`[F2: 系统] - 3: 机器人参数 - 2: 轴原点 ([F2: System] - 3: Robot Parameters - 2: Axis Home Position)`。
 
-In addition to the axis home position, the following parameters are also automatically updated to the values assigned to the connected servo tool:
+除了轴原点位置外，以下参数也会自动更新为分配给连接伺服工具的值：
 
-- Soft limit of the corresponding additional axis  
+- 相应额外轴的软限制  
 
-- Encoder offset  
+- 编码器偏移  
 
-- Servo parameters  
+- 伺服参数  
 
-- Acceleration/deceleration parameters
+- 加速/减速参数  
 [__SOURCE](2-user-interface/4-monitoring.md)
-# 2.4 Monitoring
+# 2.4 监控
 
-The status related to the Servo Tool Change function can be monitored by the user.
+与伺服工具更换功能相关的状态可以由用户监控。
 
-Menu Path:
-`Operation Panel - Select - Servo Tool Change`
+菜单路径：
+`操作面板 - 选择 - 伺服工具更换 (Operation Panel - Select - Servo Tool Change)`
 
 <p align="center">
  <img src="../_assets/fig2_5_eng.png"></img>
- <em><p align="center">Figure 2.5 Servo Tool Change Monitoring Screen</p></em>
+ <em><p align="center">图 2.5 伺服工具更换监控屏幕</p></em>
 </p>
 
 <br>
 
+- 伺服工具更换功能  
+显示附加轴的伺服工具更换功能是否启用。
 
-- Servo Tool Change Function  
-Displays whether the servo tool change function is enabled for the additional axis.
+- 伺服工具连接状态  
+指示附加轴上伺服工具的当前连接状态。
+如果工具已连接，显示相应的工具标识符。
+如果断开连接，则显示"--"。
 
-- Servo Tool Connection Status  
-Indicates the current connection state of the servo tool on the additional axis.
-If the tool is connected, the corresponding tool identifier is displayed.
-If disconnected, "--" is shown.
+- 编码器电源输出  
+显示用于编码器电源控制的分配输出信号编号及其开/关状态。
 
-- Encoder Power Output  
-Displays the assigned output signal number used for encoder power control as well as its ON/OFF status.
-
-- Encoder Power Input  
-Displays the assigned input signal number used to monitor the encoder power state along with its ON/OFF status.
+- 编码器电源输入  
+显示用于监控编码器电源状态的分配输入信号编号及其开/关状态。
 
 <br>
 
 {% hint style="info" %}
-- The logic level of input/output signals can be configured in:
+- 输入/输出信号的逻辑级别可以在以下位置配置：
 
-`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
+`[F2: 系统] - 2: 控制参数 - 2: I/O信号设置 - 1: 输入信号属性 - 2: 输出信号属性 ([F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes)`
 
-- With the Hi6 controller, system I/O signals for user mapping correspond to SI[48-51] / SO[48-51].
+- 使用 Hi6 控制器，用户映射的系统 I/O 信号对应 SI[48-51] / SO[48-51]。
 
 {% endhint %}
-
 [__SOURCE](2-user-interface/5-toolchng.md)
-# 2.5 Attach/Detach Command (toolchng)
+# 2.5 附加/拆卸命令 (toolchng)
 
+```toolchng``` 命令是用于切换分配给额外轴的伺服工具的程序。
 
-```toolchng``` command is a procedure used to switch the servo tool assigned to an additional axis.
+### 描述
 
+有两种方法可以更改伺服工具：
 
-### Description 
-    
-There are two methods to change the servo tool:
+- 使用 R-code (358) 进行手动操作
 
-- Manual operation using R-code (358)
+- 使用 ```toolchng``` 命令执行任务程序
 
-- Executing a task program using  ```toolchng``` command  
+使用基于命令的方法时，需要输入完成信号。
 
-When using the command-based method, a completion signal input is required.
-
-To use this command, the servo tool change environment must be properly configured beforehand.
+要使用此命令，伺服工具更换环境必须事先正确配置。
 
 <br>
 
-### Syntax
-  
+### 语法
+
   ```python
-   toolchng on/off,tg=<Target Tool>,is=<Completion Signal>,wait=<Timeout>
+   toolchng on/off,tg=<目标工具>,is=<完成信号>,wait=<超时>
   ```
 
 <br>
 
-### Parameter Description
+### 参数描述
 
 <table>
   <thead>
     <tr>
-      <th style="text-align:left">Parameter</th>
-      <th style="text-align:left">Meaning</th>
-      <th style="text-align:left">Note</th>
+      <th style="text-align:left">参数</th>
+      <th style="text-align:left">含义</th>
+      <th style="text-align:left">备注</th>
     </tr>
   </thead>
   <tbody>
   <tr>
       <td style="text-align:left">on/off</td>
       <td style="text-align:left">
-        Connect or disconnect the servo tool
+        连接或断开伺服工具
         <ul>
-        <li>on : Connect the assigned servo tool</li>
-        <li>off :  Disconnect the assigned servo tool</li>
+        <li>on : 连接指定的伺服工具</li>
+        <li>off : 断开指定的伺服工具</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">Target tool</td>
+      <td style="text-align:left">目标工具</td>
       <td style="text-align:left">
-        Specifies the tool to be connected or disconnected.  
-        Available types:
+        指定要连接或断开的工具。  
+        可用类型：
         <ul>
-        <li>G1~G16 : Spot welding gun numbers</li>
-        <li>P1~P16 : Positioner numbers</li>
-        <li>J1~J16 : Jig numbers</li>
+        <li>G1~G16 : 点焊枪编号</li>
+        <li>P1~P16 : 定位器编号</li>
+        <li>J1~J16 : 工装夹具编号</li>
         </ul>
-        If multiple tools are changed simultaneously, specify them as a string array. <br>
-        ex.) toolchng on,tg=["G1","G2"],is=si50,wait=3.0  
+        如果同时更改多个工具，请将它们指定为字符串数组。 <br>
+        例如.) toolchng on,tg=["G1","G2"],is=si50,wait=3.0  
       </td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left">Connection complete signal</td>
+      <td style="text-align:left">连接完成信号</td>
       <td style="text-align:left">
-        Input signal used to confirm mechanical tool engagement.
+        用于确认机械工具接合的输入信号。
       </td>
       <td style="text-align:left"></td>
       <tr>
       <td style="text-align:left">wait</td>
       <td style="text-align:left">
-        Timeout duration
+        超时时间
         <ul>
-        <li><0~5.0> (sec) : Maximum waiting time (in seconds) for the completion signal. If the signal is not received within the specified time, an error will be generated.</li>
+        <li><0~5.0> (秒) : 完成信号的最大等待时间（以秒为单位）。如果在指定时间内未收到信号，将生成错误。</li>
         </ul>
       </td>
       <td style="text-align:left"></td>
@@ -400,10 +374,9 @@ To use this command, the servo tool change environment must be properly configur
   </tbody>
 </table>
 
-
 <br>
 
-### Usage Examples
+### 使用示例
 ```python
 S10	  move L, ...
       toolchng off,tg=G1		
@@ -419,42 +392,39 @@ S31	  move L, ...
 
 S42	  move L, ...
       toolchng off,tg=[G1,G2]		
-
-
 ```
 [__SOURCE](2-user-interface/6-manual.md)
-# 2.6 Manual Attach/Detach Function
+# 2.6 手动附加/分离功能
 
-Servo tools can be manually connected or disconnected while the system is in Manual Mode.
-Manual servo tool change is executed by entering '[R..] + 358'.
-This procedure applies to all servo tool types including jigs and positioners.
+伺服工具可以在系统处于手动模式时手动连接或断开。  
+手动伺服工具更换通过输入 '[R..] + 358' 来执行。  
+该程序适用于所有伺服工具类型，包括夹具和定位器。
 
-This section explains how to use the R358 manual tool change function for servo guns and positioners based on the configuration shown in [2.2 Servo Tool Parameter Settings](../2-user-interface/2-parameters.md) (Figure 2.3).
+本节解释如何使用 R358 手动工具更换功能，适用于伺服枪和定位器，基于在 [2.2 伺服工具参数设置](../2-user-interface/2-parameters.md) 中显示的配置 (图 2.3)。
 
+### (1) 手动定位器连接/断开
 
-### (1) Manual Positioner Connection/Disconnection
+- 将模式选择器切换到手动模式，并启用额外轴 1 的伺服工具更换。  
+（如果已修改系统设置，则需要重新启动。）
 
-- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
-(A reboot is required if system settings have been modified.)
+- 按下 [R..] 键，然后输入 358。
 
-- Press the [R..] key, then enter 358.
+- 工具更换命令窗口将出现。  
+  输入 "1" 以启动工具连接。
 
-- The tool change command window will appear.
-  Enter "1" to initiate tool connection.
+- 由于工具类型是定位器，输入 "2"。
 
-- Since the tool type is a positioner, enter "2".
-
-- Enter the target positioner number, for example "1".
+- 输入目标定位器编号，例如 "1"。
 
 <p align="center">
  <img src="../_assets/fig2_6_eng.png"></img>
- <em><p align="center">Figure 2.6 Positioner P1 Connection</p></em>
+ <em><p align="center">图 2.6 定位器 P1 连接</p></em>
 </p>
 
 <br>
 
 {% hint style="info" %}  
-If the motor is not ON, the following message will appear and the connection/disconnection process will not be executed.
+如果电机未开启，将出现以下消息，并且连接/断开过程将不会执行。
 
 <p align="center">
  <img src="../_assets/fig2_7_eng.png"></img>
@@ -464,100 +434,92 @@ If the motor is not ON, the following message will appear and the connection/dis
 
 <br>
 
-### (2)	Manual Servo Gun Connection/Disconnection
+### (2) 手动伺服枪连接/断开
 
-- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
-(A reboot is required if the setting has been modified.)
+- 将模式选择器切换到手动模式，并启用额外轴 1 的伺服工具更换。  
+（如果已修改设置，则需要重新启动。）
 
-- Press the [R..] key, then enter 358.
+- 按下 [R..] 键，然后输入 358。
 
-- When the tool change command window appears, enter "1" to execute the connection.
+- 当工具更换命令窗口出现时，输入 "1" 以执行连接。
 
-- Since the tool type is a servo gun, enter "1".
+- 由于工具类型是伺服枪，输入 "1"。
 
-- Enter the servo gun number to be connected, for example "1".
+- 输入要连接的伺服枪编号，例如 "1"。
 
 <p align="center">
  <img src="../_assets/fig2_8_eng.png"></img>
- <em><p align="center">Figure 2.8 Servo Gun G1 Connection</p></em>
+ <em><p align="center">图 2.8 伺服枪 G1 连接</p></em>
 </p>
 
 <br>
 
 <p align="center">
  <img src="../_assets/fig2_9_eng.png"></img>
- <em><p align="center">Figure 2.9 Servo Gun G2 Connection</p></em>
+ <em><p align="center">图 2.9 伺服枪 G2 连接</p></em>
 </p>
-
 
 <br>
 
 {% hint style="info" %}
 
--  When selecting "Fix" during the tool change input, the tool will not be physically changed.
- This function is used only to update the servo tool's axis origin, soft limit, and encoder offset.
-- If the additional axis type is a jig, enter "3" for the axis type selection.
+- 在工具更换输入期间选择 "固定" 时，工具将不会被物理更换。  
+此功能仅用于更新伺服工具的轴原点、软极限和编码器偏移。  
+- 如果额外轴类型是夹具，请在轴类型选择中输入 "3"。  
 {% endhint %}
-- If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.
+- 如果所有额外轴都配置为相同的工具类型，系统将在 R358 手动操作期间不会请求输入 "工具类型"。
 [__SOURCE](2-user-interface/7-timing.md)
-# 2.7 Attach/Detach Timing
+# 2.7 附加/拆卸定时
 
-###	Connection  
+###	连接  
 
-When the connection command (toolchng on) is executed and the robot and servo tool are mechanically coupled, the controller receives the connection-complete signal and performs the internal connection process.
-During this sequence, the encoder power for the servo tool axis is enabled and the motor is turned ON.
+当执行连接命令（toolchng on）并且机器人和伺服工具机械耦合时，控制器接收连接完成信号并执行内部连接过程。  
+在此过程中，伺服工具轴的编码器电源被启用，电机被打开。
 
-###	Disconnection
+###	断开连接
 
-The disconnection command (toolchng off) executes the reverse sequence of the connection process to remove the tool.
+断开连接命令（toolchng off）执行连接过程的反向序列以移除工具。
 
 <br>
-
 
 <p align="center">
  <img src="../_assets/fig2_10_eng.png"></img>
- <em><p align="center">Figure 2.10 Servo Tool Change Connection/Disconnection Timing</p></em>
+ <em><p align="center">图 2.10 伺服工具更换连接/断开定时</p></em>
 </p>
-
 [__SOURCE](2-user-interface/8-posical.md)
-# 2.8 Positioner Calibration Command (posi_calib)
+# 2.8 位置器校准命令 (posi_calib)
 
-
-This command performs positioner calibration, which is required for synchronized motion between the robot and the positioner.
-Normally, positioner calibration is executed through the setup dialog.
-However, when the positioner changes during operation due to a servo tool change, calibration must be updated while the robot is running.
-The posi_calib command allows this process to be executed within a robot program.
+此命令执行位置器校准，这是机器人与位置器之间同步运动所需的。
+通常，位置器校准通过设置对话框执行。
+但是，当在操作过程中由于伺服工具更换而更改位置器时，必须在机器人运行时更新校准。
+posi_calib 命令允许在机器人程序中执行此过程。
 
 <br>
 
-For detailed usage instructions, refer to "[2.3.4 posi_calib](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/en/2-system_settings/2-3-positioner-calibration/4_posi_calib?cont_model=${cont_model})" in the documentation.
+有关详细的使用说明，请参阅文档中的 "[2.3.4 posi_calib](https://hrbook-hrc.web.app/#/view/doc-positioner-sync/zh/2-system_settings/2-3-positioner-calibration/4_posi_calib?cont_model=${cont_model})"。
 [__SOURCE](3-job/README.md)
-# 3. Job Examples
-
+# 3. 工作示例
 [__SOURCE](3-job/1-sample-job.md)
-# 3.1 Tool Change Attach/Detach Example
-
-
-
+# 3.1 工具更换附加/分离示例
 
 ```python
-S10   move L, ...                         # Move to servo tool release position
-      toolchng off,tg=G1                  # Execute servo tool disconnection
-                                          # Servo tool disconnection output (dedicated output)
-      do11 = 1                            # Output ATC cam open signal
-      wait di11                           # Wait for ATC cam open confirmation signal
+S10   move L, ...                         # 移动到伺服工具释放位置
+      toolchng off,tg=G1                  # 执行伺服工具断开
+                                          # 伺服工具断开输出（专用输出）
+      do11 = 1                            # 输出ATC凸轮打开信号
+      wait di11                           # 等待ATC凸轮打开确认信号
 
-S11   move L, ...                         # Robot motion
-S12   move L, ...                         # Robot motion
-S13   move L, ...                         # Robot motion
+S11   move L, ...                         # 机器人运动
+S12   move L, ...                         # 机器人运动
+S13   move L, ...                         # 机器人运动
 
-S14   move L, ...                         # Move to servo tool connection position
-      wait di12                           # Wait for tool connection-ready signal
-      do11 = 0                            # Output ATC cam close signal
-      toolchng on,tg=G1,di=1              # Execute mechanical connection of the servo tool
-                                          # Servo tool connection process
+S14   move L, ...                         # 移动到伺服工具连接位置
+      wait di12                           # 等待工具连接准备信号
+      do11 = 0                            # 输出ATC凸轮关闭信号
+      toolchng on,tg=G1,di=1              # 执行伺服工具的机械连接
+                                          # 伺服工具连接过程
 
-S15   move L, ...                         # Robot motion
+S15   move L, ...                         # 机器人运动
 
 ```
 [__SOURCE](3-job/2-positioner-example.md)
@@ -566,51 +528,51 @@ S15   move L, ...                         # Robot motion
 
 <p align="center">
  <img src="../_assets/fig3_1.png"></img>
- <em><p align="center">Figure 3.1 Example System Configuration: Two Robots and Three Positioners (Italian Manufacturer C)</p></em>
+ <em><p align="center">图 3.1 示例系统配置：两个机器人和三个定位器（意大利制造商 C）</p></em>
 </p>
 
 <br>
 
-(1)	System Configuration of the Positioner Change System
+(1)	定位器更换系统的系统配置
 
-- System layout: 2 robots + 3 positioners
+- 系统布局：2 个机器人 + 3 个定位器
 
-- Required equipment:
+- 所需设备：
 
-    - ATC (Auto Tool Changer) capable of connecting each positioner to each robot
+    - ATC（自动工具更换器），能够将每个定位器连接到每个机器人
 
-    - Servo gun changer compatible with our robots
+    - 与我们的机器人兼容的伺服枪更换器
 
-(2)	Operation Workflow
+(2)	操作工作流程
 
-- Robot 1 connects to Positioner A and performs welding.
- Robot 2 connects to Positioner C and performs welding.
-Meanwhile, the operator mounts a workpiece on Positioner B.
+- 机器人 1 连接到定位器 A 并进行焊接。
+ 机器人 2 连接到定位器 C 并进行焊接。
+同时，操作员将工件安装在定位器 B 上。
 
-- When work on each positioner is completed, the connection between the robot and positioner is released.
+- 当每个定位器的工作完成后，机器人与定位器之间的连接被释放。
 
-- After all three independent operations are completed, the entire positioner system rotates 120° counterclockwise.
+- 完成所有三个独立操作后，整个定位器系统逆时针旋转 120°。
 
-- Robot 1 then connects to Positioner B and starts processing.
- Robot 2 connects to Positioner A.
-The operator mounts a new workpiece onto Positioner C.
+- 机器人 1 然后连接到定位器 B 并开始加工。
+ 机器人 2 连接到定位器 A。
+操作员将新工件安装到定位器 C 上。
 
-- This cycle continues repeatedly.
+- 此循环不断重复。
 
-(3)	Precautions
+(3)	注意事项
 
-Perform the disconnection and connection operations of each positioner at the same defined location whenever possible, to ensure stable operation and prevent mechanical tolerance misalignment.
+尽可能在相同的定义位置执行每个定位器的断开和连接操作，以确保稳定的操作并防止机械公差对齐错误。
 [__SOURCE](4-faq/README.md)
-# 4. FAQ
+# 4. 常见问题解答
 
-1. Is pneumatic gun tool change supported?
+1. 是否支持气动枪工具更换？
 
-   If the target tool is a gun and its type is defined as a pneumatic gun, the system supports attach/detach operations for the pneumatic gun.
+   如果目标工具是枪且其类型定义为气动枪，则系统支持气动枪的附加/分离操作。
 <br>
 
-2. An encoder-related error appears during the first servo tool attachment. What should I do?
+2. 在第一次伺服工具附加时出现编码器相关错误。我该怎么办？
 
-   Before using the tool for the first time, an encoder reset must be performed.
-In an environment where servo tool change is enabled, supply encoder power using R359, then perform the encoder reset first. ([2.1.1 Encoder Reset](https://hrbook-hrc.web.app/#/view/doc-svtool-change/en/2-user-interface/1-environment?cont_model=${cont_model}))
+   在第一次使用该工具之前，必须执行编码器重置。
+在启用伺服工具更换的环境中，使用 R359 供电给编码器，然后首先执行编码器重置。 ([2.1.1 编码器重置](https://hrbook-hrc.web.app/#/view/doc-svtool-change/zh/2-user-interface/1-environment?cont_model=${cont_model}))
 
 <br>

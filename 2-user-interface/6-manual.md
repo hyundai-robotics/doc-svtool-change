@@ -1,35 +1,34 @@
-﻿# 2.6 Manual Attach/Detach Function
+# 2.6 手动附加/分离功能
 
-Servo tools can be manually connected or disconnected while the system is in Manual Mode.
-Manual servo tool change is executed by entering '[R..] + 358'.
-This procedure applies to all servo tool types including jigs and positioners.
+伺服工具可以在系统处于手动模式时手动连接或断开。  
+手动伺服工具更换通过输入 '[R..] + 358' 来执行。  
+该程序适用于所有伺服工具类型，包括夹具和定位器。
 
-This section explains how to use the R358 manual tool change function for servo guns and positioners based on the configuration shown in [2.2 Servo Tool Parameter Settings](../2-user-interface/2-parameters.md) (Figure 2.3).
+本节解释如何使用 R358 手动工具更换功能，适用于伺服枪和定位器，基于在 [2.2 伺服工具参数设置](../2-user-interface/2-parameters.md) 中显示的配置 (图 2.3)。
 
+### (1) 手动定位器连接/断开
 
-### (1) Manual Positioner Connection/Disconnection
+- 将模式选择器切换到手动模式，并启用额外轴 1 的伺服工具更换。  
+（如果已修改系统设置，则需要重新启动。）
 
-- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
-(A reboot is required if system settings have been modified.)
+- 按下 [R..] 键，然后输入 358。
 
-- Press the [R..] key, then enter 358.
+- 工具更换命令窗口将出现。  
+  输入 "1" 以启动工具连接。
 
-- The tool change command window will appear.
-  Enter "1" to initiate tool connection.
+- 由于工具类型是定位器，输入 "2"。
 
-- Since the tool type is a positioner, enter "2".
-
-- Enter the target positioner number, for example "1".
+- 输入目标定位器编号，例如 "1"。
 
 <p align="center">
  <img src="../_assets/fig2_6_eng.png"></img>
- <em><p align="center">Figure 2.6 Positioner P1 Connection</p></em>
+ <em><p align="center">图 2.6 定位器 P1 连接</p></em>
 </p>
 
 <br>
 
 {% hint style="info" %}  
-If the motor is not ON, the following message will appear and the connection/disconnection process will not be executed.
+如果电机未开启，将出现以下消息，并且连接/断开过程将不会执行。
 
 <p align="center">
  <img src="../_assets/fig2_7_eng.png"></img>
@@ -39,38 +38,37 @@ If the motor is not ON, the following message will appear and the connection/dis
 
 <br>
 
-### (2)	Manual Servo Gun Connection/Disconnection
+### (2) 手动伺服枪连接/断开
 
-- Switch the mode selector to Manual Mode, and enable Servo Tool Change for additional axis 1.
-(A reboot is required if the setting has been modified.)
+- 将模式选择器切换到手动模式，并启用额外轴 1 的伺服工具更换。  
+（如果已修改设置，则需要重新启动。）
 
-- Press the [R..] key, then enter 358.
+- 按下 [R..] 键，然后输入 358。
 
-- When the tool change command window appears, enter "1" to execute the connection.
+- 当工具更换命令窗口出现时，输入 "1" 以执行连接。
 
-- Since the tool type is a servo gun, enter "1".
+- 由于工具类型是伺服枪，输入 "1"。
 
-- Enter the servo gun number to be connected, for example "1".
+- 输入要连接的伺服枪编号，例如 "1"。
 
 <p align="center">
  <img src="../_assets/fig2_8_eng.png"></img>
- <em><p align="center">Figure 2.8 Servo Gun G1 Connection</p></em>
+ <em><p align="center">图 2.8 伺服枪 G1 连接</p></em>
 </p>
 
 <br>
 
 <p align="center">
  <img src="../_assets/fig2_9_eng.png"></img>
- <em><p align="center">Figure 2.9 Servo Gun G2 Connection</p></em>
+ <em><p align="center">图 2.9 伺服枪 G2 连接</p></em>
 </p>
-
 
 <br>
 
 {% hint style="info" %}
 
--  When selecting "Fix" during the tool change input, the tool will not be physically changed.
- This function is used only to update the servo tool's axis origin, soft limit, and encoder offset.
-- If the additional axis type is a jig, enter "3" for the axis type selection.
+- 在工具更换输入期间选择 "固定" 时，工具将不会被物理更换。  
+此功能仅用于更新伺服工具的轴原点、软极限和编码器偏移。  
+- 如果额外轴类型是夹具，请在轴类型选择中输入 "3"。  
 {% endhint %}
-- If all additional axes are configured with the same tool type, the system will not request input for "Tool Type" during the R358 manual operation.
+- 如果所有额外轴都配置为相同的工具类型，系统将在 R358 手动操作期间不会请求输入 "工具类型"。

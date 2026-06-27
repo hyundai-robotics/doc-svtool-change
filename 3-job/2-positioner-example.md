@@ -3,37 +3,37 @@
 
 <p align="center">
  <img src="../_assets/fig3_1.png"></img>
- <em><p align="center">Figure 3.1 Example System Configuration: Two Robots and Three Positioners (Italian Manufacturer C)</p></em>
+ <em><p align="center">图 3.1 示例系统配置：两个机器人和三个定位器（意大利制造商 C）</p></em>
 </p>
 
 <br>
 
-(1)	System Configuration of the Positioner Change System
+(1)	定位器更换系统的系统配置
 
-- System layout: 2 robots + 3 positioners
+- 系统布局：2 个机器人 + 3 个定位器
 
-- Required equipment:
+- 所需设备：
 
-    - ATC (Auto Tool Changer) capable of connecting each positioner to each robot
+    - ATC（自动工具更换器），能够将每个定位器连接到每个机器人
 
-    - Servo gun changer compatible with our robots
+    - 与我们的机器人兼容的伺服枪更换器
 
-(2)	Operation Workflow
+(2)	操作工作流程
 
-- Robot 1 connects to Positioner A and performs welding.
- Robot 2 connects to Positioner C and performs welding.
-Meanwhile, the operator mounts a workpiece on Positioner B.
+- 机器人 1 连接到定位器 A 并进行焊接。
+ 机器人 2 连接到定位器 C 并进行焊接。
+同时，操作员将工件安装在定位器 B 上。
 
-- When work on each positioner is completed, the connection between the robot and positioner is released.
+- 当每个定位器的工作完成后，机器人与定位器之间的连接被释放。
 
-- After all three independent operations are completed, the entire positioner system rotates 120° counterclockwise.
+- 完成所有三个独立操作后，整个定位器系统逆时针旋转 120°。
 
-- Robot 1 then connects to Positioner B and starts processing.
- Robot 2 connects to Positioner A.
-The operator mounts a new workpiece onto Positioner C.
+- 机器人 1 然后连接到定位器 B 并开始加工。
+ 机器人 2 连接到定位器 A。
+操作员将新工件安装到定位器 C 上。
 
-- This cycle continues repeatedly.
+- 此循环不断重复。
 
-(3)	Precautions
+(3)	注意事项
 
-Perform the disconnection and connection operations of each positioner at the same defined location whenever possible, to ensure stable operation and prevent mechanical tolerance misalignment.
+尽可能在相同的定义位置执行每个定位器的断开和连接操作，以确保稳定的操作并防止机械公差对齐错误。
