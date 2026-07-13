@@ -33,7 +33,8 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 `[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
 
 - With the Hi6 controller, among the system I/O signals, user-defined signals are assigned as follows:
-SI[48-51] / SO[48-51]
+si[48-51] / so[48-51] <br>
+so49 is reserved for cooling fan control. Please do not use this signal. <br>
 {% endhint %}
 
 <br>
