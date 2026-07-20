@@ -28,17 +28,6 @@ This input monitors whether the relay controlling the 5V encoder power is operat
 
 <br>
 
-{% hint style="info" %}
-- The I/O signal logic can be configured under:
-`[F2: System] - 2: Control Parameters - 2: I/O Signal Settings - 1: Input Signal Attributes - 2: Output Signal Attributes`
-
-- With the Hi6 controller, among the system I/O signals, user-defined signals are assigned as follows:
-si[48-51] / so[48-51] <br>
-so49 is reserved for cooling fan control. Please do not use this signal. <br>
-{% endhint %}
-
-<br>
-
 **Encoder Reset**
 
 For the first installation of a servo tool, an encoder reset must be performed before the tool can be attached.
